@@ -4,7 +4,6 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
 import SearchInput from "@/components/Header/SearchInput";
-import HeroCategoryStrip from "../HeroCategoryStrip";
 import HeroCategoryCard from "./HeroCategoryCard";
 import { categories } from "@/data/categories";
 
@@ -48,8 +47,6 @@ const Hero = () => {
           </div>
         </div>
       </div>
-
-      <HeroCategoryStrip />
     </section>
   );
 };

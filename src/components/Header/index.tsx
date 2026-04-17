@@ -9,7 +9,6 @@ import Image from "next/image";
 import { menuData } from "./menuData";
 import Wordmark from "./Wordmark";
 import UtilityBar from "./UtilityBar";
-import SearchInput from "./SearchInput";
 import SearchOverlay from "./SearchOverlay";
 import AuthDropdown from "../Auth/AuthDropdown";
 import { useAppSelector } from "@/redux/store";
@@ -100,29 +99,15 @@ const Header = () => {
 
             {/* Right: icon cluster */}
             <div className="flex items-center gap-2 sm:gap-4">
-              {/* Inline search on xl+ */}
-              <div className="hidden xl:block max-w-[420px] w-[360px]">
-                <SearchInput />
-              </div>
-
-              {/* Search icon (<xl) */}
+              {/* Search icon (all breakpoints) */}
               <button
                 type="button"
                 onClick={() => setSearchOpen(true)}
                 aria-label="Open search"
-                className="xl:hidden w-11 h-11 flex items-center justify-center text-dark hover:text-primary transition-colors"
+                className="w-11 h-11 flex items-center justify-center text-dark hover:text-primary transition-colors"
               >
                 <SearchIcon className="w-5 h-5" />
               </button>
-
-              {/* Wishlist */}
-              <Link
-                href="/wishlist"
-                aria-label="Wishlist"
-                className="hidden sm:flex w-11 h-11 items-center justify-center text-dark hover:text-primary transition-colors"
-              >
-                <Heart className="w-5 h-5" />
-              </Link>
 
               {/* Auth avatar */}
               <AuthDropdown user={user} isSignedIn={isSignedIn} />
