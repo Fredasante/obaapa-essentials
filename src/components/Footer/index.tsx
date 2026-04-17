@@ -96,7 +96,7 @@ const Footer = () => {
             <ul className="space-y-3 mb-6">
               <li>
                 <a
-                  href="mailto:hello@obaapaessentials.com"
+                  href="mailto:obaapaessentials@gmail.com"
                   className="text-white/80 hover:text-green-dark transition-colors text-sm flex items-center gap-3 group"
                 >
                   <span className="w-8 h-8 rounded-full bg-green-dark/15 text-green-dark flex items-center justify-center flex-shrink-0 group-hover:bg-green-dark group-hover:text-white transition-colors">
@@ -105,7 +105,7 @@ const Footer = () => {
                       <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
                     </svg>
                   </span>
-                  hello@obaapaessentials.com
+                  obaapaessentials@gmail.com
                 </a>
               </li>
               <li>

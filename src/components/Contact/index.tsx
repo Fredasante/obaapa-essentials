@@ -74,10 +74,10 @@ const Contact = () => {
                       Email Address
                     </h4>
                     <a
-                      href="mailto:hello@obaapaessentials.com"
+                      href="mailto:obaapaessentials@gmail.com"
                       className="text-gray-600 hover:text-seaBlue-dark transition-colors"
                     >
-                      hello@obaapaessentials.com
+                      obaapaessentials@gmail.com
                     </a>
                   </div>
                 </div>

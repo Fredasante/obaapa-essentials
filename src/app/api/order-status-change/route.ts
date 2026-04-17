@@ -89,7 +89,7 @@ export async function POST(req: Request) {
     const statusInfo = getStatusMessage(deliveryStatus);
 
     await resend.emails.send({
-      from: "Obaapa Essentials <orders@obaapaessentials.com>",
+      from: "Obaapa Essentials <obaapaessentials@gmail.com>",
       to: customerEmail,
       subject: `${statusInfo.emoji} ${statusInfo.title} - Order #${orderId.slice(-8).toUpperCase()}`,
       html: `

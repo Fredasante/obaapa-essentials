@@ -202,7 +202,7 @@ export async function POST(req: Request) {
 
     // Send notification to shop owner only
     const { data, error } = await resend.emails.send({
-      from: "Obaapa Essentials <orders@obaapaessentials.com>",
+      from: "Obaapa Essentials <obaapaessentials@gmail.com>",
       to: [SHOP_EMAIL],
       subject: `🎉 New Order: ${orderId} - GH₵${pricing.total.toFixed(2)}`,
       html: shopEmailHtml,
