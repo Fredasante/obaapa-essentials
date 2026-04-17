@@ -14,7 +14,7 @@ const Wordmark = ({ size = "md" }: WordmarkProps) => {
     <Link
       href="/"
       aria-label="Obaapa Essentials - Home"
-      className={`font-bold tracking-tight text-accent hover:text-accent-dark transition-colors ${SIZE_CLASSES[size]}`}
+      className={`font-bold tracking-tight text-[#81c408] hover:text-[#6ba306] transition-colors ${SIZE_CLASSES[size]}`}
     >
       Obaapa Essentials
     </Link>
