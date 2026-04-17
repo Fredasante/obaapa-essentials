@@ -21,7 +21,7 @@
     "clsx": "^2.1.1",
     "lucide-react": "^0.545.0",
     "motion": "^12.34.0",
-    "next": "15.2.8",
+    "next": "^15.5.15",
     "next-sanity": "^11.6.2",
     "postcss": "8.4.29",
     "react": "19.0.0",
@@ -44,7 +44,7 @@
     "@types/react": "19.0.12",
     "@types/react-dom": "19.0.4",
     "eslint": "8.49.0",
-    "eslint-config-next": "15.2.3",
+    "eslint-config-next": "^15.5.15",
     "typescript": "5.2.2"
   }
 }
