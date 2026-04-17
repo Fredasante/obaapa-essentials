@@ -18,9 +18,8 @@ const Hero = () => {
               Rooted in Ghana, Made for You
             </span>
 
-            <h1 className="text-4xl sm:text-5xl lg:text-heading-2 xl:text-heading-1 font-bold text-accent-dark leading-tight mb-5">
-              Fashion, Flavor &amp; Wellness —{" "}
-              <span className="text-accent">All in One Place</span>
+            <h1 className="text-4xl sm:text-5xl lg:text-heading-2 xl:text-heading-1 font-bold text-[#81c408] leading-tight mb-5">
+              Fashion, Flavor &amp; Wellness — All in One Place
             </h1>
 
             <p className="text-custom-sm lg:text-base text-body leading-relaxed max-w-[520px] mx-auto lg:mx-0 mb-8">

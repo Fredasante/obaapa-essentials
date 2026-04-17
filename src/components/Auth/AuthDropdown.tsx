@@ -45,14 +45,19 @@ export default function AuthDropdown({ user, isSignedIn }: AuthDropdownProps) {
   // If not signed in, show sign in link
   if (!isSignedIn) {
     return (
-      <Link href="/signin" className="flex items-center gap-2.5 mt-2 md:mt-0">
+      <Link
+        href="/signin"
+        aria-label="Sign in"
+        className="flex items-center gap-2.5"
+      >
         <Image
           src="/icons/person.svg"
-          alt="Account Icon"
+          alt=""
+          aria-hidden="true"
           width={25}
           height={25}
         />
-        <div>
+        <div className="hidden lg:block">
           <span className="block text-2xs text-gray-5 uppercase">account</span>
           <p className="font-medium text-custom-sm text-gray-4">Sign In</p>
         </div>
@@ -65,23 +70,25 @@ export default function AuthDropdown({ user, isSignedIn }: AuthDropdownProps) {
     <div className="relative" ref={dropdownRef}>
       <button
         onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-        className="flex items-center gap-2.5 mt-2 md:mt-0 hover:opacity-80 transition-opacity"
+        aria-label="Account menu"
+        className="flex items-center gap-2.5 hover:opacity-80 transition-opacity"
       >
         <Image
           src={user?.imageUrl || "/icons/person.svg"}
-          alt="User Avatar"
+          alt=""
+          aria-hidden="true"
           width={25}
           height={25}
           className="rounded-full object-cover"
         />
-        <div className="text-left">
+        <div className="hidden lg:block text-left">
           <span className="block text-2xs text-gray-5 uppercase">account</span>
           <p className="font-medium text-custom-sm text-gray-4">
             {truncateName(user?.firstName || "My Account")}
           </p>
         </div>
         <svg
-          className={`w-4 h-4 text-gray-4 transition-transform ${
+          className={`hidden lg:block w-4 h-4 text-gray-4 transition-transform ${
             isDropdownOpen ? "rotate-180" : ""
           }`}
           fill="none"

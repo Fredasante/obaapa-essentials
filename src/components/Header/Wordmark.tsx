@@ -5,8 +5,8 @@ type WordmarkProps = {
 };
 
 const SIZE_CLASSES = {
-  sm: "text-xl",
-  md: "text-2xl lg:text-3xl",
+  sm: "text-lg",
+  md: "text-lg sm:text-xl lg:text-2xl xl:text-3xl",
 } as const;
 
 const Wordmark = ({ size = "md" }: WordmarkProps) => {
