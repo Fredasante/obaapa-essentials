@@ -278,10 +278,10 @@ const QuickViewModal = () => {
                 <button
                   onClick={handleAddToWishlist}
                   disabled={isSoldOut}
-                  className={`inline-flex items-center gap-2 font-medium text-white py-2.5 px-4.5 sm:py-3 sm:px-6 text-sm sm:text-base rounded-md transition-colors ${
+                  className={`inline-flex items-center gap-2 font-medium py-2.5 px-4.5 sm:py-3 sm:px-6 text-sm sm:text-base rounded-md transition-colors border-2 ${
                     isSoldOut
-                      ? "bg-gray-6 cursor-not-allowed opacity-60"
-                      : "bg-seaBlue-dark hover:bg-opacity-95"
+                      ? "bg-gray-6 text-white border-gray-6 cursor-not-allowed opacity-60"
+                      : "text-green-dark bg-white border-green-dark hover:bg-green-dark hover:text-white"
                   }`}
                 >
                   {isSoldOut ? "Unavailable" : "Add to Wishlist"}

@@ -80,7 +80,7 @@ const Coupon = ({ onApplyCoupon }: CouponProps) => {
               type="button"
               onClick={handleApplyCoupon}
               disabled={isLoading}
-              className="inline-flex font-medium text-white bg-seaBlue-dark py-3 px-6 rounded-md ease-out duration-200 hover:bg-opacity-90 disabled:opacity-50 disabled:cursor-not-allowed whitespace-nowrap"
+              className="inline-flex font-medium text-white bg-green-dark py-3 px-6 rounded-md ease-out duration-200 hover:bg-opacity-90 disabled:opacity-50 disabled:cursor-not-allowed whitespace-nowrap"
             >
               {isLoading ? "Applying..." : "Apply"}
             </button>

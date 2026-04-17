@@ -226,7 +226,7 @@ const ShopDetails = ({ product }: ShopDetailsProps) => {
                 className={`inline-flex items-center gap-2 font-medium py-2.5 px-4.5 sm:py-3 sm:px-6 text-sm sm:text-base rounded-md transition-colors ${
                   isSoldOut
                     ? "bg-gray-6 text-white cursor-not-allowed opacity-60"
-                    : "text-seaBlue-dark bg-white border-2 border-seaBlue-dark hover:bg-seaBlue-dark hover:text-white"
+                    : "text-green-dark bg-white border-2 border-green-dark hover:bg-green-dark hover:text-white"
                 }`}
               >
                 {isSoldOut ? "Unavailable" : "Add to Wishlist"}
