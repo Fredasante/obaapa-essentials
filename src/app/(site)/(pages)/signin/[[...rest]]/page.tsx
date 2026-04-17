@@ -3,9 +3,9 @@ import React from "react";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Sign In | Hedlorm",
+  title: "Sign In | Obaapa Essentials",
   description:
-    "Access your Hedlorm account to track orders, manage your wishlist, and enjoy a personalised shopping experience.",
+    "Access your Obaapa Essentials account to track orders, manage your wishlist, and enjoy a personalised shopping experience.",
   robots: {
     index: false,
     follow: false,

@@ -89,7 +89,7 @@ export async function POST(req: Request) {
     const statusInfo = getStatusMessage(deliveryStatus);
 
     await resend.emails.send({
-      from: "Hedlorm <orders@hedlorm.com>",
+      from: "Obaapa Essentials <orders@obaapaessentials.com>",
       to: customerEmail,
       subject: `${statusInfo.emoji} ${statusInfo.title} - Order #${orderId.slice(-8).toUpperCase()}`,
       html: `
@@ -134,7 +134,7 @@ export async function POST(req: Request) {
               
               <p style="font-size: 14px; margin-top: 30px;">
                 Thank you for shopping with us!<br>
-                <strong>Hedlorm Team</strong>
+                <strong>Obaapa Essentials Team</strong>
               </p>
             </div>
             

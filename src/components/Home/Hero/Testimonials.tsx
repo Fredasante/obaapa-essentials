@@ -4,28 +4,28 @@ export function TestimonialsSection() {
   const testimonials = [
     {
       quote:
-        "I wasn't sure what to expect ordering online but the vase I got is STUNNING. My living room looks like a whole different place now lol. Already eyeing the candle holders for my bedroom.",
+        "Ordered the kente top and a jar of the dawadawa spice mix. The fabric is GORGEOUS and the spice made my kitchen smell like home. Already planning my next order lol.",
       name: "Abena M.",
       designation: "Verified Customer",
       src: "https://images.unsplash.com/photo-1636302926027-9619142d7173?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     },
     {
       quote:
-        "Got this for my wife's birthday and she was so impressed she thought I hired a decorator 😂 The quality is legit, way better than I expected for the price.",
+        "Got the bundled hibiscus tea and shito spice set for my wife and she was so impressed 😂 The quality is legit, way better than I expected for the price.",
       name: "Kwame A.",
       designation: "Verified Customer",
       src: "https://images.unsplash.com/photo-1506277886164-e25aa3f4ef7f?w=300&h=300&fit=crop&crop=face",
     },
     {
       quote:
-        "Third time ordering from Hedlorm and every single piece arrives perfect. The scented candles especially — my guests always ask where I get them from. Keep it up! 🔥",
+        "Third time ordering from Obaapa Essentials and every parcel arrives perfect. The herbal teas especially — my friends always ask where I get them from. Keep it up! 🔥",
       name: "Nana Esi",
       designation: "Verified Customer",
       src: "https://images.unsplash.com/photo-1664629153062-1471c35ced65?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     },
     {
       quote:
-        "Honestly the pictures don't even do these pieces justice. Everything looks even better in person. My apartment finally feels like home 🏡",
+        "Honestly the pictures don't even do these pieces justice. The fashion pieces fit beautifully and the foods taste like home 🏡",
       name: "Serwaa B.",
       designation: "Verified Customer",
       src: "https://images.unsplash.com/photo-1523824921871-d6f1a15151f1?w=300&h=300&fit=crop&crop=face",

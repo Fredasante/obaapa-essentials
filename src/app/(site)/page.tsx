@@ -2,33 +2,25 @@ import Home from "@/components/Home";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Hedlorm | Home Décor & Lifestyle – Ghana",
+  title: "Obaapa Essentials | Fashion, Food, Spices & Wellness – Ghana",
   description:
-    "Discover beautiful home décor, artificial flowers, vases, scented candles, and more at Hedlorm. Shop quality pieces to transform your space.",
+    "Shop authentically Ghanaian fashion, foods, spices, teas, and wellness essentials at Obaapa Essentials. Everyday pieces rooted in culture.",
   keywords: [
-    "Hedlorm",
-    "home decor",
-    "artificial flowers",
-    "vases",
-    "scented candles",
-    "decor pieces",
-    "Ghana home decor",
+    "Obaapa Essentials",
+    "Ghanaian fashion",
+    "African foods",
+    "spices Ghana",
+    "herbal teas",
+    "wellness",
+    "Ghana online shop",
   ],
-  authors: [{ name: "Hedlorm" }],
+  authors: [{ name: "Obaapa Essentials" }],
   openGraph: {
-    title: "Hedlorm | Home Décor & Lifestyle – Ghana",
+    title: "Obaapa Essentials | Fashion, Food, Spices & Wellness – Ghana",
     description:
-      "Shop beautiful home décor, flowers, vases, candles, and more at Hedlorm. Quality pieces to elevate your living space.",
-    url: "https://hedlorm.com",
-    siteName: "Hedlorm",
-    images: [
-      {
-        url: "/hedlorm-logo.png",
-        width: 1200,
-        height: 630,
-        alt: "Hedlorm Home Décor Store",
-      },
-    ],
+      "Shop authentically Ghanaian fashion, foods, spices, teas, and wellness essentials at Obaapa Essentials.",
+    url: "https://obaapaessentials.com",
+    siteName: "Obaapa Essentials",
     locale: "en_US",
     type: "website",
   },

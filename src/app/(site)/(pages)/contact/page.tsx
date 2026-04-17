@@ -3,9 +3,9 @@ import Contact from "@/components/Contact";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Contact | Hedlorm",
+  title: "Contact | Obaapa Essentials",
   description:
-    "Get in touch with Hedlorm for inquiries, orders, or support. We'd love to hear from you!",
+    "Get in touch with Obaapa Essentials for inquiries, orders, or support. We'd love to hear from you!",
 };
 
 const ContactPage = () => {

@@ -3,9 +3,9 @@ import AboutUs from "@/components/AboutUs/AboutUs";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "About Us | Hedlorm",
+  title: "About Us | Obaapa Essentials",
   description:
-    "Discover Hedlorm — your go-to home décor destination in Ghana, offering beautiful, affordable, and high-quality décor pieces to transform any space.",
+    "Discover Obaapa Essentials — a Ghanaian lifestyle store bringing you authentically-sourced fashion, foods, spices, teas, and wellness essentials.",
 };
 
 const AboutUsPage = () => {

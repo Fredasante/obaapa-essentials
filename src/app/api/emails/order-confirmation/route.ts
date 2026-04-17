@@ -16,7 +16,7 @@ export async function POST(req: Request) {
 import { Resend } from "resend";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
-const SHOP_EMAIL = "hedlorm01@gmail.com";
+const SHOP_EMAIL = "obaapaessentials@gmail.com";
 
 export async function POST(req: Request) {
   try {
@@ -188,7 +188,7 @@ export async function POST(req: Request) {
                   <tr>
                     <td style="padding: 30px 40px; background-color: #f8f8f8; text-align: center; border-top: 1px solid #eeeeee; border-radius: 0 0 12px 12px;">
                       <p style="margin: 0; color: #666666; font-size: 14px;">
-                        Hedlorm - Order Notification
+                        Obaapa Essentials - Order Notification
                       </p>
                     </td>
                   </tr>
@@ -202,7 +202,7 @@ export async function POST(req: Request) {
 
     // Send notification to shop owner only
     const { data, error } = await resend.emails.send({
-      from: "Hedlorm <orders@hedlorm.com>",
+      from: "Obaapa Essentials <orders@obaapaessentials.com>",
       to: [SHOP_EMAIL],
       subject: `🎉 New Order: ${orderId} - GH₵${pricing.total.toFixed(2)}`,
       html: shopEmailHtml,

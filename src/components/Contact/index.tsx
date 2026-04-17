@@ -74,10 +74,10 @@ const Contact = () => {
                       Email Address
                     </h4>
                     <a
-                      href="mailto:ohemaa.hedlorm@gmail.com"
+                      href="mailto:hello@obaapaessentials.com"
                       className="text-gray-600 hover:text-seaBlue-dark transition-colors"
                     >
-                      ohemaa.hedlorm@gmail.com
+                      hello@obaapaessentials.com
                     </a>
                   </div>
                 </div>
@@ -228,7 +228,7 @@ const Contact = () => {
               allowFullScreen
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
-              title="Hedlorm Location"
+              title="Obaapa Essentials Location"
             ></iframe>
           </div>
         </div>

@@ -25,33 +25,35 @@ const AboutUs = () => {
                 Our Story
               </span>
               <h2 className="text-3xl md:text-4xl font-bold text-dark mb-6">
-                From Passion to Your Home
+                Rooted in Ghana, Made for You
               </h2>
               <div className="space-y-4 text-gray-600 text-lg leading-relaxed">
                 <p>
-                  Hedlorm was founded with a simple yet powerful belief: that
-                  beautiful interiors have the power to elevate our daily lives.
-                  What started as a personal passion for curating unique pieces
-                  has grown into a destination for home enthusiasts.
+                  Obaapa Essentials was founded with a simple belief: that
+                  everyday life deserves pieces made with care, culture, and
+                  conscience. What began as a love letter to Ghanaian
+                  craftsmanship has grown into a home for thoughtful essentials
+                  across fashion, food, and wellness.
                 </p>
                 <p>
-                  We don&apos;t just sell décor; we carefully select pieces that
-                  bring character, warmth, and style to your space. From
-                  statement vases to lifelike artificial florals, every item in
-                  our collection meets our strict standards for quality and
-                  aesthetics.
+                  We don&apos;t just sell products; we curate authentically
+                  African goods that bring character and flavor to your life.
+                  From handwoven fashion pieces to pantry-ready spices and
+                  herbal teas, every item in our collection meets our standards
+                  for quality and origin.
                 </p>
                 <p>
-                  Our mission is to make premium home styling accessible,
-                  helping you create a sanctuary that truly reflects who you
-                  are.
+                  Our mission is to make everyday essentials — the fabrics you
+                  wear, the foods you cook, the rituals that ground you — feel
+                  truly rooted in who you are.
                 </p>
               </div>
 
               <div className="mt-8 pt-8 border-t border-gray-100 flex items-center gap-4">
-                <blockquote className="italic text-gray-500 border-l-4 border-seaBlue-dark pl-4">
-                  &quot;Your home should tell the story of who you are, and be a
-                  collection of what you love.&quot;
+                <blockquote className="italic text-gray-500 border-l-4 border-[#81c408] pl-4">
+                  &quot;The things we live with every day should carry a story
+                  — of the hands that made them and the soil they come
+                  from.&quot;
                 </blockquote>
               </div>
             </div>
@@ -64,7 +66,7 @@ const AboutUs = () => {
         <div className="max-w-[1170px] mx-auto px-4 sm:px-8 xl:px-0">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-[28px] md:text-4xl font-bold text-dark mb-4">
-              Why Choose Hedlorm?
+              Why Choose Obaapa Essentials?
             </h2>
             <p className="text-gray-600 text-lg">
               We&apos;re dedicated to providing an exceptional shopping
@@ -86,7 +88,7 @@ const AboutUs = () => {
               },
               {
                 title: "Fast Shipping",
-                desc: "Quick and reliable delivery to get your new décor to you as soon as possible.",
+                desc: "Quick and reliable delivery to get your essentials to you as soon as possible.",
                 icon: (
                   <path
                     d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z M12 16V12 M12 8H12.01"
@@ -142,11 +144,11 @@ const AboutUs = () => {
       <section className="py-10 bg-white relative overflow-hidden">
         <div className="max-w-[1170px] mx-auto px-4 text-center relative z-10">
           <h2 className="text-3xl md:text-4xl font-bold text-dark mb-6">
-            Ready to Transform Your Space?
+            Ready to Shop the Essentials?
           </h2>
           <p className="text-gray-600 text-lg max-w-2xl mx-auto mb-10">
-            Explore our curated collection and find the perfect pieces to make
-            your home truly yours.
+            Explore our curated collection across fashion, foods, spices, teas,
+            and wellness — rooted in Ghana, made for you.
           </p>
           <Link
             href="/shop"

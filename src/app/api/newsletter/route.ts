@@ -53,9 +53,9 @@ export async function POST(req: Request) {
 
     // Send welcome email using Resend
     const { data, error } = await resend.emails.send({
-      from: "Hedlorm <onboarding@hedlorm.com>",
+      from: "Obaapa Essentials <onboarding@obaapaessentials.com>",
       to: [email],
-      subject: `Welcome to Hedlorm, ${firstName}! 👋`,
+      subject: `Welcome to Obaapa Essentials, ${firstName}! 👋`,
       html: `
         <!DOCTYPE html>
         <html>
@@ -77,7 +77,7 @@ export async function POST(req: Request) {
                         </h1>
                         
                         <p style="margin: 0 0 25px; color: #333333; font-size: 16px; line-height: 1.6;">
-                          Thank you for subscribing to our newsletter! We're thrilled to have you join our community of home décor lovers who transform spaces into beautiful sanctuaries.
+                          Thank you for subscribing to our newsletter! We're thrilled to have you join our community — lovers of authentically Ghanaian fashion, flavor, and wellness essentials.
                         </p>
                         
                         <p style="margin: 0 0 12px; color: #333333; font-size: 16px; font-weight: 600;">
@@ -87,7 +87,7 @@ export async function POST(req: Request) {
                         <ul style="margin: 0 0 25px; padding-left: 20px; color: #333333; font-size: 16px; line-height: 1.8;">
                           <li style="margin-bottom: 8px;">New arrivals & exclusive collections</li>
                           <li style="margin-bottom: 8px;">Special discounts & early access</li>
-                          <li style="margin-bottom: 8px;">Décor tips & styling inspiration</li>
+                          <li style="margin-bottom: 8px;">Recipes, spice tips & wellness inspiration</li>
                           <li style="margin-bottom: 8px;">VIP-only offers</li>
                         </ul>
                         
@@ -102,7 +102,7 @@ export async function POST(req: Request) {
                         }
                         
                         <div style="text-align: center; margin: 0;">
-                          <a href="https://www.hedlorm.com" style="display: inline-block; padding: 16px 40px; background-color: #C85A1F; color: #ffffff; text-decoration: none; border-radius: 8px; font-weight: 600; font-size: 16px;">
+                          <a href="https://www.obaapaessentials.com" style="display: inline-block; padding: 16px 40px; background-color: #C85A1F; color: #ffffff; text-decoration: none; border-radius: 8px; font-weight: 600; font-size: 16px;">
                             Start Shopping
                           </a>
                         </div>
@@ -117,7 +117,7 @@ export async function POST(req: Request) {
                         </p>
                         <p style="margin: 0 0 15px; color: #666666; font-size: 14px;">
                           <a href="https://www.instagram.com/bend_the_trendd___" style="color: #C85A1F; text-decoration: none; margin: 0 10px;">Instagram</a> |
-                          <a href="https://www.snapchat.com/add/hedlorm" style="color: #C85A1F; text-decoration: none; margin: 0 10px;">Snapchat</a> |
+                          <a href="https://www.snapchat.com/add/obaapaessentials" style="color: #C85A1F; text-decoration: none; margin: 0 10px;">Snapchat</a> |
                         </p>
                         <p style="margin: 15px 0 0; color: #999999; font-size: 12px;">
                           You're receiving this email because you subscribed to our newsletter.<br>
@@ -137,17 +137,17 @@ Welcome, ${firstName}! 👋
 
 Hey Gorgeous!
 
-Thank you for subscribing to our newsletter! We're thrilled to have you join our community of home décor lovers who transform spaces into beautiful sanctuaries.
+Thank you for subscribing to our newsletter! We're thrilled to have you join our community — lovers of authentically Ghanaian fashion, flavor, and wellness essentials.
 
 You'll be the first to know about:
 • New arrivals & exclusive collections
 • Special discounts & early access
-• Décor tips & styling inspiration
+• Recipes, spice tips & wellness inspiration
 • VIP-only offers
 
 ${interest ? `We noticed you're interested in ${interest} — we'll make sure to send you updates on pieces you'll love!\n\n` : ""}
 
-Start Shopping: https://www.hedlorm.com
+Start Shopping: https://www.obaapaessentials.com
 
 Stay connected with us on Instagram and Snapchat!
 

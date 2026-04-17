@@ -2,7 +2,7 @@ import { groq } from "next-sanity";
 import { client } from "@/sanity/client";
 
 export default async function sitemap() {
-  const baseUrl = "https://www.hedlorm.com";
+  const baseUrl = "https://www.obaapaessentials.com";
 
   // Fetch product slugs from Sanity
   const productSlugs = await client.fetch(

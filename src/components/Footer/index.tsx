@@ -11,13 +11,13 @@ const Footer = () => {
           {/* Brand Column */}
           <div className="space-y-6">
             <Link href="/" className="inline-block">
-              <h2 className="text-2xl font-bold tracking-widest uppercase text-green-dark">
-                Hedlorm
+              <h2 className="text-2xl font-bold tracking-widest uppercase text-[#81c408]">
+                Obaapa Essentials
               </h2>
             </Link>
             <p className="text-white/80 text-sm leading-relaxed max-w-xs">
-              Curating exceptional home decor pieces that transform your space
-              into a sanctuary of style and comfort.
+              Fashion, foods, spices, teas, and wellness essentials — rooted
+              in Ghana, made for you.
             </p>
           </div>
 
@@ -96,7 +96,7 @@ const Footer = () => {
             <ul className="space-y-3 mb-6">
               <li>
                 <a
-                  href="mailto:ohemaa.hedlorm@gmail.com"
+                  href="mailto:hello@obaapaessentials.com"
                   className="text-white/80 hover:text-green-dark transition-colors text-sm flex items-center gap-3 group"
                 >
                   <span className="w-8 h-8 rounded-full bg-green-dark/15 text-green-dark flex items-center justify-center flex-shrink-0 group-hover:bg-green-dark group-hover:text-white transition-colors">
@@ -105,7 +105,7 @@ const Footer = () => {
                       <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
                     </svg>
                   </span>
-                  ohemaa.hedlorm@gmail.com
+                  hello@obaapaessentials.com
                 </a>
               </li>
               <li>
@@ -124,7 +124,7 @@ const Footer = () => {
             </ul>
             <div className="flex gap-4">
               <a
-                href="https://instagram.com/hedlorm"
+                href="https://instagram.com/obaapaessentials"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-green-dark hover:text-white transition-all duration-300 group"
@@ -147,7 +147,7 @@ const Footer = () => {
                 </svg>
               </a>
               <a
-                href="https://facebook.com/hedlorm"
+                href="https://facebook.com/obaapaessentials"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-green-dark hover:text-white transition-all duration-300 group"
@@ -168,7 +168,7 @@ const Footer = () => {
                 </svg>
               </a>
               <a
-                href="https://twitter.com/hedlorm"
+                href="https://twitter.com/obaapaessentials"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-green-dark hover:text-white transition-all duration-300 group"
@@ -189,7 +189,7 @@ const Footer = () => {
                 </svg>
               </a>
               <a
-                href="https://tiktok.com/@hedlorm"
+                href="https://tiktok.com/@obaapaessentials"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-green-dark hover:text-white transition-all duration-300 group"
@@ -215,7 +215,7 @@ const Footer = () => {
 
         <div className="max-w-[1170px] mx-auto px-4 sm:px-8 xl:px-0 pt-8 border-t border-white/10">
           <p className="text-white/60 text-center text-sm">
-            © {year} Hedlorm. All rights reserved.
+            © {year} Obaapa Essentials. All rights reserved.
           </p>
         </div>
       </div>

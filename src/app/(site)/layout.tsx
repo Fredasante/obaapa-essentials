@@ -5,12 +5,9 @@ import ClientLayout from "./ClientLayout";
 import { ClerkProvider } from "@clerk/nextjs";
 
 export const metadata: Metadata = {
-  title: "Hedlorm | Home Décor & Clothing",
+  title: "Obaapa Essentials | Fashion, Food, Spices & Wellness – Ghana",
   description:
-    "Shop home décor, artificial flowers, vases, scented candles, dresses, suits, and more at Hedlorm. Quality pieces and fashion for your lifestyle in Ghana.",
-  icons: {
-    icon: "/hedlorm-logo.png",
-  },
+    "Shop authentically Ghanaian fashion, pantry staples, spices, teas, and wellness essentials at Obaapa Essentials — everyday pieces rooted in culture.",
 };
 
 export default function RootLayout({

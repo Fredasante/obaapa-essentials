@@ -4,24 +4,24 @@ import { Metadata } from "next";
 import LoadingFallback from "@/components/Common/LoadingFallback";
 
 export const metadata: Metadata = {
-  title: "Shop | Hedlorm",
+  title: "Shop | Obaapa Essentials",
   description:
-    "Explore our curated collection of home décor — artificial flowers, vases, pots, scented candles, diffusers, wall frames, and more at Hedlorm.",
+    "Explore our curated collection of fashion, foods, spices, teas, and wellness essentials — rooted in Ghana, made for you.",
   keywords: [
-    "Hedlorm",
-    "Home Décor Shop",
-    "Artificial Flowers",
-    "Vases",
-    "Scented Candles",
-    "Décor Ghana",
-    "Wall Frames",
+    "Obaapa Essentials",
+    "Ghanaian fashion",
+    "African foods",
+    "spices",
+    "herbal teas",
+    "wellness essentials",
+    "shop Ghana",
   ],
   openGraph: {
-    title: "Shop | Hedlorm",
+    title: "Shop | Obaapa Essentials",
     description:
-      "Browse beautiful home décor, flowers, vases, candles, and more — only at Hedlorm.",
-    url: "https://hedlorm.com/shop",
-    siteName: "Hedlorm",
+      "Browse fashion, foods, spices, teas, and wellness essentials — only at Obaapa Essentials.",
+    url: "https://obaapaessentials.com/shop",
+    siteName: "Obaapa Essentials",
     type: "website",
   },
 };

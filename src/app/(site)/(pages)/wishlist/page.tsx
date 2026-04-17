@@ -3,9 +3,9 @@ import { Wishlist } from "@/components/Wishlist";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Wishlist | Hedlorm",
+  title: "Wishlist | Obaapa Essentials",
   description:
-    "View and manage your favourite home décor items saved on Hedlorm.",
+    "View and manage your favourite essentials saved on Obaapa Essentials.",
   robots: {
     index: false,
     follow: false,

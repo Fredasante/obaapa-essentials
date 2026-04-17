@@ -9,49 +9,49 @@ const FAQ = () => {
 
   const faqs = [
     {
-      question: "What is Hedlorm?",
+      question: "What is Obaapa Essentials?",
       answer:
-        "Hedlorm is a Ghana-based online home décor store offering a curated selection of artificial flowers, vases, pots, scented candles, diffusers, wall frames, and other décor pieces. We help you transform your living space into something truly beautiful and inspiring.",
+        "Obaapa Essentials is a Ghana-based online lifestyle store offering a curated selection of fashion pieces, foods, spices, herbal teas, and wellness essentials. We bring authentically Ghanaian goods to your home — everyday essentials rooted in culture.",
     },
     {
       question: "What makes your products different from other stores?",
       answer:
-        "Every item in our collection is handpicked to ensure it meets our high standards of design, quality, and aesthetic appeal. We don't just stock generic items — we curate pieces that complement each other and elevate any space. Each product is tested and approved before it reaches you, ensuring that your home décor investment is worth every cedi.",
+        "Every item in our collection is handpicked to ensure it meets our standards for quality, origin, and authenticity. We work with trusted local makers and suppliers so that each piece — whether it's a fabric, a spice blend, or a tea — carries a real story from its source.",
     },
     {
       question: "What types of products do you offer?",
       answer:
-        "We offer a wide range of home décor items including artificial flowers, natural flowers, vases, pots, decorative pieces, diffusers, scented candles, wall frames, and more. Whether you're looking to add a subtle touch of elegance or completely transform a room, we have carefully selected options to suit your style.",
+        "We offer five categories: Fashion (ready-to-wear and traditional pieces), Foods (pantry staples and heritage ingredients), Spices (blends and single-origin), Teas and Herbs (wellness brews and infusions), and Others (seasonal picks and hidden gems).",
     },
     {
       question: "How long does delivery take?",
       answer:
-        "Our standard delivery within Accra and major cities in Ghana takes 1 to 2 working days. Once your order is processed, it is carefully packaged to protect fragile items and dispatched right away. You will receive tracking information as soon as your order ships.",
+        "Standard delivery within Accra and major cities in Ghana takes 1 to 2 working days. Once your order is processed, it is carefully packaged and dispatched. You will receive tracking information as soon as your order ships.",
     },
     {
       question: "What is your return policy?",
       answer:
-        "Your satisfaction is our top priority. If you're not completely happy with your purchase or if an item arrives damaged, please contact our customer service team for information about returns and exchanges. We're dedicated to ensuring you have an exceptional shopping experience.",
+        "Your satisfaction is our top priority. If you're not completely happy with your purchase or if an item arrives damaged, please contact our customer service team for returns and exchanges. Food and perishables follow a separate policy — please check the product page.",
     },
     {
       question: "How can I contact customer support?",
       answer:
-        "Our dedicated customer service team is always ready to assist you. Whether you need help selecting the perfect décor piece, have questions about your order, or need styling advice, we're here for you. Reach us through our contact page and we'll respond as quickly as possible.",
+        "Our customer service team is always ready to assist you. Whether you need help choosing between two spice blends, have questions about your order, or want sizing advice, we're here. Reach us through our contact page and we'll respond as quickly as possible.",
     },
     {
       question: "Do you deliver outside Ghana?",
       answer:
-        "We're currently focused on delivering within Ghana, but we're working to expand our shipping options to serve customers across West Africa. Please contact our customer service team with your location, and we'll let you know the available options.",
+        "We're currently focused on delivering within Ghana, but we're working to expand our shipping options to serve customers across West Africa and the diaspora. Please contact our customer service team with your location, and we'll let you know the available options.",
     },
     {
       question: "How do you ensure quality?",
       answer:
-        "Quality is our first priority. Each product is selected for its exceptional craftsmanship and aesthetic value. We personally inspect and approve every item before adding it to our collection. Only the finest materials and designs make it into our store, ensuring your décor pieces look stunning and last.",
+        "Quality is our first priority. Each product is personally inspected and approved before joining our collection. We work directly with makers and suppliers we trust, so that the fabrics you wear and the foods you cook carry the care they were made with.",
     },
     {
       question: "What is your promise to customers?",
       answer:
-        "When you shop at Hedlorm, you're not just buying a décor piece — you're investing in the atmosphere and beauty of your home. We promise to deliver quality products that make your space feel amazing, with service that exceeds your expectations. Your satisfaction is our top priority.",
+        "When you shop at Obaapa Essentials, you're buying more than a product — you're supporting makers who put care into everyday essentials. We promise quality goods, honest service, and a shopping experience that respects your time and trust.",
     },
   ];
 
@@ -72,7 +72,7 @@ const FAQ = () => {
             </h1>
             <p className="text-sm md:text-lg text-gray-600 max-w-2xl mx-auto">
               Have questions? We&apos;ve got answers! Find everything you need
-              to know about Hedlorm.
+              to know about Obaapa Essentials.
             </p>
           </div>
 

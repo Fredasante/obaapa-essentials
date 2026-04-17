@@ -46,7 +46,7 @@ export async function generateMetadata({
   }
 
   return {
-    title: `${product.name} | Hedlorm`,
+    title: `${product.name} | Obaapa Essentials`,
     description,
     openGraph: {
       title: product.name,
