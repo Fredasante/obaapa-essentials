@@ -86,7 +86,7 @@ export async function POST(req: Request) {
                   
                   <!-- Header -->
                   <tr>
-                    <td style="padding: 40px 40px 20px; text-align: center; background-color: #C85A1F; border-radius: 12px 12px 0 0;">
+                    <td style="padding: 40px 40px 20px; text-align: center; background-color: #F27430; border-radius: 12px 12px 0 0;">
                       <h1 style="margin: 0; color: #ffffff; font-size: 28px; font-weight: bold;">
                         🎉 New Order Received!
                       </h1>
@@ -104,7 +104,7 @@ export async function POST(req: Request) {
                       
                       <div style="background-color: #f8f8f8; padding: 20px; border-radius: 8px; margin-bottom: 25px;">
                         <p style="margin: 0 0 8px; color: #666666; font-size: 14px;">Order Number</p>
-                        <p style="margin: 0; color: #C85A1F; font-size: 18px; font-weight: bold; font-family: monospace;">${orderId}</p>
+                        <p style="margin: 0; color: #F27430; font-size: 18px; font-weight: bold; font-family: monospace;">${orderId}</p>
                         <p style="margin: 12px 0 0; color: #666666; font-size: 14px;">Order Date: ${orderDate}</p>
                         <p style="margin: 8px 0 0; color: #666666; font-size: 14px;">Payment Status: <span style="color: #22c55e; font-weight: 600;">${payment.status}</span></p>
                         ${payment.paystackReference ? `<p style="margin: 8px 0 0; color: #666666; font-size: 14px;">Payment Reference: <span style="font-family: monospace;">${payment.paystackReference}</span></p>` : ""}
@@ -139,9 +139,9 @@ export async function POST(req: Request) {
                       <table role="presentation" style="width: 100%; border-collapse: collapse; margin-bottom: 20px;">
                         <thead>
                           <tr>
-                            <th style="padding: 12px; text-align: left; border-bottom: 2px solid #C85A1F; color: #666666; font-size: 14px; font-weight: 600;">Item</th>
-                            <th style="padding: 12px; text-align: right; border-bottom: 2px solid #C85A1F; color: #666666; font-size: 14px; font-weight: 600;">Price</th>
-                            <th style="padding: 12px; text-align: right; border-bottom: 2px solid #C85A1F; color: #666666; font-size: 14px; font-weight: 600;">Total</th>
+                            <th style="padding: 12px; text-align: left; border-bottom: 2px solid #F27430; color: #666666; font-size: 14px; font-weight: 600;">Item</th>
+                            <th style="padding: 12px; text-align: right; border-bottom: 2px solid #F27430; color: #666666; font-size: 14px; font-weight: 600;">Price</th>
+                            <th style="padding: 12px; text-align: right; border-bottom: 2px solid #F27430; color: #666666; font-size: 14px; font-weight: 600;">Total</th>
                           </tr>
                         </thead>
                         <tbody>

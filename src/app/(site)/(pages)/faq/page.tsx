@@ -103,7 +103,7 @@ const FAQ = () => {
                     >
                       <path
                         d="M6 9L12 15L18 9"
-                        stroke="#C85A1F"
+                        stroke="#F27430"
                         strokeWidth="2"
                         strokeLinecap="round"
                         strokeLinejoin="round"

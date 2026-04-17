@@ -87,7 +87,7 @@ const Orders = () => {
   if (!isLoaded || loading) {
     return (
       <div className="flex justify-center items-center min-h-[400px]">
-        <ClipLoader size={28} color="#C85A1F" />
+        <ClipLoader size={28} color="#F27430" />
       </div>
     );
   }

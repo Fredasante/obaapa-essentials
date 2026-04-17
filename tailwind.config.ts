@@ -56,10 +56,10 @@ const config: Config = {
         7: "#3E414B",
       },
 
-      // Orange family (primary CTA — was teal/blue/seaBlue)
+      // Orange family (primary CTA — matches hero button color)
       blue: {
         DEFAULT: "#F27430",
-        dark: "#C85A1F",
+        dark: "#F27430",
         light: "#F89055",
         "light-2": "#FAB285",
         "light-3": "#FCCBA8",
@@ -69,28 +69,28 @@ const config: Config = {
       },
       seaBlue: {
         DEFAULT: "#F27430",
-        dark: "#C85A1F",
+        dark: "#F27430",
         light: "#F89055",
       },
       teal: {
         DEFAULT: "#F27430",
-        dark: "#C85A1F",
+        dark: "#F27430",
       },
       orange: {
         DEFAULT: "#F27430",
         dark: "#C85A1F",
       },
 
-      // Lemon green family (accent — was green)
+      // Lemon green family (accent — matches hero heading #81c408)
       green: {
-        DEFAULT: "#BEDB39",
-        dark: "#8FA822",
-        light: "#CEE85F",
-        "light-2": "#D9EE82",
-        "light-3": "#E2F1A0",
-        "light-4": "#EAF4B8",
-        "light-5": "#F0F7D4",
-        "light-6": "#F6FAE6",
+        DEFAULT: "#81C408",
+        dark: "#6BA306",
+        light: "#A3D93E",
+        "light-2": "#BCE467",
+        "light-3": "#CFEB8C",
+        "light-4": "#DEF2AE",
+        "light-5": "#EBF6CD",
+        "light-6": "#F4FAE4",
       },
 
       // Harmonized supporting colors
@@ -121,9 +121,9 @@ const config: Config = {
         light: "#F89055",
       },
       accent: {
-        DEFAULT: "#BEDB39",
-        dark: "#8FA822",
-        light: "#CEE85F",
+        DEFAULT: "#81C408",
+        dark: "#6BA306",
+        light: "#A3D93E",
       },
       neutral: {
         DEFAULT: "#6C6F7A",

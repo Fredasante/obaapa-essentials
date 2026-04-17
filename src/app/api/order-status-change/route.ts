@@ -110,7 +110,7 @@ export async function POST(req: Request) {
               <p style="font-size: 16px; margin-bottom: 20px;">${statusInfo.body}</p>
               
               <div style="background-color: white; padding: 20px; border-radius: 8px; margin: 20px 0;">
-                <h2 style="margin-top: 0; color: #C85A1F; font-size: 18px;">Order Details</h2>
+                <h2 style="margin-top: 0; color: #F27430; font-size: 18px;">Order Details</h2>
                 <p style="margin: 5px 0;"><strong>Order ID:</strong> #${orderId.slice(-8).toUpperCase()}</p>
                 <p style="margin: 5px 0;"><strong>Status:</strong> ${deliveryStatus.replace(/_/g, " ").toUpperCase()}</p>
                 ${total ? `<p style="margin: 5px 0;"><strong>Total:</strong> GH₵${total.toFixed(2)}</p>` : ""}
