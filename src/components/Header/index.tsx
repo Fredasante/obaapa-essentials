@@ -1,271 +1,261 @@
 "use client";
 import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
-import { menuData } from "./menuData";
-import Dropdown from "./Dropdown";
-import { useAppSelector } from "@/redux/store";
+import { Heart, Search as SearchIcon, X } from "lucide-react";
 import { useSelector } from "react-redux";
+import { useUser } from "@clerk/nextjs";
+import Image from "next/image";
+
+import { menuData } from "./menuData";
+import Wordmark from "./Wordmark";
+import UtilityBar from "./UtilityBar";
+import SearchInput from "./SearchInput";
+import SearchOverlay from "./SearchOverlay";
+import AuthDropdown from "../Auth/AuthDropdown";
+import { useAppSelector } from "@/redux/store";
 import { selectTotalPrice } from "@/redux/features/cart-slice";
 import { useCartModalContext } from "@/app/context/CartSidebarModalContext";
-import Image from "next/image";
-import AuthDropdown from "../Auth/AuthDropdown";
-import { useUser } from "@clerk/nextjs";
-import { Heart, RefreshCcw } from "lucide-react";
-import SearchInput from "./SearchInput";
 
 const Header = () => {
-  const [navigationOpen, setNavigationOpen] = useState(false);
+  const [drawerOpen, setDrawerOpen] = useState(false);
+  const [searchOpen, setSearchOpen] = useState(false);
   const [stickyMenu, setStickyMenu] = useState(false);
-  const { openCartModal } = useCartModalContext();
-  const navRef = useRef<HTMLDivElement>(null);
+  const drawerRef = useRef<HTMLDivElement>(null);
 
+  const { openCartModal } = useCartModalContext();
   const product = useAppSelector((state) => state.cartReducer.items);
   const totalPrice = useSelector(selectTotalPrice);
   const { user, isSignedIn } = useUser();
 
-  const handleOpenCartModal = () => {
-    openCartModal();
-  };
-
-  // Close mobile nav
-  const closeNavigation = () => {
-    setNavigationOpen(false);
-  };
-
-  // Sticky menu
-  const handleStickyMenu = () => {
-    if (window.scrollY >= 80) {
-      setStickyMenu(true);
-    } else {
-      setStickyMenu(false);
-    }
-  };
+  const closeDrawer = () => setDrawerOpen(false);
 
   useEffect(() => {
-    window.addEventListener("scroll", handleStickyMenu);
+    const handleScroll = () => setStickyMenu(window.scrollY >= 80);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
-    // Close navigation when clicking outside
-    const handleClickOutside = (event: MouseEvent) => {
+  useEffect(() => {
+    if (!drawerOpen) return;
+    const handleClick = (e: MouseEvent) => {
       if (
-        navigationOpen &&
-        navRef.current &&
-        !navRef.current.contains(event.target as Node) &&
-        !(event.target as HTMLElement).closest("#Toggle")
+        drawerRef.current &&
+        !drawerRef.current.contains(e.target as Node) &&
+        !(e.target as HTMLElement).closest("#drawer-toggle")
       ) {
-        closeNavigation();
+        closeDrawer();
       }
     };
+    document.addEventListener("mousedown", handleClick);
+    return () => document.removeEventListener("mousedown", handleClick);
+  }, [drawerOpen]);
 
-    if (navigationOpen) {
-      document.addEventListener("mousedown", handleClickOutside);
-    }
-
-    return () => {
-      window.removeEventListener("scroll", handleStickyMenu);
-      document.removeEventListener("mousedown", handleClickOutside);
+  useEffect(() => {
+    if (!drawerOpen) return;
+    const handleKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") closeDrawer();
     };
-  }, [navigationOpen]);
+    document.addEventListener("keydown", handleKey);
+    return () => document.removeEventListener("keydown", handleKey);
+  }, [drawerOpen]);
 
   return (
-    <header
-      className={`fixed left-0 top-0 w-full z-9999 bg-white transition-all ease-in-out duration-300 ${
-        stickyMenu && "shadow"
-      }`}
-    >
-      <div className="max-w-[1170px] mx-auto px-4 sm:px-7.5 xl:px-0">
-        {/* <!-- header top start --> */}
-        <div
-          className={`flex flex-col lg:flex-row gap-5 items-end lg:items-center xl:justify-between ease-out duration-200 ${
-            stickyMenu ? "py-2" : "py-1"
-          }`}
-        >
-          {/* <!-- header top left --> */}
-          <div className="xl:w-auto flex-col sm:flex-row w-full flex sm:justify-between sm:items-center gap-5 sm:gap-10">
-            <Link className="flex-shrink-0 hidden md:block" href="/">
-              <Image
-                src="/hedlorm-logo.png"
-                alt="Hedlorm Logo"
-                width={130}
-                height={40}
-                className="py-1"
-              />
-            </Link>
+    <>
+      <header
+        className={`fixed left-0 top-0 w-full z-9999 bg-white transition-all ease-in-out duration-300 ${
+          stickyMenu ? "shadow-md" : ""
+        }`}
+      >
+        <UtilityBar />
 
-            <div className="max-w-[475px] w-full">
-              <SearchInput />
-            </div>
-          </div>
-
-          {/* <!-- header top right --> */}
-          <div className="flex w-full lg:w-auto items-center gap-7.5">
-            <div className="hidden xl:flex items-center gap-3.5">
-              <Image
-                src="/icons/support-icon.svg"
-                alt="Support Icon"
-                width={20}
-                height={20}
-              />
-              <div>
-                <span className="block text-2xs text-dark-4 uppercase">
-                  24/7 SUPPORT
-                </span>
-                <p className="font-medium text-custom-sm text-dark">
-                  (+233) 5498-35411
-                </p>
-              </div>
+        <div className="max-w-[1440px] mx-auto px-4 sm:px-7.5 xl:px-12">
+          <div
+            className={`flex items-center justify-between gap-6 transition-all duration-200 ${
+              stickyMenu ? "py-3" : "py-5"
+            }`}
+          >
+            {/* Left: wordmark */}
+            <div className="flex-shrink-0">
+              <Wordmark size="md" />
             </div>
 
-            {/* <!-- divider --> */}
-            <span className="hidden xl:block w-px h-7.5 bg-gray-4"></span>
+            {/* Center: menu (xl+) */}
+            <nav className="hidden xl:block">
+              <ul className="flex items-center gap-8">
+                {menuData.map((item) => (
+                  <li
+                    key={item.id}
+                    className="group relative before:w-0 before:h-[3px] before:bg-primary before:absolute before:left-0 before:-bottom-1 before:rounded-b-[3px] before:ease-out before:duration-200 hover:before:w-full"
+                  >
+                    <Link
+                      href={item.path ?? "/"}
+                      className="text-custom-sm font-medium text-dark hover:text-primary transition-colors py-2 flex items-center min-h-[40px]"
+                    >
+                      {item.title}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </nav>
 
-            <div className="flex w-full lg:w-auto justify-between items-center gap-5">
-              <div className="flex items-center gap-5">
-                <Link className="flex-shrink-0 block md:hidden" href="/">
-                  <Image
-                    src="/hedlorm-logo.png"
-                    alt="Hedlorm Logo"
-                    width={110}
-                    height={35}
-                  />
-                </Link>
-
-                {/* Auth */}
-                <AuthDropdown user={user} isSignedIn={isSignedIn} />
-
-                <button
-                  onClick={handleOpenCartModal}
-                  className="flex items-center gap-2.5 mt-2 md:mt-0"
-                >
-                  <span className="inline-block relative">
-                    <Image
-                      src="/icons/cart.svg"
-                      alt="Support Icon"
-                      width={25}
-                      height={25}
-                    />
-                    <span className="flex items-center justify-center font-medium text-2xs absolute -right-2 -top-2.5 bg-seaBlue-dark w-4.5 h-4.5 rounded-full text-white">
-                      {product.length}
-                    </span>
-                  </span>
-
-                  <div>
-                    <span className="block text-2xs text-dark-4 uppercase">
-                      cart
-                    </span>
-                    <p className="font-medium text-custom-sm text-dark">
-                      ₵{totalPrice}
-                    </p>
-                  </div>
-                </button>
+            {/* Right: icon cluster */}
+            <div className="flex items-center gap-2 sm:gap-4">
+              {/* Inline search on xl+ */}
+              <div className="hidden xl:block max-w-[420px] w-[360px]">
+                <SearchInput />
               </div>
 
-              {/* hamburger toggle btn */}
+              {/* Search icon (<xl) */}
               <button
-                id="Toggle"
-                aria-label="Toggler"
-                className="xl:hidden block mt-2 mr-1.5 xl:mt-0 xl:mr-0"
-                onClick={() => setNavigationOpen(!navigationOpen)}
+                type="button"
+                onClick={() => setSearchOpen(true)}
+                aria-label="Open search"
+                className="xl:hidden w-11 h-11 flex items-center justify-center text-dark hover:text-primary transition-colors"
               >
-                <span className="block relative cursor-pointer w-5.5 h-5.5">
-                  <span className="du-block absolute right-0 w-full h-full">
-                    <span
-                      className={`block relative top-0 left-0 bg-dark rounded-sm w-0 h-0.5 my-1 ease-in-out duration-200 delay-[0] ${
-                        !navigationOpen && "!w-full delay-300"
-                      }`}
-                    ></span>
-                    <span
-                      className={`block relative top-0 left-0 bg-dark rounded-sm w-0 h-0.5 my-1 ease-in-out duration-200 delay-150 ${
-                        !navigationOpen && "!w-full delay-400"
-                      }`}
-                    ></span>
-                    <span
-                      className={`block relative top-0 left-0 bg-dark rounded-sm w-0 h-0.5 my-1 ease-in-out duration-200 delay-200 ${
-                        !navigationOpen && "!w-full delay-500"
-                      }`}
-                    ></span>
-                  </span>
+                <SearchIcon className="w-5 h-5" />
+              </button>
 
-                  <span className="block absolute right-0 w-full h-full rotate-45">
-                    <span
-                      className={`block bg-dark rounded-sm ease-in-out duration-200 delay-300 absolute left-2.5 top-0 w-0.5 h-full ${
-                        !navigationOpen && "!h-0 delay-[0] "
-                      }`}
-                    ></span>
-                    <span
-                      className={`block bg-dark rounded-sm ease-in-out duration-200 delay-400 absolute left-0 top-2.5 w-full h-0.5 ${
-                        !navigationOpen && "!h-0 dealy-200"
-                      }`}
-                    ></span>
+              {/* Wishlist */}
+              <Link
+                href="/wishlist"
+                aria-label="Wishlist"
+                className="hidden sm:flex w-11 h-11 items-center justify-center text-dark hover:text-primary transition-colors"
+              >
+                <Heart className="w-5 h-5" />
+              </Link>
+
+              {/* Auth avatar */}
+              <AuthDropdown user={user} isSignedIn={isSignedIn} />
+
+              {/* Cart */}
+              <button
+                onClick={openCartModal}
+                aria-label={`Cart, ${product.length} items, total ₵${totalPrice}`}
+                className="flex items-center gap-2 min-h-[44px] px-2"
+              >
+                <span className="inline-block relative">
+                  <Image
+                    src="/icons/cart.svg"
+                    alt=""
+                    width={24}
+                    height={24}
+                    aria-hidden="true"
+                  />
+                  <span className="flex items-center justify-center font-medium text-2xs absolute -right-2 -top-2 bg-primary w-4.5 h-4.5 rounded-full text-white">
+                    {product.length}
                   </span>
+                </span>
+                <span className="hidden lg:block text-left">
+                  <span className="block text-2xs text-dark-4 uppercase leading-none">
+                    cart
+                  </span>
+                  <span className="font-medium text-custom-sm text-dark">
+                    ₵{totalPrice}
+                  </span>
+                </span>
+              </button>
+
+              {/* Hamburger (<xl) */}
+              <button
+                id="drawer-toggle"
+                type="button"
+                aria-label={drawerOpen ? "Close menu" : "Open menu"}
+                aria-expanded={drawerOpen}
+                onClick={() => setDrawerOpen((v) => !v)}
+                className="xl:hidden w-11 h-11 flex items-center justify-center"
+              >
+                <span className="block relative w-5 h-4">
+                  <span
+                    className={`absolute left-0 right-0 h-0.5 bg-dark rounded transition-all duration-200 ${
+                      drawerOpen ? "top-1.5 rotate-45" : "top-0"
+                    }`}
+                  />
+                  <span
+                    className={`absolute left-0 right-0 top-1.5 h-0.5 bg-dark rounded transition-opacity duration-200 ${
+                      drawerOpen ? "opacity-0" : "opacity-100"
+                    }`}
+                  />
+                  <span
+                    className={`absolute left-0 right-0 h-0.5 bg-dark rounded transition-all duration-200 ${
+                      drawerOpen ? "top-1.5 -rotate-45" : "top-3"
+                    }`}
+                  />
                 </span>
               </button>
             </div>
           </div>
         </div>
-        {/* <!-- header top end --> */}
-      </div>
 
-      <div className="border-t border-gray-3">
-        <div className="max-w-[1170px] mx-auto px-4 sm:px-7.5 xl:px-0">
-          <div className="flex items-center justify-between">
-            <div
-              ref={navRef}
-              className={`w-[288px] absolute right-4 top-full xl:static xl:w-auto h-0 xl:h-auto invisible xl:visible xl:flex items-center justify-between ${
-                navigationOpen &&
-                `!visible bg-white shadow-lg border border-gray-3 !h-auto max-h-[400px] overflow-y-scroll rounded-md p-5`
-              }`}
-            >
-              {/* main nav */}
-              <nav>
-                <ul className="flex xl:items-center flex-col xl:flex-row gap-5 xl:gap-6">
-                  {menuData.map((menuItem, i) => (
-                    <li
-                      key={i}
-                      className="group relative before:w-0 before:h-[3px] before:bg-seaBlue-dark before:absolute before:left-0 before:top-0 before:rounded-b-[3px] before:ease-out before:duration-200 hover:before:w-full "
-                    >
-                      <Link
-                        href={menuItem.path}
-                        onClick={closeNavigation}
-                        className={`hover:text-seaBlue-dark text-custom-sm font-medium text-dark flex ${
-                          stickyMenu ? "xl:py-4" : "xl:py-6"
-                        }`}
-                      >
-                        {menuItem.title}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </nav>
+        {/* Mobile drawer (<xl) */}
+        <div
+          className={`xl:hidden fixed inset-0 z-9999 transition-opacity duration-300 ${
+            drawerOpen
+              ? "opacity-100 pointer-events-auto"
+              : "opacity-0 pointer-events-none"
+          }`}
+          aria-hidden={!drawerOpen}
+        >
+          <div
+            className="absolute inset-0 bg-black/40"
+            onClick={closeDrawer}
+          />
+          <aside
+            ref={drawerRef}
+            className={`absolute right-0 top-0 h-full w-[280px] max-w-[85vw] bg-white shadow-2xl transition-transform duration-300 ease-out flex flex-col ${
+              drawerOpen ? "translate-x-0" : "translate-x-full"
+            }`}
+            role="dialog"
+            aria-label="Main menu"
+          >
+            <div className="flex items-center justify-between p-5 border-b border-gray-3">
+              <Wordmark size="sm" />
+              <button
+                type="button"
+                onClick={closeDrawer}
+                aria-label="Close menu"
+                className="w-11 h-11 flex items-center justify-center text-dark"
+              >
+                <X className="w-5 h-5" />
+              </button>
             </div>
 
-            {/* right nav */}
-            <div className="hidden xl:block">
-              <ul className="flex items-center gap-5.5">
-                <li className="py-4">
-                  <a
-                    href="#"
-                    className="flex items-center gap-1.5 font-medium text-custom-sm text-dark hover:text-seaBlue-dark"
-                  >
-                    <RefreshCcw className="w-4 h-4" />
-                    Recently Viewed
-                  </a>
-                </li>
-
-                <li className="py-4">
+            <nav className="flex-1 overflow-y-auto p-5">
+              <ul className="flex flex-col gap-1">
+                {menuData.map((item) => (
+                  <li key={item.id}>
+                    <Link
+                      href={item.path ?? "/"}
+                      onClick={closeDrawer}
+                      className="block py-3 px-3 rounded-md text-base font-medium text-dark hover:bg-accent/10 hover:text-primary transition-colors min-h-[44px]"
+                    >
+                      {item.title}
+                    </Link>
+                  </li>
+                ))}
+                <li className="mt-2 pt-2 border-t border-gray-3">
                   <Link
                     href="/wishlist"
-                    className="flex items-center gap-1.5 font-medium text-custom-sm text-dark hover:text-seaBlue-dark"
+                    onClick={closeDrawer}
+                    className="flex items-center gap-2 py-3 px-3 rounded-md text-base font-medium text-dark hover:bg-accent/10 hover:text-primary transition-colors min-h-[44px]"
                   >
                     <Heart className="w-4 h-4" />
                     Wishlist
                   </Link>
                 </li>
               </ul>
-            </div>
-          </div>
+            </nav>
+          </aside>
         </div>
-      </div>
-    </header>
+      </header>
+
+      <SearchOverlay
+        open={searchOpen}
+        onClose={() => setSearchOpen(false)}
+      />
+
+      {/* Spacer so content isn't hidden under fixed header */}
+      <div aria-hidden="true" className="h-[72px] lg:h-[108px]" />
+    </>
   );
 };
 
