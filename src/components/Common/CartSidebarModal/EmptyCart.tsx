@@ -19,7 +19,7 @@ const EmptyCart = () => {
       <Link
         onClick={() => closeCartModal()}
         href="/shop"
-        className="w-full lg:w-10/12 mx-auto flex justify-center font-medium text-white bg-seaBlue-dark py-[13px] px-6 rounded-md ease-out duration-200 hover:bg-opacity-95"
+        className="w-full lg:w-10/12 mx-auto flex justify-center font-medium text-seaBlue-dark bg-white border-2 border-seaBlue-dark py-[11px] px-6 rounded-md ease-out duration-200 hover:bg-seaBlue-dark hover:text-white"
       >
         Continue Shopping
       </Link>
