@@ -70,7 +70,7 @@ const Header = () => {
         <div className="max-w-[1440px] mx-auto px-4 sm:px-7.5 xl:px-12">
           <div
             className={`flex items-center justify-between gap-6 transition-all duration-200 ${
-              stickyMenu ? "py-3" : "py-5"
+              stickyMenu ? "py-2 lg:py-2" : "py-2.5 lg:py-3"
             }`}
           >
             {/* Left: wordmark */}
@@ -239,7 +239,7 @@ const Header = () => {
       />
 
       {/* Spacer so content isn't hidden under fixed header */}
-      <div aria-hidden="true" className="h-[108px]" />
+      <div aria-hidden="true" className="h-[82px] lg:h-[88px]" />
     </>
   );
 };

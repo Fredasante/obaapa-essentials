@@ -10,7 +10,7 @@ import { categories } from "@/data/categories";
 const Hero = () => {
   return (
     <section className="relative bg-gradient-to-b from-green-light-6 via-white to-white pb-16 lg:pb-24">
-      <div className="max-w-[1440px] mx-auto px-4 sm:px-7.5 xl:px-12 pt-10 lg:pt-16">
+      <div className="max-w-[1440px] mx-auto px-4 sm:px-7.5 xl:px-12 pt-16 lg:pt-16">
         <div className="grid grid-cols-1 lg:grid-cols-[58%_42%] gap-10 lg:gap-8 items-center min-h-[560px]">
           {/* Left column */}
           <div className="text-center lg:text-left order-2 lg:order-1">

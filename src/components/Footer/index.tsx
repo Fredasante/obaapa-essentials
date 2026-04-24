@@ -96,7 +96,7 @@ const Footer = () => {
             <ul className="space-y-3 mb-6">
               <li>
                 <a
-                  href="mailto:obaapaessentials@gmail.com"
+                  href="mailto:essentialsobaapa@gmail.com"
                   className="text-white/80 hover:text-green-dark transition-colors text-sm flex items-center gap-3 group"
                 >
                   <span className="w-8 h-8 rounded-full bg-green-dark/15 text-green-dark flex items-center justify-center flex-shrink-0 group-hover:bg-green-dark group-hover:text-white transition-colors">
@@ -105,12 +105,12 @@ const Footer = () => {
                       <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
                     </svg>
                   </span>
-                  obaapaessentials@gmail.com
+                  essentialsobaapa@gmail.com
                 </a>
               </li>
               <li>
                 <a
-                  href="tel:+233599287889"
+                  href="tel:+233535908290"
                   className="text-white/80 hover:text-green-dark transition-colors text-sm flex items-center gap-3 group"
                 >
                   <span className="w-8 h-8 rounded-full bg-green-dark/15 text-green-dark flex items-center justify-center flex-shrink-0 group-hover:bg-green-dark group-hover:text-white transition-colors">
@@ -118,7 +118,7 @@ const Footer = () => {
                       <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
                     </svg>
                   </span>
-                  059 928 7889
+                  0535 908 290
                 </a>
               </li>
             </ul>

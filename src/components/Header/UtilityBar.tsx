@@ -14,7 +14,7 @@ const UtilityBar = () => {
         <div className="flex items-center justify-center lg:justify-between py-2 text-xs font-medium text-white">
           <div className="flex items-center gap-2">
             <Truck className="w-3.5 h-3.5" aria-hidden="true" />
-            <span>Free delivery on orders over ₵500</span>
+            <span>Call us: 0535908290</span>
           </div>
 
           <ul className="hidden lg:flex items-center gap-5">

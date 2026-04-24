@@ -1,22 +1,27 @@
 import Link from "next/link";
+import Image from "next/image";
 
 type WordmarkProps = {
   size?: "sm" | "md";
 };
 
-const SIZE_CLASSES = {
-  sm: "text-lg",
-  md: "text-lg sm:text-xl lg:text-2xl xl:text-3xl",
+const SIZE_DIMS = {
+  sm: { width: 100, height: 35 },
+  md: { width: 160, height: 54 },
 } as const;
 
 const Wordmark = ({ size = "md" }: WordmarkProps) => {
+  const { width, height } = SIZE_DIMS[size];
   return (
-    <Link
-      href="/"
-      aria-label="Obaapa Essentials - Home"
-      className={`font-bold tracking-tight text-[#81c408] hover:text-[#6ba306] transition-colors ${SIZE_CLASSES[size]}`}
-    >
-      Obaapa Essentials
+    <Link href="/" aria-label="Obaapa Essentials - Home">
+      <Image
+        src="/obaapa-essentials-logo.png"
+        alt="Obaapa Essentials"
+        width={width}
+        height={height}
+        priority
+        className="object-contain"
+      />
     </Link>
   );
 };

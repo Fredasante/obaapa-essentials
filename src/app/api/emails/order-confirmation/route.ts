@@ -16,7 +16,7 @@ export async function POST(req: Request) {
 import { Resend } from "resend";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
-const SHOP_EMAIL = "obaapaessentials@gmail.com";
+const SHOP_EMAIL = "essentialsobaapa@gmail.com";
 
 export async function POST(req: Request) {
   try {
@@ -202,7 +202,7 @@ export async function POST(req: Request) {
 
     // Send notification to shop owner only
     const { data, error } = await resend.emails.send({
-      from: "Obaapa Essentials <obaapaessentials@gmail.com>",
+      from: "Obaapa Essentials <essentialsobaapa@gmail.com>",
       to: [SHOP_EMAIL],
       subject: `🎉 New Order: ${orderId} - GH₵${pricing.total.toFixed(2)}`,
       html: shopEmailHtml,

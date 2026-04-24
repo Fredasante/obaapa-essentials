@@ -43,7 +43,7 @@ Use Tailwind tokens, not raw hex, except where a token doesn't map cleanly.
 ## Gotchas & don'ts
 
 - **Do not start a dev server.** The user runs `npm run dev` themselves on **port 3000** wired to their Sanity project. Spawning a parallel instance on 3001 confuses verification. Ask them to reload instead.
-- **Emails are disabled on purpose.** All three email routes (`newsletter`, `order-status-change`, `emails/order-confirmation`) return a stub. The original Resend code is commented out. When re-enabled, the `from:` address needs a verified domain — gmail won't work as a sender. `to:` / `SHOP_EMAIL` (`obaapaessentials@gmail.com`) is fine.
+- **Emails are disabled on purpose.** All three email routes (`newsletter`, `order-status-change`, `emails/order-confirmation`) return a stub. The original Resend code is commented out. When re-enabled, the `from:` address needs a verified domain — gmail won't work as a sender. `to:` / `SHOP_EMAIL` (`essentialsobaapa@gmail.com`) is fine.
 - **No automated tests** in `package.json`. Verification is manual — run `npm run lint` and `npm run build`, then eyeball the UI.
 - **`strict: false`** in `tsconfig.json` — don't assume strict-mode behaviors like non-null guarantees.
 - **Sanity is v4.** `next-sanity@latest` would force a Sanity v5 upgrade (breaking); keep `next-sanity@^11.6.2` / `sanity@^4.11.0` / `@sanity/client@^7.12.0` pinned together.

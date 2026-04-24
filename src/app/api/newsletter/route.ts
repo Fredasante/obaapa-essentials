@@ -53,7 +53,7 @@ export async function POST(req: Request) {
 
     // Send welcome email using Resend
     const { data, error } = await resend.emails.send({
-      from: "Obaapa Essentials <obaapaessentials@gmail.com>",
+      from: "Obaapa Essentials <essentialsobaapa@gmail.com>",
       to: [email],
       subject: `Welcome to Obaapa Essentials, ${firstName}! 👋`,
       html: `
