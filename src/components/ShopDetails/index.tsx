@@ -66,7 +66,7 @@ const ShopDetails = ({ product }: ShopDetailsProps) => {
   };
 
   return (
-    <div className="bg-gray-100 pt-2 xl:pt-9 bg-[#F7F8FA] pb-7 px-3 lg:min-h-[72vh]">
+    <div className="bg-gray-100 pt-10 md:pt-14 xl:pt-16 bg-[#F7F8FA] pb-7 px-3 lg:min-h-[72vh]">
       <div className="container px-4 py-8 max-w-[1170px] w-full mx-auto">
         <div className="flex flex-wrap -mx-4">
           {/* Product Images */}
