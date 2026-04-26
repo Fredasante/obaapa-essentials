@@ -1,7 +1,19 @@
 "use client";
 import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
-import { Heart, Search as SearchIcon, X } from "lucide-react";
+import {
+  ChevronDown,
+  Heart,
+  Home as HomeIcon,
+  Info,
+  Mail,
+  Phone,
+  Search as SearchIcon,
+  ShoppingBag,
+  ShoppingCart,
+  Truck,
+  X,
+} from "lucide-react";
 import { useSelector } from "react-redux";
 import { useUser } from "@clerk/nextjs";
 import Image from "next/image";
@@ -14,19 +26,34 @@ import AuthDropdown from "../Auth/AuthDropdown";
 import { useAppSelector } from "@/redux/store";
 import { selectTotalPrice } from "@/redux/features/cart-slice";
 import { useCartModalContext } from "@/app/context/CartSidebarModalContext";
+import { categories } from "@/data/categories";
+
+const NAV_ICONS: Record<string, React.ComponentType<{ className?: string }>> = {
+  Home: HomeIcon,
+  Shop: ShoppingBag,
+  About: Info,
+  Contact: Mail,
+};
 
 const Header = () => {
   const [drawerOpen, setDrawerOpen] = useState(false);
+  const [shopExpanded, setShopExpanded] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
   const [stickyMenu, setStickyMenu] = useState(false);
   const drawerRef = useRef<HTMLDivElement>(null);
 
   const { openCartModal } = useCartModalContext();
   const product = useAppSelector((state) => state.cartReducer.items);
+  const wishlistItems = useAppSelector(
+    (state) => state.wishlistReducer.items,
+  );
   const totalPrice = useSelector(selectTotalPrice);
   const { user, isSignedIn } = useUser();
 
-  const closeDrawer = () => setDrawerOpen(false);
+  const closeDrawer = () => {
+    setDrawerOpen(false);
+    setShopExpanded(false);
+  };
 
   useEffect(() => {
     const handleScroll = () => setStickyMenu(window.scrollY >= 80);
@@ -186,13 +213,20 @@ const Header = () => {
           />
           <aside
             ref={drawerRef}
-            className={`absolute right-0 top-0 h-full w-[280px] max-w-[85vw] bg-white shadow-2xl transition-transform duration-300 ease-out flex flex-col ${
+            className={`absolute right-0 top-0 h-full w-[300px] max-w-[88vw] bg-white shadow-2xl transition-transform duration-300 ease-out flex flex-col ${
               drawerOpen ? "translate-x-0" : "translate-x-full"
             }`}
             role="dialog"
             aria-label="Main menu"
           >
-            <div className="flex items-center justify-between p-5 border-b border-gray-3">
+            {/* Lemon-green stripe */}
+            <div className="bg-[#81c408] text-white px-5 py-2.5 flex items-center gap-2 text-xs font-medium">
+              <Truck className="w-3.5 h-3.5" aria-hidden="true" />
+              <span>Call us: 0535908290</span>
+            </div>
+
+            {/* Header row */}
+            <div className="flex items-center justify-between px-5 py-4 border-b border-gray-3">
               <Wordmark size="sm" />
               <button
                 type="button"
@@ -204,31 +238,177 @@ const Header = () => {
               </button>
             </div>
 
-            <nav className="flex-1 overflow-y-auto p-5">
-              <ul className="flex flex-col gap-1">
-                {menuData.map((item) => (
-                  <li key={item.id}>
-                    <Link
-                      href={item.path ?? "/"}
-                      onClick={closeDrawer}
-                      className="block py-3 px-3 rounded-md text-base font-medium text-dark hover:bg-accent/10 hover:text-primary transition-colors min-h-[44px]"
-                    >
-                      {item.title}
-                    </Link>
-                  </li>
-                ))}
-                <li className="mt-2 pt-2 border-t border-gray-3">
+            {/* Account block */}
+            <div className="px-5 py-4 border-b border-gray-3">
+              {isSignedIn ? (
+                <Link
+                  href="/my-account"
+                  onClick={closeDrawer}
+                  className="flex items-center gap-3"
+                >
+                  <div className="w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center font-semibold text-sm">
+                    {(
+                      user?.firstName?.[0] ||
+                      user?.emailAddresses?.[0]?.emailAddress?.[0] ||
+                      "U"
+                    ).toUpperCase()}
+                  </div>
+                  <div className="min-w-0 flex-1">
+                    <div className="text-sm font-semibold text-dark truncate">
+                      {user?.firstName ||
+                        user?.emailAddresses?.[0]?.emailAddress ||
+                        "Welcome"}
+                    </div>
+                    <div className="text-xs text-primary">My Account →</div>
+                  </div>
+                </Link>
+              ) : (
+                <div className="flex gap-2">
+                  <Link
+                    href="/signin"
+                    onClick={closeDrawer}
+                    className="flex-1 text-center py-2.5 px-3 rounded-md bg-primary text-white font-semibold text-sm hover:bg-primary-dark transition-colors"
+                  >
+                    Sign In
+                  </Link>
+                  <Link
+                    href="/signup"
+                    onClick={closeDrawer}
+                    className="flex-1 text-center py-2.5 px-3 rounded-md border border-gray-3 text-dark font-semibold text-sm hover:border-primary hover:text-primary transition-colors"
+                  >
+                    Sign Up
+                  </Link>
+                </div>
+              )}
+            </div>
+
+            {/* Main nav + quick links */}
+            <nav className="flex-1 overflow-y-auto py-2">
+              <ul>
+                {menuData.map((item) => {
+                  const Icon = NAV_ICONS[item.title];
+                  const isShop = item.title === "Shop";
+
+                  if (isShop) {
+                    return (
+                      <li key={item.id}>
+                        <button
+                          type="button"
+                          onClick={() => setShopExpanded((v) => !v)}
+                          aria-expanded={shopExpanded}
+                          className="w-full flex items-center justify-between px-5 py-3 text-dark hover:bg-accent/10 hover:text-primary transition-colors min-h-[44px]"
+                        >
+                          <span className="flex items-center gap-3">
+                            {Icon && <Icon className="w-5 h-5" />}
+                            <span className="text-base font-medium">
+                              {item.title}
+                            </span>
+                          </span>
+                          <ChevronDown
+                            className={`w-4 h-4 transition-transform duration-200 ${
+                              shopExpanded ? "rotate-180" : ""
+                            }`}
+                          />
+                        </button>
+                        {shopExpanded && (
+                          <ul className="bg-[#FAFAFB]">
+                            <li>
+                              <Link
+                                href="/shop"
+                                onClick={closeDrawer}
+                                className="block pl-13 pr-5 py-2.5 text-sm text-dark hover:text-primary transition-colors"
+                                style={{ paddingLeft: "3.25rem" }}
+                              >
+                                All products
+                              </Link>
+                            </li>
+                            {categories.map((cat) => (
+                              <li key={cat.id}>
+                                <Link
+                                  href={`/search?category=${cat.value}`}
+                                  onClick={closeDrawer}
+                                  className="block pr-5 py-2.5 text-sm text-dark hover:text-primary transition-colors"
+                                  style={{ paddingLeft: "3.25rem" }}
+                                >
+                                  {cat.title}
+                                </Link>
+                              </li>
+                            ))}
+                          </ul>
+                        )}
+                      </li>
+                    );
+                  }
+
+                  return (
+                    <li key={item.id}>
+                      <Link
+                        href={item.path ?? "/"}
+                        onClick={closeDrawer}
+                        className="flex items-center gap-3 px-5 py-3 text-dark hover:bg-accent/10 hover:text-primary transition-colors min-h-[44px]"
+                      >
+                        {Icon && <Icon className="w-5 h-5" />}
+                        <span className="text-base font-medium">
+                          {item.title}
+                        </span>
+                      </Link>
+                    </li>
+                  );
+                })}
+              </ul>
+
+              {/* Quick links: wishlist + cart */}
+              <ul className="border-t border-gray-3 mt-2 pt-2">
+                <li>
                   <Link
                     href="/wishlist"
                     onClick={closeDrawer}
-                    className="flex items-center gap-2 py-3 px-3 rounded-md text-base font-medium text-dark hover:bg-accent/10 hover:text-primary transition-colors min-h-[44px]"
+                    className="flex items-center justify-between px-5 py-3 text-dark hover:bg-accent/10 hover:text-primary transition-colors min-h-[44px]"
                   >
-                    <Heart className="w-4 h-4" />
-                    Wishlist
+                    <span className="flex items-center gap-3">
+                      <Heart className="w-5 h-5" />
+                      <span className="text-base font-medium">Wishlist</span>
+                    </span>
+                    <span className="text-xs bg-primary text-white rounded-full min-w-[24px] h-6 px-2 flex items-center justify-center font-semibold">
+                      {wishlistItems.length}
+                    </span>
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/cart"
+                    onClick={closeDrawer}
+                    className="flex items-center justify-between px-5 py-3 text-dark hover:bg-accent/10 hover:text-primary transition-colors min-h-[44px]"
+                  >
+                    <span className="flex items-center gap-3">
+                      <ShoppingCart className="w-5 h-5" />
+                      <span className="text-base font-medium">Cart</span>
+                    </span>
+                    <span className="text-xs bg-primary text-white rounded-full min-w-[24px] h-6 px-2 flex items-center justify-center font-semibold">
+                      {product.length}
+                    </span>
                   </Link>
                 </li>
               </ul>
             </nav>
+
+            {/* Footer: call card */}
+            <div className="border-t border-gray-3 px-5 py-4">
+              <a
+                href="tel:+233535908290"
+                className="flex items-center gap-3 group"
+              >
+                <div className="w-10 h-10 rounded-full bg-[#FEF3E7] text-primary flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-colors">
+                  <Phone className="w-4 h-4" />
+                </div>
+                <div>
+                  <div className="text-xs text-dark-4">Call us anytime</div>
+                  <div className="text-sm font-semibold text-dark">
+                    0535 908 290
+                  </div>
+                </div>
+              </a>
+            </div>
           </aside>
         </div>
       </header>
