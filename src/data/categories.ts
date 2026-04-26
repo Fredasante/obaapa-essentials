@@ -14,7 +14,7 @@ export const categories: Category[] = [
     subtext: "Style & Essentials",
     value: "fashion",
     image:
-      "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800&h=1000&fit=crop",
+      "https://plus.unsplash.com/premium_photo-1705352059500-6a141750a8be?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     className: "col-span-2 md:col-span-2 md:row-span-2",
   },
   {
@@ -23,7 +23,7 @@ export const categories: Category[] = [
     subtext: "Pantry & Staples",
     value: "foods",
     image:
-      "https://images.unsplash.com/photo-1498837167922-ddd27525d352?w=600&h=800&fit=crop",
+      "https://images.unsplash.com/photo-1701566619911-2dcb1e29b1dc?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     className: "col-span-1 md:col-span-1 md:row-span-1",
   },
   {
