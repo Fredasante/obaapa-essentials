@@ -1,137 +1,204 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { LayoutGrid, MapPin, Wallet, Headphones } from "lucide-react";
 import Breadcrumb from "../Common/Breadcrumb";
+import { categories } from "@/data/categories";
+
+const promises = [
+  {
+    num: 1,
+    bg: "bg-primary",
+    title: "Sourced in Ghana",
+    desc: "Every product is locally curated and traceable to origin — not bulk imports rebranded.",
+  },
+  {
+    num: 2,
+    bg: "bg-accent",
+    title: "Curated, not stocked",
+    desc: "Hand-picked, small-batch items chosen for quality and character. We say no a lot.",
+  },
+  {
+    num: 3,
+    bg: "bg-primary",
+    title: "Pay & deliver, simply",
+    desc: "Cedis pricing, Paystack checkout, nationwide delivery. No surprises at the door.",
+  },
+];
 
 const AboutUs = () => {
   return (
     <>
       <Breadcrumb title={"About Us"} pages={["about"]} />
 
-      {/* Our Story Section */}
-      <section className="py-16 md:py-2">
+      {/* Section 2: Magazine story split */}
+      <section className="py-12 md:py-16">
         <div className="max-w-[1170px] mx-auto px-4 sm:px-8 xl:px-0">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-            <div className="relative h-[400px] lg:h-[600px] rounded-2xl overflow-hidden shadow-2xl">
-              <Image
-                src="https://images.unsplash.com/photo-1513519245088-0e12902e5a38?q=80&w=1000&auto=format&fit=crop"
-                alt="Styling home decor"
-                fill
-                className="object-cover hover:scale-105 transition-transform duration-700"
-              />
-            </div>
             <div>
-              <span className="text-seaBlue-dark font-semibold tracking-wider uppercase mb-2 block">
+              <span className="text-primary font-semibold tracking-[1.5px] uppercase text-xs sm:text-sm mb-3 block">
                 Our Story
               </span>
-              <h2 className="text-3xl md:text-4xl font-bold text-dark mb-6">
-                Rooted in Ghana, Made for You
+              <h2 className="text-3xl md:text-4xl font-bold text-dark mb-6 leading-tight">
+                Rooted in Ghana,
+                <br />
+                made for everyday life
               </h2>
-              <div className="space-y-4 text-gray-600 text-lg leading-relaxed">
+              <div className="space-y-4 text-gray-600 text-base md:text-lg leading-relaxed">
                 <p>
-                  Obaapa Essentials was founded with a simple belief: that
-                  everyday life deserves pieces made with care, culture, and
-                  conscience. What began as a love letter to Ghanaian
-                  craftsmanship has grown into a home for thoughtful essentials
-                  across fashion, food, and wellness.
+                  Obaapa Essentials began as a love letter to Ghanaian
+                  craftsmanship — fabrics that carry pattern and history, foods
+                  that taste like home, spices and teas with names you grew up
+                  hearing.
                 </p>
                 <p>
-                  We don&apos;t just sell products; we curate authentically
-                  African goods that bring character and flavor to your life.
-                  From handwoven fashion pieces to pantry-ready spices and
-                  herbal teas, every item in our collection meets our standards
-                  for quality and origin.
-                </p>
-                <p>
-                  Our mission is to make everyday essentials — the fabrics you
-                  wear, the foods you cook, the rituals that ground you — feel
-                  truly rooted in who you are.
+                  Today we curate authentically African goods for everyday
+                  life. Every item is chosen for quality, origin, and the story
+                  it carries.
                 </p>
               </div>
-
-              <div className="mt-8 pt-8 border-t border-gray-100 flex items-center gap-4">
-                <blockquote className="italic text-gray-500 border-l-4 border-[#81c408] pl-4">
-                  &quot;The things we live with every day should carry a story
-                  — of the hands that made them and the soil they come
-                  from.&quot;
-                </blockquote>
-              </div>
+            </div>
+            {/* TODO: replace with real brand photography when available */}
+            <div className="relative h-[400px] lg:h-[600px] rounded-2xl overflow-hidden shadow-2xl">
+              <Image
+                src="https://plus.unsplash.com/premium_photo-1705352059500-6a141750a8be?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                alt="Ghanaian lifestyle"
+                fill
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                className="object-cover hover:scale-105 transition-transform duration-700"
+              />
             </div>
           </div>
         </div>
       </section>
 
-      {/* Why Choose Us / Values */}
-      <section className="py-16 md:py-24 bg-[#f8f9fa]">
+      {/* Section 3: Stats / proof strip */}
+      <section className="bg-[#FEF3E7] py-14 md:py-20">
         <div className="max-w-[1170px] mx-auto px-4 sm:px-8 xl:px-0">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-[28px] md:text-4xl font-bold text-dark mb-4">
-              Why Choose Obaapa Essentials?
+          <div className="text-center max-w-2xl mx-auto mb-10 md:mb-14">
+            <span className="text-primary font-semibold tracking-[1.5px] uppercase text-xs sm:text-sm mb-3 block">
+              By the Numbers
+            </span>
+            <h2 className="text-3xl md:text-4xl font-bold text-dark leading-tight">
+              Built around what matters
             </h2>
-            <p className="text-gray-600 text-lg">
-              We&apos;re dedicated to providing an exceptional shopping
-              experience from browsing to delivery.
-            </p>
           </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
             {[
               {
-                title: "Premium Quality",
-                desc: "Only the finest materials and craftsmanship make it into our collection.",
-                icon: (
-                  <path
-                    d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"
-                    fill="currentColor"
-                  />
-                ),
+                Icon: LayoutGrid,
+                value: "5",
+                label: "Curated categories",
+                tint: "primary" as const,
               },
               {
-                title: "Fast Shipping",
-                desc: "Quick and reliable delivery to get your essentials to you as soon as possible.",
-                icon: (
-                  <path
-                    d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z M12 16V12 M12 8H12.01"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                ),
+                Icon: MapPin,
+                value: "100%",
+                label: "Ghana-sourced",
+                tint: "accent" as const,
               },
               {
-                title: "Customer Support",
-                desc: "Dedicated team ready to assist you with any questions or concerns.",
-                icon: (
-                  <path
-                    d="M20 21V19C20 17.9391 19.5786 16.9217 18.8284 16.1716C18.0783 15.4214 17.0609 15 16 15H8C6.93913 15 5.92172 15.4214 5.17157 16.1716C4.42143 16.9217 4 17.9391 4 19V21M16 7C16 9.20914 14.2091 11 12 11C9.79086 11 8 9.20914 8 7C8 4.79086 9.79086 3 12 3C14.2091 3 16 4.79086 16 7Z"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                ),
+                Icon: Wallet,
+                value: "GH₵",
+                label: "Local pricing & Paystack",
+                tint: "primary" as const,
               },
-            ].map((item, idx) => (
+              {
+                Icon: Headphones,
+                value: "24/7",
+                label: "Customer support",
+                tint: "accent" as const,
+              },
+            ].map((stat, idx) => (
               <div
                 key={idx}
-                className="bg-white p-8 rounded-xl border border-gray-100 hover:border-seaBlue-dark hover:shadow-lg transition-all duration-300 group text-left"
+                className="bg-white rounded-2xl p-6 md:p-8 text-center shadow-sm hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300"
               >
-                <div className="mb-6 text-seaBlue-dark group-hover:scale-110 transition-transform duration-300 origin-left">
-                  <svg
-                    width="40"
-                    height="40"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    {item.icon}
-                  </svg>
+                <div
+                  className={`w-12 h-12 mx-auto mb-4 rounded-full flex items-center justify-center ${
+                    stat.tint === "primary"
+                      ? "bg-[#FEF3E7] text-primary"
+                      : "bg-[#F4FAE4] text-accent"
+                  }`}
+                >
+                  <stat.Icon className="w-6 h-6" strokeWidth={2} />
                 </div>
-                <h3 className="text-xl font-bold text-dark mb-3 uppercase tracking-wide">
+                <div className="text-3xl md:text-4xl font-bold text-dark mb-2">
+                  {stat.value}
+                </div>
+                <div className="text-sm text-gray-600">{stat.label}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Section 4: Categories grid */}
+      <section className="py-12 md:py-16">
+        <div className="max-w-[1170px] mx-auto px-4 sm:px-8 xl:px-0">
+          <div className="text-center max-w-2xl mx-auto mb-10 md:mb-14">
+            <span className="text-accent font-semibold tracking-[1.5px] uppercase text-xs sm:text-sm mb-3 block">
+              What We Curate
+            </span>
+            <h2 className="text-3xl md:text-4xl font-bold text-dark leading-tight">
+              Five categories, one philosophy
+            </h2>
+          </div>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-6">
+            {categories.map((category) => (
+              <Link
+                key={category.id}
+                href={`/search?category=${category.value}`}
+                className="group relative overflow-hidden rounded-2xl shadow-sm hover:shadow-xl transition-all duration-500 aspect-[4/5]"
+              >
+                <Image
+                  src={category.image}
+                  alt={category.title}
+                  fill
+                  sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 20vw"
+                  className="object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-300" />
+                <div className="absolute bottom-0 left-0 right-0 p-4">
+                  <span className="text-white/80 text-xs uppercase tracking-wider mb-1 block">
+                    {category.subtext}
+                  </span>
+                  <h3 className="text-white text-base md:text-lg font-bold leading-tight">
+                    {category.title}
+                  </h3>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Section 5: Why Obaapa — three brand promises */}
+      <section className="bg-[#F7F8FA] py-12 md:py-16">
+        <div className="max-w-[1170px] mx-auto px-4 sm:px-8 xl:px-0">
+          <div className="text-center max-w-2xl mx-auto mb-10 md:mb-14">
+            <span className="text-primary font-semibold tracking-[1.5px] uppercase text-xs sm:text-sm mb-3 block">
+              Why Obaapa
+            </span>
+            <h2 className="text-3xl md:text-4xl font-bold text-dark leading-tight">
+              Three things you can count on
+            </h2>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {promises.map((item) => (
+              <div
+                key={item.num}
+                className="bg-white p-6 md:p-8 rounded-xl shadow-sm hover:shadow-lg transition-all duration-300"
+              >
+                <div
+                  className={`w-10 h-10 ${item.bg} text-white rounded-lg flex items-center justify-center font-bold text-lg mb-5`}
+                >
+                  {item.num}
+                </div>
+                <h3 className="text-lg md:text-xl font-bold text-dark mb-3">
                   {item.title}
                 </h3>
-                <p className="text-gray-600 leading-relaxed text-base">
+                <p className="text-gray-600 leading-relaxed text-sm md:text-base">
                   {item.desc}
                 </p>
               </div>
@@ -140,19 +207,32 @@ const AboutUs = () => {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-10 bg-white relative overflow-hidden">
-        <div className="max-w-[1170px] mx-auto px-4 text-center relative z-10">
-          <h2 className="text-3xl md:text-4xl font-bold text-dark mb-6">
-            Ready to Shop the Essentials?
+      {/* Section 6: Pull quote */}
+      <section className="py-16 md:py-20 bg-white">
+        <div className="max-w-[1170px] mx-auto px-4 sm:px-8 xl:px-0 text-center">
+          <blockquote className="text-xl md:text-2xl italic text-dark max-w-2xl mx-auto leading-relaxed mb-4">
+            &ldquo;The things we live with every day should carry a story — of
+            the hands that made them and the soil they come from.&rdquo;
+          </blockquote>
+          <div className="text-xs sm:text-sm text-gray-500 uppercase tracking-[2px]">
+            — Obaapa Essentials
+          </div>
+        </div>
+      </section>
+
+      {/* Section 7: CTA banner */}
+      <section className="bg-[#FEF3E7] py-14 md:py-20">
+        <div className="max-w-[1170px] mx-auto px-4 sm:px-8 xl:px-0 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold text-dark mb-4">
+            Ready to shop the essentials?
           </h2>
-          <p className="text-gray-600 text-lg max-w-2xl mx-auto mb-10">
+          <p className="text-gray-600 text-base md:text-lg max-w-2xl mx-auto mb-8">
             Explore our curated collection across fashion, foods, spices, teas,
             and wellness — rooted in Ghana, made for you.
           </p>
           <Link
             href="/shop"
-            className="inline-flex items-center justify-center px-8 py-4 bg-seaBlue-dark text-white font-bold rounded-lg hover:bg-[#008B8B] transform hover:-translate-y-1 transition-all duration-300 shadow-lg hover:shadow-xl"
+            className="inline-flex items-center justify-center px-8 py-4 bg-primary text-white font-bold rounded-lg hover:bg-primary-dark hover:-translate-y-0.5 transition-all duration-300 shadow-lg hover:shadow-xl"
           >
             Shop Collection
             <svg
