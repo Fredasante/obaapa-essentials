@@ -1,125 +1,186 @@
 "use client";
 
 import React from "react";
+import {
+  Phone,
+  Mail,
+  MapPin,
+  MessageCircle,
+  Send,
+  Clock,
+} from "lucide-react";
 
 import Breadcrumb from "../Common/Breadcrumb";
 
+type ContactMethod = {
+  Icon: React.ComponentType<{ className?: string }>;
+  label: string;
+  value: string;
+  note: string;
+  href: string | null;
+  external?: boolean;
+  tint: "primary" | "accent";
+};
+
+const contactMethods: ContactMethod[] = [
+  {
+    Icon: Phone,
+    label: "Phone",
+    value: "0535 908 290",
+    note: "Call us, Mon–Sun",
+    href: "tel:+233535908290",
+    tint: "primary",
+  },
+  {
+    Icon: MessageCircle,
+    label: "WhatsApp",
+    value: "Chat with us",
+    note: "Fastest response",
+    href: "https://wa.me/233535908290",
+    external: true,
+    tint: "accent",
+  },
+  {
+    Icon: Mail,
+    label: "Email",
+    value: "essentialsobaapa@gmail.com",
+    note: "We reply within 24h",
+    href: "mailto:essentialsobaapa@gmail.com",
+    tint: "primary",
+  },
+  {
+    Icon: MapPin,
+    label: "Based in",
+    value: "Accra, Ghana",
+    note: "Online store · nationwide delivery",
+    href: null,
+    tint: "accent",
+  },
+];
+
 const Contact = () => {
+  const inputClass =
+    "w-full rounded-lg bg-[#F7F8FA] border border-transparent px-4 py-3 text-dark placeholder:text-dark-4 outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all";
+
   return (
     <>
       <Breadcrumb title={"Contact Us"} pages={["contact"]} />
 
-      <section className="py-10 md:py-20">
-        <div className="max-w-[1170px] w-full mx-auto px-4 sm:px-8 xl:px-0">
-          <div className="flex flex-col lg:flex-row gap-12 lg:gap-20">
-            {/* Contact Info */}
-            <div className="lg:w-1/3">
-              <h2 className="text-[27px] md:text-3xl font-bold text-dark mb-4 md:mb-6">
-                Get in Touch
-              </h2>
-              <p className="text-gray-600 mb-10 text-lg">
-                Have a question or need assistance? We&apos;re here to help!
-                Reach out to us through any of the channels below.
-              </p>
+      {/* Intro */}
+      <section className="py-12 md:py-16">
+        <div className="max-w-[1170px] mx-auto px-4 sm:px-8 xl:px-0">
+          <div className="text-center max-w-2xl mx-auto">
+            <span className="text-primary font-semibold tracking-[1.5px] uppercase text-xs sm:text-sm mb-3 block">
+              Get in Touch
+            </span>
+            <h2 className="text-3xl md:text-4xl font-bold text-dark mb-4 leading-tight">
+              We&apos;d love to hear from you
+            </h2>
+            <p className="text-gray-600 text-base md:text-lg leading-relaxed">
+              Have a question about a product, an order, or want to partner
+              with us? Reach out through any channel below — we typically reply
+              within a day.
+            </p>
+          </div>
+        </div>
+      </section>
 
-              <div className="space-y-8">
-                <div className="flex items-start gap-4 group">
-                  <div className="w-12 h-12 rounded-lg bg-seaBlue-dark/10 flex items-center justify-center text-seaBlue-dark group-hover:bg-seaBlue-dark group-hover:text-white transition-colors duration-300">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
+      {/* Methods + form */}
+      <section className="pb-16 md:pb-24">
+        <div className="max-w-[1170px] mx-auto px-4 sm:px-8 xl:px-0">
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-10">
+            {/* Contact methods */}
+            <div className="lg:col-span-2 space-y-4">
+              {contactMethods.map((method) => {
+                const inner = (
+                  <div className="flex items-start gap-4">
+                    <div
+                      className={`w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0 transition-colors duration-300 ${
+                        method.tint === "primary"
+                          ? "bg-[#FEF3E7] text-primary group-hover:bg-primary group-hover:text-white"
+                          : "bg-[#F4FAE4] text-accent group-hover:bg-accent group-hover:text-white"
+                      }`}
                     >
-                      <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
-                    </svg>
+                      <method.Icon className="w-5 h-5" />
+                    </div>
+                    <div className="min-w-0 flex-1">
+                      <div className="text-xs uppercase tracking-wider text-dark-4 mb-1">
+                        {method.label}
+                      </div>
+                      <div className="font-semibold text-dark text-base mb-0.5 break-words">
+                        {method.value}
+                      </div>
+                      <div className="text-xs text-gray-600">
+                        {method.note}
+                      </div>
+                    </div>
                   </div>
-                  <div>
-                    <h4 className="font-semibold text-dark text-lg mb-1">
-                      Phone Number
-                    </h4>
-                    <a
-                      href="tel:+233535908290"
-                      className="text-gray-600 hover:text-seaBlue-dark transition-colors"
+                );
+
+                if (!method.href) {
+                  return (
+                    <div
+                      key={method.label}
+                      className="bg-white rounded-2xl p-5 shadow-sm group"
                     >
-                      0535 908 290
-                    </a>
-                  </div>
+                      {inner}
+                    </div>
+                  );
+                }
+
+                return (
+                  <a
+                    key={method.label}
+                    href={method.href}
+                    target={method.external ? "_blank" : undefined}
+                    rel={
+                      method.external ? "noopener noreferrer" : undefined
+                    }
+                    className="block bg-white rounded-2xl p-5 shadow-sm hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 group"
+                  >
+                    {inner}
+                  </a>
+                );
+              })}
+
+              {/* Response time card */}
+              <div className="bg-[#FEF3E7] rounded-2xl p-5 flex items-start gap-4">
+                <div className="w-12 h-12 rounded-xl bg-white text-primary flex items-center justify-center flex-shrink-0">
+                  <Clock className="w-5 h-5" />
                 </div>
-
-                <div className="flex items-start gap-4 group">
-                  <div className="w-12 h-12 rounded-lg bg-seaBlue-dark/10 flex items-center justify-center text-seaBlue-dark group-hover:bg-seaBlue-dark group-hover:text-white transition-colors duration-300">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    >
-                      <rect width="20" height="16" x="2" y="4" rx="2" />
-                      <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
-                    </svg>
+                <div>
+                  <div className="font-semibold text-dark text-base mb-1">
+                    Response time
                   </div>
-                  <div>
-                    <h4 className="font-semibold text-dark text-lg mb-1">
-                      Email Address
-                    </h4>
-                    <a
-                      href="mailto:essentialsobaapa@gmail.com"
-                      className="text-gray-600 hover:text-seaBlue-dark transition-colors"
-                    >
-                      essentialsobaapa@gmail.com
-                    </a>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-4 group">
-                  <div className="w-12 h-12 rounded-lg bg-seaBlue-dark/10 flex items-center justify-center text-seaBlue-dark group-hover:bg-seaBlue-dark group-hover:text-white transition-colors duration-300">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    >
-                      <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
-                      <circle cx="12" cy="10" r="3" />
-                    </svg>
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-dark text-lg mb-1">
-                      Location
-                    </h4>
-                    <p className="text-gray-600">Accra, Ghana</p>
+                  <div className="text-sm text-gray-600 leading-relaxed">
+                    We aim to reply to every message within 24 hours, often
+                    sooner via WhatsApp.
                   </div>
                 </div>
               </div>
             </div>
 
             {/* Form */}
-            <div className="lg:w-2/3">
-              <div className="bg-white rounded-2xl p-8 shadow-sm hover:shadow-md transition-shadow duration-300">
+            <div className="lg:col-span-3">
+              <div className="bg-white rounded-2xl p-6 md:p-8 shadow-sm">
+                <div className="mb-6">
+                  <h3 className="text-xl md:text-2xl font-bold text-dark mb-1.5">
+                    Send a message
+                  </h3>
+                  <p className="text-sm text-gray-600">
+                    Fill out the form and we&apos;ll get back to you as soon
+                    as we can.
+                  </p>
+                </div>
+
                 <form action="" method="POST">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-5">
                     <div>
                       <label
                         htmlFor="fullName"
-                        className="mb-2.5 block font-medium text-dark"
+                        className="mb-2 block text-sm font-medium text-dark"
                       >
-                        Full Name <span className="text-red-500">*</span>
+                        Full Name <span className="text-primary">*</span>
                       </label>
                       <input
                         type="text"
@@ -127,16 +188,17 @@ const Contact = () => {
                         id="fullName"
                         required
                         placeholder="John Doe"
-                        className="w-full rounded-lg bg-[#F7F8FA] px-4 py-3 text-dark outline-none focus:ring-1 focus:ring-seaBlue-dark transition-all"
+                        className={inputClass}
                       />
                     </div>
 
                     <div>
                       <label
                         htmlFor="email"
-                        className="mb-2.5 block font-medium text-dark"
+                        className="mb-2 block text-sm font-medium text-dark"
                       >
-                        Email Address <span className="text-red-500">*</span>
+                        Email Address{" "}
+                        <span className="text-primary">*</span>
                       </label>
                       <input
                         type="email"
@@ -144,16 +206,16 @@ const Contact = () => {
                         id="email"
                         required
                         placeholder="john@example.com"
-                        className="w-full rounded-lg bg-[#F7F8FA] px-4 py-3 text-dark outline-none focus:ring-1 focus:ring-seaBlue-dark transition-all"
+                        className={inputClass}
                       />
                     </div>
                   </div>
 
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-5">
                     <div>
                       <label
                         htmlFor="phone"
-                        className="mb-2.5 block font-medium text-dark"
+                        className="mb-2 block text-sm font-medium text-dark"
                       >
                         Phone Number
                       </label>
@@ -162,14 +224,14 @@ const Contact = () => {
                         name="phone"
                         id="phone"
                         placeholder="+233 00 000 0000"
-                        className="w-full rounded-lg bg-[#F7F8FA] px-4 py-3 text-dark outline-none focus:ring-1 focus:ring-seaBlue-dark transition-all"
+                        className={inputClass}
                       />
                     </div>
 
                     <div>
                       <label
                         htmlFor="subject"
-                        className="mb-2.5 block font-medium text-dark"
+                        className="mb-2 block text-sm font-medium text-dark"
                       >
                         Subject
                       </label>
@@ -178,29 +240,28 @@ const Contact = () => {
                         name="subject"
                         id="subject"
                         placeholder="How can we help?"
-                        className="w-full rounded-lg bg-[#F7F8FA] px-4 py-3 text-dark outline-none focus:ring-1 focus:ring-seaBlue-dark transition-all"
+                        className={inputClass}
                       />
                     </div>
                   </div>
 
-                  <div className="mb-8">
+                  <div className="mb-6">
                     <label
                       htmlFor="message"
-                      className="mb-2.5 block font-medium text-dark"
+                      className="mb-2 block text-sm font-medium text-dark"
                     >
-                      Message <span className="text-red-500">*</span>
+                      Message <span className="text-primary">*</span>
                     </label>
                     <textarea
-                      rows={4}
+                      rows={5}
                       name="message"
                       id="message"
                       required
-                      placeholder="How can we help you?"
-                      className="w-full rounded-lg bg-[#F7F8FA] px-4 py-3 text-dark outline-none focus:ring-1 focus:ring-seaBlue-dark transition-all resize-none"
+                      placeholder="Tell us a bit about what you need…"
+                      className={`${inputClass} resize-none`}
                     />
                   </div>
 
-                  {/* Optional hidden metadata */}
                   <input
                     type="hidden"
                     name="_subject"
@@ -209,31 +270,19 @@ const Contact = () => {
 
                   <button
                     type="submit"
-                    className="w-full md:w-auto inline-flex items-center justify-center font-bold text-white bg-seaBlue-dark py-4 px-10 rounded-lg hover:bg-[#008B8B] transition-colors duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
+                    className="w-full md:w-auto inline-flex items-center justify-center gap-2 font-semibold text-white bg-primary hover:bg-primary-dark py-3.5 px-8 rounded-lg transition-all duration-300 shadow-sm hover:shadow-md hover:-translate-y-0.5"
                   >
                     Send Message
+                    <Send className="w-4 h-4" />
                   </button>
                 </form>
               </div>
             </div>
-          </div>
-
-          {/* Map */}
-          <div className="mt-20 rounded-2xl overflow-hidden shadow-md h-[450px]">
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d127066.72272976134!2d-0.26213223044853146!3d5.591373809759278!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xfdf9084b2b7a773%3A0xbed14ed8650e2dd3!2sAccra!5e0!3m2!1sen!2sgh!4v1770933530200!5m2!1sen!2sgh"
-              width="100%"
-              height="100%"
-              style={{ border: 0 }}
-              allowFullScreen
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              title="Obaapa Essentials Location"
-            ></iframe>
           </div>
         </div>
       </section>
     </>
   );
 };
+
 export default Contact;
