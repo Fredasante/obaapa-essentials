@@ -12,6 +12,8 @@ const SIZE_DIMS = {
 
 const Wordmark = ({ size = "md" }: WordmarkProps) => {
   const { width, height } = SIZE_DIMS[size];
+  const responsiveClass =
+    size === "md" ? "w-[125px] md:w-[160px] h-auto" : "h-auto";
   return (
     <Link href="/" aria-label="Obaapa Essentials - Home">
       <Image
@@ -20,7 +22,7 @@ const Wordmark = ({ size = "md" }: WordmarkProps) => {
         width={width}
         height={height}
         priority
-        className="object-contain"
+        className={`object-contain ${responsiveClass}`}
       />
     </Link>
   );

@@ -16,7 +16,7 @@ const Cart = () => {
   return (
     <>
       {cartItems.length > 0 ? (
-        <section className="overflow-hidden py-10 bg-[#F7F8FA] mb-5 md:pb-10 lg:pb-24">
+        <section className="overflow-hidden pt-16 md:pt-20 pb-10 bg-[#F7F8FA] mb-5 md:pb-10 lg:pb-24">
           <div className="max-w-[1170px] w-full mx-auto px-4 sm:px-8 xl:px-0">
             <div className="flex flex-wrap items-center justify-between gap-5 mb-7.5">
               <h2 className="font-medium text-dark text-2xl">Your Cart</h2>
@@ -71,7 +71,7 @@ const Cart = () => {
         </section>
       ) : (
         <>
-          <div className="text-center py-10 md:pb-10 lg:pb-24">
+          <div className="text-center pt-16 md:pt-20 pb-10 md:pb-10 lg:pb-24">
             <div className="mx-auto flex items-center justify-center pb-7.5">
               <div className="flex items-center justify-center w-17 h-17 rounded-full bg-slate-100">
                 <ShoppingCart className="w-6 h-6 text-gray-700" />
