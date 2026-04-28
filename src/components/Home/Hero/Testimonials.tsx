@@ -7,28 +7,28 @@ export function TestimonialsSection() {
         "Ordered the kente top and a jar of the dawadawa spice mix. The fabric is GORGEOUS and the spice made my kitchen smell like home. Already planning my next order lol.",
       name: "Abena M.",
       designation: "Verified Customer",
-      src: "https://images.unsplash.com/photo-1636302926027-9619142d7173?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      src: "https://plus.unsplash.com/premium_photo-1759569362033-8d8291915a0a?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDEyfHx8ZW58MHx8fHx8",
     },
     {
       quote:
         "Got the bundled hibiscus tea and shito spice set for my wife and she was so impressed 😂 The quality is legit, way better than I expected for the price.",
-      name: "Kwame A.",
+      name: "Maame Yaa W.",
       designation: "Verified Customer",
-      src: "https://images.unsplash.com/photo-1506277886164-e25aa3f4ef7f?w=300&h=300&fit=crop&crop=face",
+      src: "https://images.unsplash.com/photo-1675815033518-1a21f06553c0?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDV8fHxlbnwwfHx8fHw%3D",
     },
     {
       quote:
         "Third time ordering from Obaapa Essentials and every parcel arrives perfect. The herbal teas especially — my friends always ask where I get them from. Keep it up! 🔥",
       name: "Nana Esi",
       designation: "Verified Customer",
-      src: "https://images.unsplash.com/photo-1664629153062-1471c35ced65?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      src: "https://images.unsplash.com/photo-1566599263156-55a16c37d54b?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDd8fHxlbnwwfHx8fHw%3D",
     },
     {
       quote:
         "Honestly the pictures don't even do these pieces justice. The fashion pieces fit beautifully and the foods taste like home 🏡",
       name: "Serwaa B.",
       designation: "Verified Customer",
-      src: "https://images.unsplash.com/photo-1523824921871-d6f1a15151f1?w=300&h=300&fit=crop&crop=face",
+      src: "https://images.unsplash.com/photo-1725114077889-d38ea6c4487d?q=80&w=627&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     },
   ];
 
