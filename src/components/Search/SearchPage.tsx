@@ -70,6 +70,13 @@ export default function SearchPage() {
     };
   }, [productSidebar]);
 
+  // Sync local category state when the URL ?category= changes
+  // (e.g. user clicks a different category in the mobile drawer while on /search)
+  useEffect(() => {
+    setSelectedCategory(categoryParam);
+    setCurrentPage(1);
+  }, [categoryParam]);
+
   // Fetch search results - works with category only or search query
   useEffect(() => {
     const loadSearchResults = async () => {
