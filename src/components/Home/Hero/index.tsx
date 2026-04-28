@@ -5,7 +5,39 @@ import { ArrowRight } from "lucide-react";
 
 import SearchInput from "@/components/Header/SearchInput";
 import HeroCategoryCard from "./HeroCategoryCard";
-import { categories } from "@/data/categories";
+import { categories, type Category } from "@/data/categories";
+
+const bagHeroSlides: Category[] = [
+  {
+    id: "hero-bags-1",
+    title: "Bags",
+    subtext: "Carry in Style",
+    value: "bags",
+    image:
+      "https://images.unsplash.com/photo-1590874103328-eac38a683ce7?q=80&w=738&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  },
+  {
+    id: "hero-bags-2",
+    title: "Bags",
+    subtext: "Statement Pieces",
+    value: "bags",
+    image:
+      "https://images.unsplash.com/photo-1606522754091-a3bbf9ad4cb3?q=80&w=842&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  },
+  {
+    id: "hero-bags-3",
+    title: "Bags",
+    subtext: "Everyday Essentials",
+    value: "bags",
+    image:
+      "https://images.unsplash.com/photo-1713425886695-7772d1498b11?q=80&w=711&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  },
+];
+
+const heroSlides: Category[] = [
+  ...bagHeroSlides,
+  ...categories.filter((c) => c.value !== "bags"),
+];
 
 const Hero = () => {
   return (
@@ -19,12 +51,12 @@ const Hero = () => {
             </span>
 
             <h1 className="text-4xl sm:text-5xl lg:text-heading-2 xl:text-heading-1 font-bold text-[#81c408] leading-tight mb-5">
-              Fashion, Flavor &amp; Wellness — All in One Place
+              Statement Bags &amp; Everyday Essentials
             </h1>
 
             <p className="text-custom-sm lg:text-base text-body leading-relaxed max-w-[520px] mx-auto lg:mx-0 mb-8">
-              From fashion and foods to spices and teas, everyday essentials
-              curated for life at home.
+              Hand-picked bags to carry every day, plus foods, spices and teas
+              for life at home.
             </p>
 
             <div className="max-w-[520px] mx-auto lg:mx-0 mb-6">
@@ -42,7 +74,7 @@ const Hero = () => {
 
           {/* Right column */}
           <div className="order-1 lg:order-2">
-            <HeroCategoryCard categories={categories} />
+            <HeroCategoryCard categories={heroSlides} />
           </div>
         </div>
       </div>

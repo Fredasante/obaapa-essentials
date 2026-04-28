@@ -10,11 +10,11 @@ export interface Category {
 export const categories: Category[] = [
   {
     id: "1",
-    title: "Fashion",
-    subtext: "Style & Essentials",
-    value: "fashion",
+    title: "Bags",
+    subtext: "Carry in Style",
+    value: "bags",
     image:
-      "https://plus.unsplash.com/premium_photo-1705352059500-6a141750a8be?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "https://images.unsplash.com/photo-1584917865442-de89df76afd3?q=80&w=1170&auto=format&fit=crop",
     className: "col-span-2 md:col-span-2 md:row-span-2",
   },
   {
@@ -23,7 +23,7 @@ export const categories: Category[] = [
     subtext: "Pantry & Staples",
     value: "foods",
     image:
-      "https://images.unsplash.com/photo-1701566619911-2dcb1e29b1dc?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "https://plus.unsplash.com/premium_photo-1675727572780-522e305f1374?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     className: "col-span-1 md:col-span-1 md:row-span-1",
   },
   {
@@ -51,6 +51,15 @@ export const categories: Category[] = [
     value: "others",
     image:
       "https://images.unsplash.com/photo-1616046229478-9901c5536a45?w=800&h=600&fit=crop",
+    className: "col-span-2 md:col-span-2 md:row-span-1",
+  },
+  {
+    id: "6",
+    title: "Fashion",
+    subtext: "Style & Essentials",
+    value: "fashion",
+    image:
+      "https://plus.unsplash.com/premium_photo-1705352059500-6a141750a8be?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     className: "col-span-2 md:col-span-2 md:row-span-1",
   },
 ];

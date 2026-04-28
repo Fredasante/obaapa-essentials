@@ -44,6 +44,7 @@ export const product = defineType({
       type: "string",
       options: {
         list: [
+          { title: "Bags", value: "bags" },
           { title: "Fashion", value: "fashion" },
           { title: "Foods", value: "foods" },
           { title: "Spices", value: "spices" },

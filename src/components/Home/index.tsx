@@ -12,7 +12,7 @@ const Home = () => {
       <AllProducts />
       <CategoryGrid
         title="Shop by Category"
-        subtitle="Browse our curated selection across fashion, food, spices, teas, and more."
+        subtitle="Browse our curated selection across bags, foods, spices, teas, and more."
       />
       <TestimonialsSection />
       <BrandPromise />
