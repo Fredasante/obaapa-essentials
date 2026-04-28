@@ -419,7 +419,7 @@ const Header = () => {
       />
 
       {/* Spacer so content isn't hidden under fixed header */}
-      <div aria-hidden="true" className="h-[82px] lg:h-[88px]" />
+      <div aria-hidden="true" className="h-[110px] sm:h-[95px] lg:h-[88px]" />
     </>
   );
 };
