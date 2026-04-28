@@ -3,7 +3,7 @@ import React from "react";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Sign In | Obaapa Essentials",
+  title: "Sign In",
   description:
     "Access your Obaapa Essentials account to track orders, manage your wishlist, and enjoy a personalised shopping experience.",
   robots: {

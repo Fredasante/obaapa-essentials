@@ -3,7 +3,7 @@ import Cart from "@/components/Cart";
 
 import { Metadata } from "next";
 export const metadata: Metadata = {
-  title: "Cart | Obaapa Essentials",
+  title: "Cart",
   description: "View and manage the items in your shopping cart on Obaapa Essentials.",
   robots: {
     index: false,

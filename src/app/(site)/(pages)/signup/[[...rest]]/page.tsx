@@ -3,7 +3,7 @@ import React from "react";
 
 import { Metadata } from "next";
 export const metadata: Metadata = {
-  title: "Signup | Obaapa Essentials",
+  title: "Sign Up",
   description: "Create your account to start shopping with Obaapa Essentials",
   robots: {
     index: false,

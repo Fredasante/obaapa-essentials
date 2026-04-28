@@ -3,7 +3,7 @@ import { Wishlist } from "@/components/Wishlist";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Wishlist | Obaapa Essentials",
+  title: "Wishlist",
   description:
     "View and manage your favourite essentials saved on Obaapa Essentials.",
   robots: {

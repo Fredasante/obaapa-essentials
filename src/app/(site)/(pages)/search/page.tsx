@@ -4,7 +4,7 @@ import SearchPage from "@/components/Search/SearchPage";
 import { ClipLoader } from "react-spinners";
 
 export const metadata = {
-  title: "Search Products | Obaapa Essentials",
+  title: "Search Products",
   description: "Search for products in our store",
   robots: {
     index: false,

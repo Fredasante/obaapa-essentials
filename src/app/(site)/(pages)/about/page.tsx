@@ -1,11 +1,18 @@
 import AboutUs from "@/components/AboutUs/AboutUs";
 
-import { Metadata } from "next";
+import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "About Us | Obaapa Essentials",
+  title: "About Us",
   description:
     "Discover Obaapa Essentials — a Ghanaian lifestyle store bringing you authentically-sourced fashion, foods, spices, teas, and wellness essentials.",
+  alternates: { canonical: "/about" },
+  openGraph: {
+    title: "About Us | Obaapa Essentials",
+    description:
+      "Discover Obaapa Essentials — a Ghanaian lifestyle store bringing you authentically-sourced fashion, foods, spices, teas, and wellness essentials.",
+    url: "/about",
+  },
 };
 
 const AboutUsPage = () => {

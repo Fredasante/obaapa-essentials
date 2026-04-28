@@ -4,7 +4,7 @@ import Checkout from "@/components/Checkout";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Checkout | Obaapa Essentials",
+  title: "Checkout",
   description:
     "Complete your purchase securely and effortlessly on Obaapa Essentials. Review your items and finalize your order today!",
   robots: {
