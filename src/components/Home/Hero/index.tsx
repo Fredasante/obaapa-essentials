@@ -23,8 +23,8 @@ const Hero = () => {
             </h1>
 
             <p className="text-custom-sm lg:text-base text-body leading-relaxed max-w-[520px] mx-auto lg:mx-0 mb-8">
-              From handwoven pieces to pantry staples, everyday essentials with
-              an authentically Ghanaian soul.
+              From fashion and foods to spices and teas, everyday essentials
+              curated for life at home.
             </p>
 
             <div className="max-w-[520px] mx-auto lg:mx-0 mb-6">
