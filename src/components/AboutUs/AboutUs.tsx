@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { LayoutGrid, MapPin, Wallet, Headphones } from "lucide-react";
+import { LayoutGrid, Sparkles, Wallet, Headphones } from "lucide-react";
 import Breadcrumb from "../Common/Breadcrumb";
 import { categories } from "@/data/categories";
 
@@ -9,8 +9,8 @@ const promises = [
   {
     num: 1,
     bg: "bg-primary",
-    title: "Sourced in Ghana",
-    desc: "Every product is locally curated and traceable to origin — not bulk imports rebranded.",
+    title: "Hand-curated",
+    desc: "Every product is personally chosen for quality and character — not stocked from bulk imports.",
   },
   {
     num: 2,
@@ -46,15 +46,15 @@ const AboutUs = () => {
               </h2>
               <div className="space-y-4 text-gray-600 text-base md:text-lg leading-relaxed">
                 <p>
-                  Obaapa Essentials began as a love letter to Ghanaian
-                  craftsmanship — fabrics that carry pattern and history, foods
-                  that taste like home, spices and teas with names you grew up
+                  Obaapa Essentials began as a love letter to the Ghanaian way
+                  of life — fabrics that carry pattern and history, foods that
+                  taste like home, spices and teas with names you grew up
                   hearing.
                 </p>
                 <p>
-                  Today we curate authentically African goods for everyday
-                  life. Every item is chosen for quality, origin, and the story
-                  it carries.
+                  Today we curate everyday essentials with care. Every item is
+                  chosen for its quality and the role it plays in everyday
+                  life.
                 </p>
               </div>
             </div>
@@ -88,13 +88,13 @@ const AboutUs = () => {
               {
                 Icon: LayoutGrid,
                 value: "5",
-                label: "Curated categories",
+                label: "Categories",
                 tint: "primary" as const,
               },
               {
-                Icon: MapPin,
+                Icon: Sparkles,
                 value: "100%",
-                label: "Ghana-sourced",
+                label: "Hand-curated",
                 tint: "accent" as const,
               },
               {
