@@ -5,6 +5,7 @@ import ClientLayout from "./ClientLayout";
 import { ClerkProvider } from "@clerk/nextjs";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://www.obaapaessentials.com"),
   title: "Obaapa Essentials | Fashion, Food, Spices & Wellness – Ghana",
   description:
     "Shop authentically Ghanaian fashion, pantry staples, spices, teas, and wellness essentials at Obaapa Essentials — everyday pieces rooted in culture.",
