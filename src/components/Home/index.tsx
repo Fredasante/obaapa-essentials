@@ -3,6 +3,7 @@ import Hero from "./Hero";
 import AllProducts from "./AllProducts";
 import CategoryGrid from "./CategoryGrid";
 import { TestimonialsSection } from "./Hero/Testimonials";
+import BrandPromise from "./BrandPromise";
 
 const Home = () => {
   return (
@@ -14,6 +15,7 @@ const Home = () => {
         subtitle="Browse our curated selection across fashion, food, spices, teas, and more."
       />
       <TestimonialsSection />
+      <BrandPromise />
     </main>
   );
 };
