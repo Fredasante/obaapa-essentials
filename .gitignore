@@ -36,3 +36,7 @@ next-env.d.ts
 
 # superpowers brainstorming sessions
 /.superpowers/
+
+# sanity studio build output
+/dist
+/.sanity
