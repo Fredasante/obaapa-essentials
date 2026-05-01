@@ -9,11 +9,11 @@ const POLICY_LINKS = [
 
 const UtilityBar = () => {
   return (
-    <div className="bg-[#8E1A5C]">
+    <div className="bg-white border-b border-gray-3">
       <div className="max-w-[1440px] mx-auto px-4 sm:px-7.5 xl:px-12">
-        <div className="flex items-center justify-center lg:justify-between py-2 text-xs font-medium text-white">
+        <div className="flex items-center justify-center lg:justify-between py-2 text-xs font-medium text-dark">
           <div className="flex flex-col sm:flex-row sm:flex-wrap items-center justify-center gap-x-5 gap-y-1">
-            <div className="flex items-center gap-2 order-1 text-sm uppercase">
+            <div className="flex items-center gap-2 order-1 text-sm lg:text-xs uppercase">
               <Truck className="w-3.5 h-3.5 flex-shrink-0" aria-hidden="true" />
               <span className="text-center">Standard Delivery Within 1 to 2 Working Days</span>
             </div>
@@ -31,7 +31,7 @@ const UtilityBar = () => {
               <li key={link.href}>
                 <Link
                   href={link.href}
-                  className="hover:text-dark transition-colors"
+                  className="hover:text-primary transition-colors"
                 >
                   {link.label}
                 </Link>

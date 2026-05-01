@@ -88,7 +88,7 @@ const Header = () => {
   return (
     <>
       <header
-        className={`fixed left-0 top-0 w-full z-9999 bg-white transition-all ease-in-out duration-300 ${
+        className={`fixed left-0 top-0 w-full z-9999 bg-[#8E1A5C] transition-all ease-in-out duration-300 ${
           stickyMenu ? "shadow-md" : ""
         }`}
       >
@@ -97,7 +97,7 @@ const Header = () => {
         <div className="max-w-[1440px] mx-auto px-4 sm:px-7.5 xl:px-12">
           <div
             className={`flex items-center justify-between gap-6 transition-all duration-200 ${
-              stickyMenu ? "py-2 lg:py-2" : "py-2.5 lg:py-3"
+              stickyMenu ? "py-2.5 lg:py-2" : "py-3 lg:py-3"
             }`}
           >
             {/* Left: wordmark */}
@@ -111,11 +111,11 @@ const Header = () => {
                 {menuData.map((item) => (
                   <li
                     key={item.id}
-                    className="group relative before:w-0 before:h-[3px] before:bg-primary before:absolute before:left-0 before:-bottom-1 before:rounded-b-[3px] before:ease-out before:duration-200 hover:before:w-full"
+                    className="group relative before:w-0 before:h-[3px] before:bg-white before:absolute before:left-0 before:-bottom-1 before:rounded-b-[3px] before:ease-out before:duration-200 hover:before:w-full"
                   >
                     <Link
                       href={item.path ?? "/"}
-                      className="text-custom-sm font-medium text-dark hover:text-primary transition-colors py-2 flex items-center min-h-[40px]"
+                      className="text-custom-sm font-medium text-white hover:text-cream transition-colors py-2 flex items-center min-h-[40px]"
                     >
                       {item.title}
                     </Link>
@@ -131,7 +131,7 @@ const Header = () => {
                 type="button"
                 onClick={() => setSearchOpen(true)}
                 aria-label="Open search"
-                className="w-11 h-11 flex items-center justify-center text-dark hover:text-primary transition-colors"
+                className="w-11 h-11 flex items-center justify-center text-white hover:text-cream transition-colors"
               >
                 <SearchIcon className="w-5 h-5" />
               </button>
@@ -143,7 +143,7 @@ const Header = () => {
               <button
                 onClick={openCartModal}
                 aria-label={`Cart, ${product.length} items, total ₵${totalPrice}`}
-                className="flex items-center gap-2 min-h-[44px] px-2"
+                className="flex items-center gap-2 min-h-[44px] px-2 text-white"
               >
                 <span className="inline-block relative">
                   <Image
@@ -152,16 +152,17 @@ const Header = () => {
                     width={24}
                     height={24}
                     aria-hidden="true"
+                    className="invert brightness-0"
                   />
-                  <span className="flex items-center justify-center font-medium text-2xs absolute -right-2 -top-2 bg-primary w-4.5 h-4.5 rounded-full text-white">
+                  <span className="flex items-center justify-center font-semibold text-2xs absolute -right-2 -top-2 bg-white w-4.5 h-4.5 rounded-full text-primary">
                     {product.length}
                   </span>
                 </span>
                 <span className="hidden lg:block text-left">
-                  <span className="block text-2xs text-dark-4 uppercase leading-none">
+                  <span className="block text-2xs text-white/70 uppercase leading-none">
                     cart
                   </span>
-                  <span className="font-medium text-custom-sm text-dark">
+                  <span className="font-medium text-custom-sm text-white">
                     ₵{totalPrice}
                   </span>
                 </span>
@@ -178,17 +179,17 @@ const Header = () => {
               >
                 <span className="block relative w-5 h-4">
                   <span
-                    className={`absolute left-0 right-0 h-0.5 bg-dark rounded transition-all duration-200 ${
+                    className={`absolute left-0 right-0 h-0.5 bg-white rounded transition-all duration-200 ${
                       drawerOpen ? "top-1.5 rotate-45" : "top-0"
                     }`}
                   />
                   <span
-                    className={`absolute left-0 right-0 top-1.5 h-0.5 bg-dark rounded transition-opacity duration-200 ${
+                    className={`absolute left-0 right-0 top-1.5 h-0.5 bg-white rounded transition-opacity duration-200 ${
                       drawerOpen ? "opacity-0" : "opacity-100"
                     }`}
                   />
                   <span
-                    className={`absolute left-0 right-0 h-0.5 bg-dark rounded transition-all duration-200 ${
+                    className={`absolute left-0 right-0 h-0.5 bg-white rounded transition-all duration-200 ${
                       drawerOpen ? "top-1.5 -rotate-45" : "top-3"
                     }`}
                   />
@@ -419,7 +420,7 @@ const Header = () => {
       />
 
       {/* Spacer so content isn't hidden under fixed header */}
-      <div aria-hidden="true" className="h-[110px] sm:h-[95px] lg:h-[88px]" />
+      <div aria-hidden="true" className="h-[125px] sm:h-[100px] lg:h-[90px]" />
     </>
   );
 };

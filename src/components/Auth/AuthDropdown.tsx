@@ -58,10 +58,10 @@ export default function AuthDropdown({ user, isSignedIn }: AuthDropdownProps) {
           height={25}
         />
         <span className="hidden lg:block text-left">
-          <span className="block text-2xs text-dark-4 uppercase leading-none">
+          <span className="block text-2xs text-white/70 uppercase leading-none">
             account
           </span>
-          <span className="font-medium text-custom-sm text-dark">Sign In</span>
+          <span className="font-medium text-custom-sm text-white">Sign In</span>
         </span>
       </Link>
     );
@@ -84,15 +84,15 @@ export default function AuthDropdown({ user, isSignedIn }: AuthDropdownProps) {
           className="rounded-full object-cover"
         />
         <span className="hidden lg:block text-left">
-          <span className="block text-2xs text-dark-4 uppercase leading-none">
+          <span className="block text-2xs text-white/70 uppercase leading-none">
             account
           </span>
-          <span className="font-medium text-custom-sm text-dark">
+          <span className="font-medium text-custom-sm text-white">
             {truncateName(user?.firstName || "My Account")}
           </span>
         </span>
         <svg
-          className={`hidden lg:block w-4 h-4 text-gray-4 transition-transform ${
+          className={`hidden lg:block w-4 h-4 text-white/70 transition-transform ${
             isDropdownOpen ? "rotate-180" : ""
           }`}
           fill="none"
