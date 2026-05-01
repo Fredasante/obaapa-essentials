@@ -81,7 +81,7 @@ const HeroCategoryCard = ({ categories }: HeroCategoryCardProps) => {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/20 to-transparent" />
               <div className="relative z-10 text-center text-white w-full">
-                <span className="inline-block bg-accent text-dark text-xs font-semibold uppercase tracking-wider px-3 py-1 rounded-full mb-3">
+                <span className="inline-block bg-accent text-white text-xs font-semibold uppercase tracking-wider px-3 py-1 rounded-full mb-3">
                   {category.subtext}
                 </span>
                 <h3 className="text-3xl sm:text-4xl lg:text-5xl font-bold drop-shadow-lg mb-4">
@@ -89,7 +89,7 @@ const HeroCategoryCard = ({ categories }: HeroCategoryCardProps) => {
                 </h3>
                 <Link
                   href={`/search?category=${category.value}`}
-                  className="inline-block bg-white text-primary font-semibold text-custom-sm uppercase tracking-wider px-6 py-3 rounded-full hover:bg-accent hover:text-dark transition-colors"
+                  className="inline-block bg-white text-primary font-semibold text-custom-sm uppercase tracking-wider px-6 py-3 rounded-full hover:bg-accent hover:text-white transition-colors"
                 >
                   Shop {category.title}
                 </Link>
@@ -127,7 +127,7 @@ const HeroCategoryCard = ({ categories }: HeroCategoryCardProps) => {
         }
         .hero-card-bullet-active {
           width: 24px;
-          background-color: #bedb39;
+          background-color: #ffffff;
         }
       `}</style>
     </div>
