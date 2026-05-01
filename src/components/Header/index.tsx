@@ -8,7 +8,6 @@ import {
   Info,
   Mail,
   Phone,
-  Search as SearchIcon,
   ShoppingBag,
   ShoppingCart,
   Truck,
@@ -21,7 +20,6 @@ import Image from "next/image";
 import { menuData } from "./menuData";
 import Wordmark from "./Wordmark";
 import UtilityBar from "./UtilityBar";
-import SearchOverlay from "./SearchOverlay";
 import AuthDropdown from "../Auth/AuthDropdown";
 import { useAppSelector } from "@/redux/store";
 import { selectTotalPrice } from "@/redux/features/cart-slice";
@@ -38,7 +36,6 @@ const NAV_ICONS: Record<string, React.ComponentType<{ className?: string }>> = {
 const Header = () => {
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [shopExpanded, setShopExpanded] = useState(false);
-  const [searchOpen, setSearchOpen] = useState(false);
   const [stickyMenu, setStickyMenu] = useState(false);
   const drawerRef = useRef<HTMLDivElement>(null);
 
@@ -126,16 +123,6 @@ const Header = () => {
 
             {/* Right: icon cluster */}
             <div className="flex items-center gap-2 sm:gap-4">
-              {/* Search icon (all breakpoints) */}
-              <button
-                type="button"
-                onClick={() => setSearchOpen(true)}
-                aria-label="Open search"
-                className="w-11 h-11 flex items-center justify-center text-white hover:text-cream transition-colors"
-              >
-                <SearchIcon className="w-5 h-5" />
-              </button>
-
               {/* Auth avatar */}
               <AuthDropdown user={user} isSignedIn={isSignedIn} />
 
@@ -413,11 +400,6 @@ const Header = () => {
           </aside>
         </div>
       </header>
-
-      <SearchOverlay
-        open={searchOpen}
-        onClose={() => setSearchOpen(false)}
-      />
 
       {/* Spacer so content isn't hidden under fixed header */}
       <div aria-hidden="true" className="h-[125px] sm:h-[100px] lg:h-[90px]" />
