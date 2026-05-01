@@ -46,19 +46,19 @@ export const categories: Category[] = [
   },
   {
     id: "5",
+    title: "Fashion",
+    subtext: "Style & Essentials",
+    value: "fashion",
+    image: "/suit.jpg",
+    className: "col-span-2 md:col-span-2 md:row-span-1",
+  },
+  {
+    id: "6",
     title: "Others",
     subtext: "Hidden Gems",
     value: "others",
     image:
       "https://images.unsplash.com/photo-1616046229478-9901c5536a45?w=800&h=600&fit=crop",
-    className: "col-span-2 md:col-span-2 md:row-span-1",
-  },
-  {
-    id: "6",
-    title: "Fashion",
-    subtext: "Style & Essentials",
-    value: "fashion",
-    image: "/suit.jpg",
     className: "col-span-2 md:col-span-2 md:row-span-1",
   },
 ];
