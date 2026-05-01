@@ -9,7 +9,6 @@ type Testimonial = {
   quote: string;
   name: string;
   designation: string;
-  src: string;
 };
 export const AnimatedTestimonials = ({
   testimonials,
@@ -44,13 +43,13 @@ export const AnimatedTestimonials = ({
   };
   return (
     <div className="mx-auto max-w-sm px-4 py-10 md:py-20 font-sans antialiased md:max-w-4xl md:px-8 lg:px-12">
-      <div className="relative grid grid-cols-1 gap-20 md:grid-cols-2">
-        <div>
+      <div className="relative grid grid-cols-1 gap-10 md:gap-20 md:grid-cols-2">
+        <div className="hidden md:block">
           <div className="relative h-80 w-full">
             <AnimatePresence>
               {testimonials.map((testimonial, index) => (
                 <motion.div
-                  key={testimonial.src}
+                  key={testimonial.name}
                   initial={{
                     opacity: 0,
                     scale: 0.9,
@@ -79,14 +78,14 @@ export const AnimatedTestimonials = ({
                   }}
                   className="absolute inset-0 origin-bottom"
                 >
-                  <img
-                    src={testimonial.src}
-                    alt={testimonial.name}
-                    width={500}
-                    height={500}
-                    draggable={false}
-                    className="h-full w-full rounded-3xl object-cover object-center"
-                  />
+                  <div className="h-full w-full rounded-3xl bg-gradient-to-br from-primary-light via-primary to-primary-dark flex items-start justify-center shadow-xl overflow-hidden">
+                    <span
+                      className="text-white/90 font-serif leading-none drop-shadow-lg select-none text-[280px] md:text-[360px] mt-4 md:mt-8"
+                      aria-hidden="true"
+                    >
+                      &ldquo;
+                    </span>
+                  </div>
                 </motion.div>
               ))}
             </AnimatePresence>
@@ -112,12 +111,19 @@ export const AnimatedTestimonials = ({
               ease: "easeInOut",
             }}
           >
-            <h3 className="text-2xl font-bold text-black dark:text-white">
-              {testimonials[active].name}
-            </h3>
-            <p className="text-sm text-gray-500 dark:text-neutral-500">
-              {testimonials[active].designation}
-            </p>
+            <div className="flex items-center gap-4 md:block">
+              <div className="md:hidden flex-shrink-0 w-14 h-14 rounded-full bg-gradient-to-br from-primary-light to-primary-dark text-white flex items-center justify-center font-bold text-xl shadow-md ring-2 ring-white">
+                {testimonials[active].name.charAt(0).toUpperCase()}
+              </div>
+              <div>
+                <h3 className="text-xl md:text-2xl font-bold text-black dark:text-white">
+                  {testimonials[active].name}
+                </h3>
+                <p className="text-sm text-gray-500 dark:text-neutral-500">
+                  {testimonials[active].designation}
+                </p>
+              </div>
+            </div>
             <motion.p className="mt-8 text-lg text-gray-500 dark:text-neutral-300">
               {testimonials[active].quote.split(" ").map((word, index) => (
                 <motion.span
