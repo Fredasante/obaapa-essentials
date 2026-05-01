@@ -47,9 +47,9 @@ const AboutUs = () => {
               <div className="space-y-4 text-gray-600 text-base md:text-lg leading-relaxed">
                 <p>
                   Obaapa Essentials began as a love letter to the Ghanaian way
-                  of life — fabrics that carry pattern and history, foods that
-                  taste like home, spices and teas with names you grew up
-                  hearing.
+                  of life — fabrics that carry pattern and history, bags built
+                  to carry the day, foods that taste like home, spices and teas
+                  with names you grew up hearing.
                 </p>
                 <p>
                   Today we curate everyday essentials with care. Every item is
@@ -58,11 +58,10 @@ const AboutUs = () => {
                 </p>
               </div>
             </div>
-            {/* TODO: replace with real brand photography when available */}
-            <div className="relative h-[400px] lg:h-[600px] rounded-2xl overflow-hidden shadow-2xl">
+            <div className="relative aspect-[3/2] rounded-2xl overflow-hidden shadow-2xl">
               <Image
-                src="https://plus.unsplash.com/premium_photo-1705352059500-6a141750a8be?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                alt="Ghanaian lifestyle"
+                src="/about-us-bags.png"
+                alt="Obaapa Essentials bags"
                 fill
                 sizes="(max-width: 1024px) 100vw, 50vw"
                 className="object-cover hover:scale-105 transition-transform duration-700"
@@ -87,7 +86,7 @@ const AboutUs = () => {
             {[
               {
                 Icon: LayoutGrid,
-                value: "5",
+                value: "6",
                 label: "Categories",
                 tint: "primary" as const,
               },
@@ -141,10 +140,10 @@ const AboutUs = () => {
               What We Curate
             </span>
             <h2 className="text-3xl md:text-4xl font-bold text-dark leading-tight">
-              Five categories, one philosophy
+              Six categories, one philosophy
             </h2>
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-6">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 md:gap-6">
             {categories.map((category) => (
               <Link
                 key={category.id}
@@ -227,8 +226,8 @@ const AboutUs = () => {
             Ready to shop the essentials?
           </h2>
           <p className="text-gray-600 text-base md:text-lg max-w-2xl mx-auto mb-8">
-            Explore our curated collection across fashion, foods, spices, teas,
-            and wellness — rooted in Ghana, made for you.
+            Explore our curated collection across bags, fashion, foods, spices,
+            teas, and more — rooted in Ghana, made for you.
           </p>
           <Link
             href="/shop"
