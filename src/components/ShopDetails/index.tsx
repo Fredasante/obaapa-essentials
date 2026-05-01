@@ -223,10 +223,10 @@ const ShopDetails = ({ product }: ShopDetailsProps) => {
               <button
                 onClick={handleAddToWishlist}
                 disabled={isSoldOut}
-                className={`inline-flex items-center gap-2 font-medium text-white py-2.5 px-4.5 sm:py-3 sm:px-6 text-sm sm:text-base rounded-md transition-colors ${
+                className={`inline-flex items-center gap-2 font-medium py-2.5 px-4.5 sm:py-3 sm:px-6 text-sm sm:text-base rounded-md transition-colors border-2 ${
                   isSoldOut
-                    ? "bg-gray-6 cursor-not-allowed opacity-60"
-                    : "bg-green-dark hover:bg-opacity-90"
+                    ? "bg-gray-6 text-white border-gray-6 cursor-not-allowed opacity-60"
+                    : "bg-white text-primary border-primary hover:bg-primary hover:text-white"
                 }`}
               >
                 {isSoldOut ? "Unavailable" : "Add to Wishlist"}
