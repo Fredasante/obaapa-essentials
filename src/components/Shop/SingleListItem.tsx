@@ -131,7 +131,7 @@ const SingleListItem = ({ item }: { item: Product }) => {
                 className={`inline-flex font-medium text-custom-sm py-[7px] px-5 rounded-[5px] text-white ease-out duration-200 ${
                   isSoldOut
                     ? "bg-gray-6 cursor-not-allowed opacity-60"
-                    : "bg-seaBlue-dark hover:bg-opacity-90"
+                    : "bg-primary hover:bg-opacity-90"
                 }`}
               >
                 {isSoldOut ? "Sold Out" : "Add to cart"}

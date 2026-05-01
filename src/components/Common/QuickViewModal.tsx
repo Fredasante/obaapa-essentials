@@ -265,7 +265,7 @@ const QuickViewModal = () => {
                   className={`inline-flex font-medium text-white py-2.5 px-4.5 sm:py-3 sm:px-7 text-sm sm:text-base rounded-md transition-colors ${
                     isSoldOut || !canAddToCart
                       ? "bg-gray-6 cursor-not-allowed opacity-60"
-                      : "bg-seaBlue-dark hover:bg-opacity-90"
+                      : "bg-primary hover:bg-opacity-90"
                   }`}
                 >
                   {isSoldOut

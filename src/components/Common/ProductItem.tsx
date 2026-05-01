@@ -102,7 +102,7 @@ const ProductItem = ({ item }: { item: Product }) => {
 
         <button
           onClick={() => handleAddToCart()}
-          className="flex items-center justify-center bg-seaBlue-dark font-medium text-custom-sm py-[4px] md:py-[7px] px-1.5 md:px-5 rounded-[5px] text-white ease-out duration-200 hover:bg-opacity-90"
+          className="flex items-center justify-center bg-primary font-medium text-custom-sm py-[4px] md:py-[7px] px-1.5 md:px-5 rounded-[5px] text-white ease-out duration-200 hover:bg-opacity-90"
         >
           Add to cart
         </button>
