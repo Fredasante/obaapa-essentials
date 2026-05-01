@@ -214,8 +214,7 @@ const Header = () => {
             </div>
 
             {/* Header row */}
-            <div className="flex items-center justify-between px-5 py-4 border-b border-gray-3">
-              <Wordmark size="sm" />
+            <div className="flex items-center justify-end px-5 py-4 border-b border-gray-3">
               <button
                 type="button"
                 onClick={closeDrawer}
