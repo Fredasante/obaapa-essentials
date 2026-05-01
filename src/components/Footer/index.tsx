@@ -15,7 +15,7 @@ const Footer = () => {
                 Obaapa Essentials
               </h2>
             </Link>
-            <p className="text-white/80 text-sm leading-relaxed max-w-xs">
+            <p className="text-white text-sm leading-relaxed max-w-xs">
               Fashion, foods, spices, teas, and wellness essentials — rooted
               in Ghana, made for you.
             </p>
@@ -23,14 +23,14 @@ const Footer = () => {
 
           {/* Shop Column */}
           <div>
-            <h6 className="font-bold text-sm tracking-widest uppercase mb-6 text-white/90">
+            <h6 className="font-bold text-sm tracking-widest uppercase mb-6 text-white">
               Shop
             </h6>
             <ul className="space-y-4">
               <li>
                 <Link
                   href="/shop?category=all"
-                  className="text-white/70 hover:text-white transition-colors text-sm"
+                  className="text-white/90 hover:text-white transition-colors text-sm"
                 >
                   All Products
                 </Link>
@@ -38,7 +38,7 @@ const Footer = () => {
               <li>
                 <Link
                   href="/shop?sort=newest"
-                  className="text-white/70 hover:text-white transition-colors text-sm"
+                  className="text-white/90 hover:text-white transition-colors text-sm"
                 >
                   New Arrivals
                 </Link>
@@ -47,7 +47,7 @@ const Footer = () => {
               <li>
                 <Link
                   href="/cart"
-                  className="text-white/70 hover:text-white transition-colors text-sm"
+                  className="text-white/90 hover:text-white transition-colors text-sm"
                 >
                   My Cart
                 </Link>
@@ -57,14 +57,14 @@ const Footer = () => {
 
           {/* Support Column */}
           <div>
-            <h6 className="font-bold text-sm tracking-widest uppercase mb-6 text-white/90">
+            <h6 className="font-bold text-sm tracking-widest uppercase mb-6 text-white">
               Support
             </h6>
             <ul className="space-y-4">
               <li>
                 <Link
                   href="/contact"
-                  className="text-white/70 hover:text-white transition-colors text-sm"
+                  className="text-white/90 hover:text-white transition-colors text-sm"
                 >
                   Contact Us
                 </Link>
@@ -72,7 +72,7 @@ const Footer = () => {
               <li>
                 <Link
                   href="/about"
-                  className="text-white/70 hover:text-white transition-colors text-sm"
+                  className="text-white/90 hover:text-white transition-colors text-sm"
                 >
                   About Us
                 </Link>
@@ -80,7 +80,7 @@ const Footer = () => {
               <li>
                 <Link
                   href="/faq"
-                  className="text-white/70 hover:text-white transition-colors text-sm"
+                  className="text-white/90 hover:text-white transition-colors text-sm"
                 >
                   FAQs
                 </Link>
@@ -90,14 +90,14 @@ const Footer = () => {
 
           {/* Contact & Socials Column */}
           <div>
-            <h6 className="font-bold text-sm tracking-widest uppercase mb-6 text-white/90">
+            <h6 className="font-bold text-sm tracking-widest uppercase mb-6 text-white">
               Get In Touch
             </h6>
             <ul className="space-y-3 mb-6">
               <li>
                 <a
                   href="mailto:essentialsobaapa@gmail.com"
-                  className="text-white/90 hover:text-white transition-colors text-sm flex items-center gap-3 group"
+                  className="text-white hover:text-white transition-colors text-sm flex items-center gap-3 group"
                 >
                   <span className="w-8 h-8 rounded-full bg-white/15 text-white flex items-center justify-center flex-shrink-0 group-hover:bg-white group-hover:text-primary transition-colors">
                     <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -111,7 +111,7 @@ const Footer = () => {
               <li>
                 <a
                   href="tel:+233535908290"
-                  className="text-white/90 hover:text-white transition-colors text-sm flex items-center gap-3 group"
+                  className="text-white hover:text-white transition-colors text-sm flex items-center gap-3 group"
                 >
                   <span className="w-8 h-8 rounded-full bg-white/15 text-white flex items-center justify-center flex-shrink-0 group-hover:bg-white group-hover:text-primary transition-colors">
                     <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -172,7 +172,7 @@ const Footer = () => {
         </div>
 
         <div className="max-w-[1170px] mx-auto px-4 sm:px-8 xl:px-0 pt-8 border-t border-white/10">
-          <p className="text-white/60 text-center text-sm">
+          <p className="text-white/85 text-center text-sm">
             © {year} Obaapa Essentials. All rights reserved.
           </p>
         </div>
