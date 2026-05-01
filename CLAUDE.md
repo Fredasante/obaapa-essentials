@@ -26,7 +26,7 @@ Use Tailwind tokens, not raw hex, except where a token doesn't map cleanly.
 - **Magenta (primary CTA, accent, brand color everywhere)**: `primary` / `accent` / `seaBlue-dark` / `blue-dark` / `green` → `#8E1A5C`. Hover/darker: `primary-dark` / `accent-dark` → `#6E1346`.
 - **Cream (warm soft section wash)**: `cream` → `#F5EBD8`. Also exposed as `blue.light-6` for legacy class names.
 - **Pale magenta (alternate soft tint)**: `green.light-6` → `#F8E4ED`. Used to differentiate "accent-tint" cards from "primary-tint" cream cards.
-- **Footer slate**: `bg-[#45595b]` (no token — footer-only).
+- **Footer**: magenta `bg-[#8E1A5C]` (matches navbar, brackets the page in brand color top and bottom).
 - **Body text**: `text-dark` (`#2C2E36`).
 - **Font**: `euclid-circular-a` (custom face loaded in [`src/app/css/`](src/app/css/)).
 

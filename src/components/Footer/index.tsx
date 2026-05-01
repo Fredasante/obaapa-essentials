@@ -5,13 +5,13 @@ const Footer = () => {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="bg-[#45595b] text-white pt-16 pb-8 border-t-4 border-green-dark">
+    <footer className="bg-[#8E1A5C] text-white pt-16 pb-8">
       <div className="max-w-[1170px] mx-auto px-4 sm:px-8 xl:px-0">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8 mb-16">
           {/* Brand Column */}
           <div className="space-y-6">
             <Link href="/" className="inline-block">
-              <h2 className="text-2xl font-bold tracking-widest uppercase text-[#8E1A5C]">
+              <h2 className="text-2xl font-bold tracking-widest uppercase text-white">
                 Obaapa Essentials
               </h2>
             </Link>
@@ -97,9 +97,9 @@ const Footer = () => {
               <li>
                 <a
                   href="mailto:essentialsobaapa@gmail.com"
-                  className="text-white/80 hover:text-green-dark transition-colors text-sm flex items-center gap-3 group"
+                  className="text-white/90 hover:text-white transition-colors text-sm flex items-center gap-3 group"
                 >
-                  <span className="w-8 h-8 rounded-full bg-green-dark/15 text-green-dark flex items-center justify-center flex-shrink-0 group-hover:bg-green-dark group-hover:text-white transition-colors">
+                  <span className="w-8 h-8 rounded-full bg-white/15 text-white flex items-center justify-center flex-shrink-0 group-hover:bg-white group-hover:text-primary transition-colors">
                     <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                       <rect width="20" height="16" x="2" y="4" rx="2" />
                       <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
@@ -111,9 +111,9 @@ const Footer = () => {
               <li>
                 <a
                   href="tel:+233535908290"
-                  className="text-white/80 hover:text-green-dark transition-colors text-sm flex items-center gap-3 group"
+                  className="text-white/90 hover:text-white transition-colors text-sm flex items-center gap-3 group"
                 >
-                  <span className="w-8 h-8 rounded-full bg-green-dark/15 text-green-dark flex items-center justify-center flex-shrink-0 group-hover:bg-green-dark group-hover:text-white transition-colors">
+                  <span className="w-8 h-8 rounded-full bg-white/15 text-white flex items-center justify-center flex-shrink-0 group-hover:bg-white group-hover:text-primary transition-colors">
                     <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                       <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
                     </svg>
@@ -127,7 +127,7 @@ const Footer = () => {
                 href="https://instagram.com/obaapa_essentials"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-green-dark hover:text-white transition-all duration-300 group"
+                className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white hover:text-primary transition-all duration-300 group"
                 aria-label="Instagram"
               >
                 <svg
@@ -150,7 +150,7 @@ const Footer = () => {
                 href="https://facebook.com/obaapaessentials"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-green-dark hover:text-white transition-all duration-300 group"
+                className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white hover:text-primary transition-all duration-300 group"
                 aria-label="Facebook"
               >
                 <svg
