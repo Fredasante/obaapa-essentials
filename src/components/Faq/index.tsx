@@ -56,7 +56,7 @@ const Faq = () => {
                     >
                       <path
                         d="M6 9L12 15L18 9"
-                        stroke="#8E1A5C"
+                        stroke="#E80088"
                         strokeWidth="2"
                         strokeLinecap="round"
                         strokeLinejoin="round"

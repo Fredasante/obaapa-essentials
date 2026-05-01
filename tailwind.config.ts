@@ -58,9 +58,9 @@ const config: Config = {
 
       // Magenta family (primary CTA — matches Obaapa brand magenta)
       blue: {
-        DEFAULT: "#8E1A5C",
-        dark: "#6E1346",
-        light: "#A93577",
+        DEFAULT: "#E80088",
+        dark: "#B5006B",
+        light: "#F166B8",
         "light-2": "#C25E96",
         "light-3": "#D687B5",
         "light-4": "#E5A9CC",
@@ -68,24 +68,24 @@ const config: Config = {
         "light-6": "#F5EBD8", // cream — primary soft section wash
       },
       seaBlue: {
-        DEFAULT: "#8E1A5C",
-        dark: "#6E1346",
-        light: "#A93577",
+        DEFAULT: "#E80088",
+        dark: "#B5006B",
+        light: "#F166B8",
       },
       teal: {
-        DEFAULT: "#8E1A5C",
-        dark: "#6E1346",
+        DEFAULT: "#E80088",
+        dark: "#B5006B",
       },
       orange: {
-        DEFAULT: "#8E1A5C",
-        dark: "#6E1346",
+        DEFAULT: "#E80088",
+        dark: "#B5006B",
       },
 
       // Magenta family (accent / secondary — components render as outline + magenta text)
       green: {
-        DEFAULT: "#8E1A5C",
-        dark: "#6E1346",
-        light: "#A93577",
+        DEFAULT: "#E80088",
+        dark: "#B5006B",
+        light: "#F166B8",
         "light-2": "#C25E96",
         "light-3": "#D687B5",
         "light-4": "#E5A9CC",
@@ -122,14 +122,14 @@ const config: Config = {
 
       // Semantic aliases for new code
       primary: {
-        DEFAULT: "#8E1A5C",
-        dark: "#6E1346",
-        light: "#A93577",
+        DEFAULT: "#E80088",
+        dark: "#B5006B",
+        light: "#F166B8",
       },
       accent: {
-        DEFAULT: "#8E1A5C",
-        dark: "#6E1346",
-        light: "#A93577",
+        DEFAULT: "#E80088",
+        dark: "#B5006B",
+        light: "#F166B8",
       },
       neutral: {
         DEFAULT: "#6C6F7A",
@@ -287,7 +287,7 @@ const config: Config = {
           "0px 0px 1px 0px rgba(33, 37, 41, 0.08), 0px 2px 2px 0px rgba(33, 37, 41, 0.06)",
         filter: "0px 1px 0px 0px #E5E7EB",
         list: "1px 0px 0px 0px #E5E7EB",
-        input: "inset 0 0 0 2px #8E1A5C",
+        input: "inset 0 0 0 2px #E80088",
       },
     },
   },

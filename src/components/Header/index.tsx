@@ -85,7 +85,7 @@ const Header = () => {
   return (
     <>
       <header
-        className={`fixed left-0 top-0 w-full z-9999 bg-[#8E1A5C] transition-all ease-in-out duration-300 ${
+        className={`fixed left-0 top-0 w-full z-9999 bg-[#E80088] transition-all ease-in-out duration-300 ${
           stickyMenu ? "shadow-md" : ""
         }`}
       >
@@ -208,7 +208,7 @@ const Header = () => {
             aria-label="Main menu"
           >
             {/* Brand magenta stripe */}
-            <div className="bg-[#8E1A5C] text-white px-5 py-2.5 flex items-center gap-2 text-xs font-medium">
+            <div className="bg-[#E80088] text-white px-5 py-2.5 flex items-center gap-2 text-xs font-medium">
               <Truck className="w-3.5 h-3.5" aria-hidden="true" />
               <span>Call us: 0535908290</span>
             </div>

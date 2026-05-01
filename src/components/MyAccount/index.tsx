@@ -117,7 +117,7 @@ const MyAccount = () => {
         <section className="overflow-hidden py-20 bg-[#F7F8FA] mb-5 md:mb-10 lg:mb-15">
           <div className="max-w-[1170px] w-full mx-auto px-4 sm:px-8 xl:px-0">
             <div className="flex justify-center items-center min-h-[400px]">
-              <ClipLoader size={26} color="#8E1A5C" />
+              <ClipLoader size={26} color="#E80088" />
             </div>
           </div>
         </section>
@@ -132,7 +132,7 @@ const MyAccount = () => {
         <section className="overflow-hidden py-20 bg-[#F7F8FA] mb-5 md:mb-10 lg:mb-15">
           <div className="max-w-[1170px] w-full mx-auto px-4 sm:px-8 xl:px-0">
             <div className="flex justify-center items-center min-h-[400px]">
-              <ClipLoader size={26} color="#8E1A5C" />
+              <ClipLoader size={26} color="#E80088" />
             </div>
           </div>
         </section>
@@ -244,7 +244,7 @@ const MyAccount = () => {
                   <div className="bg-white rounded-xl shadow-1 p-5 sm:p-6 lg:p-8">
                     {loadingOrders ? (
                       <div className="flex justify-center py-12">
-                        <ClipLoader size={28} color="#8E1A5C" />
+                        <ClipLoader size={28} color="#E80088" />
                       </div>
                     ) : (
                       <>

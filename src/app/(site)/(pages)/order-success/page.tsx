@@ -114,7 +114,7 @@ export default function OrderSuccessPage() {
         <section className="overflow-hidden">
           <div className="max-w-[1170px] w-full mx-auto px-4 sm:px-8 xl:px-0 rounded-lg">
             <div className="flex justify-center items-center min-h-[400px]">
-              <ClipLoader size={28} color="#8E1A5C" />
+              <ClipLoader size={28} color="#E80088" />
             </div>
           </div>
         </section>
