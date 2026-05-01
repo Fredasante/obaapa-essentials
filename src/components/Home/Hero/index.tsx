@@ -50,7 +50,7 @@ const Hero = () => {
               Rooted in Ghana, Made for You
             </span>
 
-            <h1 className="text-4xl sm:text-5xl lg:text-heading-2 xl:text-heading-1 font-bold text-[#81c408] leading-tight mb-5">
+            <h1 className="text-4xl sm:text-5xl lg:text-heading-2 xl:text-heading-1 font-bold text-[#8E1A5C] leading-tight mb-5">
               Statement Bags &amp; Everyday Essentials
             </h1>
 

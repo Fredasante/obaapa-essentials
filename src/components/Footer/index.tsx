@@ -11,7 +11,7 @@ const Footer = () => {
           {/* Brand Column */}
           <div className="space-y-6">
             <Link href="/" className="inline-block">
-              <h2 className="text-2xl font-bold tracking-widest uppercase text-[#81c408]">
+              <h2 className="text-2xl font-bold tracking-widest uppercase text-[#8E1A5C]">
                 Obaapa Essentials
               </h2>
             </Link>

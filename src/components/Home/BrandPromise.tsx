@@ -52,8 +52,8 @@ const BrandPromise = () => {
               <div
                 className={`w-12 h-12 rounded-xl flex items-center justify-center mb-4 ${
                   promise.tint === "primary"
-                    ? "bg-[#FEF3E7] text-primary"
-                    : "bg-[#F4FAE4] text-accent"
+                    ? "bg-[#F5EBD8] text-primary"
+                    : "bg-[#F8E4ED] text-accent"
                 }`}
               >
                 <promise.Icon className="w-5 h-5" />

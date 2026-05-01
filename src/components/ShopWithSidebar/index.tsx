@@ -274,7 +274,7 @@ const ShopWithSidebar = () => {
               >
                 {loading ? (
                   <div className="flex justify-center items-center w-full min-h-[300px] col-span-full">
-                    <ClipLoader size={28} color="#F27430" />
+                    <ClipLoader size={28} color="#8E1A5C" />
                   </div>
                 ) : products.length > 0 ? (
                   products.map((item, key) =>

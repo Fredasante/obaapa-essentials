@@ -73,7 +73,7 @@ const AboutUs = () => {
       </section>
 
       {/* Section 3: Stats / proof strip */}
-      <section className="bg-[#FEF3E7] py-14 md:py-20">
+      <section className="bg-[#F5EBD8] py-14 md:py-20">
         <div className="max-w-[1170px] mx-auto px-4 sm:px-8 xl:px-0">
           <div className="text-center max-w-2xl mx-auto mb-10 md:mb-14">
             <span className="text-primary font-semibold tracking-[1.5px] uppercase text-xs sm:text-sm mb-3 block">
@@ -117,8 +117,8 @@ const AboutUs = () => {
                 <div
                   className={`w-12 h-12 mx-auto mb-4 rounded-full flex items-center justify-center ${
                     stat.tint === "primary"
-                      ? "bg-[#FEF3E7] text-primary"
-                      : "bg-[#F4FAE4] text-accent"
+                      ? "bg-[#F5EBD8] text-primary"
+                      : "bg-[#F8E4ED] text-accent"
                   }`}
                 >
                   <stat.Icon className="w-6 h-6" strokeWidth={2} />
@@ -221,7 +221,7 @@ const AboutUs = () => {
       </section>
 
       {/* Section 7: CTA banner */}
-      <section className="bg-[#FEF3E7] py-14 md:py-20">
+      <section className="bg-[#F5EBD8] py-14 md:py-20">
         <div className="max-w-[1170px] mx-auto px-4 sm:px-8 xl:px-0 text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-dark mb-4">
             Ready to shop the essentials?

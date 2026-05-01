@@ -97,8 +97,8 @@ const Contact = () => {
                     <div
                       className={`w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0 transition-colors duration-300 ${
                         method.tint === "primary"
-                          ? "bg-[#FEF3E7] text-primary group-hover:bg-primary group-hover:text-white"
-                          : "bg-[#F4FAE4] text-accent group-hover:bg-accent group-hover:text-white"
+                          ? "bg-[#F5EBD8] text-primary group-hover:bg-primary group-hover:text-white"
+                          : "bg-[#F8E4ED] text-accent group-hover:bg-accent group-hover:text-white"
                       }`}
                     >
                       <method.Icon className="w-5 h-5" />
@@ -144,7 +144,7 @@ const Contact = () => {
               })}
 
               {/* Response time card */}
-              <div className="bg-[#FEF3E7] rounded-2xl p-5 flex items-start gap-4">
+              <div className="bg-[#F5EBD8] rounded-2xl p-5 flex items-start gap-4">
                 <div className="w-12 h-12 rounded-xl bg-white text-primary flex items-center justify-center flex-shrink-0">
                   <Clock className="w-5 h-5" />
                 </div>

@@ -2,7 +2,7 @@ import type { Appearance } from "@clerk/types";
 
 export const clerkAppearance: Appearance = {
   variables: {
-    colorPrimary: "#F27430",
+    colorPrimary: "#8E1A5C",
     colorText: "#2C2E36",
     colorTextSecondary: "#6C6F7A",
     borderRadius: "0.5rem",

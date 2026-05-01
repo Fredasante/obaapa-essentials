@@ -102,7 +102,7 @@ export async function POST(req: Request) {
                         }
                         
                         <div style="text-align: center; margin: 0;">
-                          <a href="https://www.obaapaessentials.com" style="display: inline-block; padding: 16px 40px; background-color: #F27430; color: #ffffff; text-decoration: none; border-radius: 8px; font-weight: 600; font-size: 16px;">
+                          <a href="https://www.obaapaessentials.com" style="display: inline-block; padding: 16px 40px; background-color: #8E1A5C; color: #ffffff; text-decoration: none; border-radius: 8px; font-weight: 600; font-size: 16px;">
                             Start Shopping
                           </a>
                         </div>
@@ -116,8 +116,8 @@ export async function POST(req: Request) {
                           Stay connected with us
                         </p>
                         <p style="margin: 0 0 15px; color: #666666; font-size: 14px;">
-                          <a href="https://www.instagram.com/bend_the_trendd___" style="color: #F27430; text-decoration: none; margin: 0 10px;">Instagram</a> |
-                          <a href="https://www.snapchat.com/add/obaapaessentials" style="color: #F27430; text-decoration: none; margin: 0 10px;">Snapchat</a> |
+                          <a href="https://www.instagram.com/bend_the_trendd___" style="color: #8E1A5C; text-decoration: none; margin: 0 10px;">Instagram</a> |
+                          <a href="https://www.snapchat.com/add/obaapaessentials" style="color: #8E1A5C; text-decoration: none; margin: 0 10px;">Snapchat</a> |
                         </p>
                         <p style="margin: 15px 0 0; color: #999999; font-size: 12px;">
                           You're receiving this email because you subscribed to our newsletter.<br>

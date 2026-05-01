@@ -19,26 +19,29 @@ Context brief for Claude Code working on this project. Keep this short and accur
 
 ## Brand & palette
 
+Site is **monochromatic magenta + cream**, matching the Obaapa Essentials brand image. There is no second hue — the primary/secondary button hierarchy comes from fill vs. outline, not from a different color.
+
 Use Tailwind tokens, not raw hex, except where a token doesn't map cleanly.
 
-- **Orange (primary CTA)**: `seaBlue-dark` / `blue-dark` / `primary` → `#F27430`. Hover: `primary-dark` → `#C85A1F`.
-- **Lemon green (accent / secondary CTA)**: `accent` / `green` → `#81C408`. Darker: `green-dark` / `accent-dark` → `#6BA306`.
+- **Magenta (primary CTA, accent, brand color everywhere)**: `primary` / `accent` / `seaBlue-dark` / `blue-dark` / `green` → `#8E1A5C`. Hover/darker: `primary-dark` / `accent-dark` → `#6E1346`.
+- **Cream (warm soft section wash)**: `cream` → `#F5EBD8`. Also exposed as `blue.light-6` for legacy class names.
+- **Pale magenta (alternate soft tint)**: `green.light-6` → `#F8E4ED`. Used to differentiate "accent-tint" cards from "primary-tint" cream cards.
 - **Footer slate**: `bg-[#45595b]` (no token — footer-only).
 - **Body text**: `text-dark` (`#2C2E36`).
 - **Font**: `euclid-circular-a` (custom face loaded in [`src/app/css/`](src/app/css/)).
 
 ## Established conventions
 
-**Button pairing** — wherever two CTAs sit side by side, primary is orange and secondary is lemon green:
-- Cart drawer: View Cart (green outline) / Checkout (orange)
-- Quick View modal: Add to Wishlist (green outline) / Add to Cart (orange)
-- Product detail: Add to Wishlist (green outline) / Add to Cart (orange)
-- Cart page Discount + OrderSummary: Apply Code (green) / Checkout (orange)
-- Checkout Coupon + Place Order: Apply (green) / Place Order (orange)
+**Button pairing** — wherever two CTAs sit side by side, primary is a magenta *fill* and secondary is a magenta *outline on white*. Both render in the same `#8E1A5C` magenta — the visual hierarchy comes from solid fill vs. border-only:
+- Cart drawer: View Cart (magenta outline) / Checkout (magenta fill)
+- Quick View modal: Add to Wishlist (magenta outline) / Add to Cart (magenta fill)
+- Product detail: Add to Wishlist (magenta outline) / Add to Cart (magenta fill)
+- Cart page Discount + OrderSummary: Apply Code (magenta outline) / Checkout (magenta fill)
+- Checkout Coupon + Place Order: Apply (magenta outline) / Place Order (magenta fill)
 
-**Header** — sticky, lemon-green utility bar always visible. [`src/components/Header/index.tsx`](src/components/Header/index.tsx) is the real header (not the orphaned `HeaderHero.tsx` which was removed). Mobile uses a right-side slide-in drawer.
+**Header** — sticky, magenta utility bar always visible. [`src/components/Header/index.tsx`](src/components/Header/index.tsx) is the real header (not the orphaned `HeaderHero.tsx` which was removed). Mobile uses a right-side slide-in drawer with a magenta stripe at the top.
 
-**Hero** — two-column at `lg+` (text left, orange Swiper category card right). Heading color is `text-[#81c408]`. See [`src/components/Home/Hero/index.tsx`](src/components/Home/Hero/index.tsx).
+**Hero** — two-column at `lg+` (text left, magenta Swiper category card right). Heading color is `text-[#8E1A5C]`. See [`src/components/Home/Hero/index.tsx`](src/components/Home/Hero/index.tsx).
 
 ## Gotchas & don'ts
 
@@ -56,5 +59,5 @@ Use Tailwind tokens, not raw hex, except where a token doesn't map cleanly.
 
 - **Commit style**: conventional prefixes (`feat(scope):`, `fix(scope):`, `chore:`, `style:`, `refactor(scope):`, `docs:`). One logical change per commit. Co-author trailer with the Claude identity.
 - **Docs location**: specs in [`docs/superpowers/specs/`](docs/superpowers/specs/), plans in [`docs/superpowers/plans/`](docs/superpowers/plans/). Named `YYYY-MM-DD-<topic>-design.md` / `YYYY-MM-DD-<topic>.md`.
-- **Legacy tokens**: `seaBlue` / `blue` were kept in the Tailwind config and now resolve to the orange palette so that pre-rebrand class names keep working. Don't introduce new `seaBlue-*` usage in fresh code — prefer `primary` / `accent`.
+- **Legacy tokens**: `seaBlue` / `blue` / `teal` / `orange` / `green` were kept in the Tailwind config and all now resolve to the magenta palette so pre-rebrand class names keep working. Don't introduce new `seaBlue-*` / `green-*` usage in fresh code — prefer `primary` / `accent` / `cream`.
 - **Line endings**: working on Windows; git warns about LF→CRLF but it's cosmetic. Don't try to "fix" by changing `.gitattributes` unless asked.

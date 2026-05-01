@@ -100,7 +100,7 @@ export async function POST(req: Request) {
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
           </head>
           <body style="font-family: Arial, sans-serif; line-height: 1.6; color: #333; max-width: 600px; margin: 0 auto; padding: 20px;">
-            <div style="background-color: #FDDEC3; color: #333; padding: 20px; text-align: center; border-radius: 8px 8px 0 0;">
+            <div style="background-color: #E5A9CC; color: #333; padding: 20px; text-align: center; border-radius: 8px 8px 0 0;">
               <h1 style="margin: 0; font-size: 24px;">${statusInfo.emoji} ${statusInfo.title}</h1>
             </div>
             
@@ -110,7 +110,7 @@ export async function POST(req: Request) {
               <p style="font-size: 16px; margin-bottom: 20px;">${statusInfo.body}</p>
               
               <div style="background-color: white; padding: 20px; border-radius: 8px; margin: 20px 0;">
-                <h2 style="margin-top: 0; color: #F27430; font-size: 18px;">Order Details</h2>
+                <h2 style="margin-top: 0; color: #8E1A5C; font-size: 18px;">Order Details</h2>
                 <p style="margin: 5px 0;"><strong>Order ID:</strong> #${orderId.slice(-8).toUpperCase()}</p>
                 <p style="margin: 5px 0;"><strong>Status:</strong> ${deliveryStatus.replace(/_/g, " ").toUpperCase()}</p>
                 ${total ? `<p style="margin: 5px 0;"><strong>Total:</strong> GH₵${total.toFixed(2)}</p>` : ""}
@@ -119,7 +119,7 @@ export async function POST(req: Request) {
               ${
                 deliveryStatus === "out_for_delivery"
                   ? `
-                <div style="background-color: #FEF3E7; padding: 15px; border-left: 4px solid #FDDEC3; margin: 20px 0;">
+                <div style="background-color: #F5EBD8; padding: 15px; border-left: 4px solid #E5A9CC; margin: 20px 0;">
                   <p style="margin: 0; font-size: 14px;">
                     <strong>Note:</strong> Our delivery rider will contact you on your registered phone number before arrival.
                   </p>

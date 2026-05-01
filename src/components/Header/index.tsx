@@ -219,8 +219,8 @@ const Header = () => {
             role="dialog"
             aria-label="Main menu"
           >
-            {/* Lemon-green stripe */}
-            <div className="bg-[#81c408] text-white px-5 py-2.5 flex items-center gap-2 text-xs font-medium">
+            {/* Brand magenta stripe */}
+            <div className="bg-[#8E1A5C] text-white px-5 py-2.5 flex items-center gap-2 text-xs font-medium">
               <Truck className="w-3.5 h-3.5" aria-hidden="true" />
               <span>Call us: 0535908290</span>
             </div>
@@ -398,7 +398,7 @@ const Header = () => {
                 href="tel:+233535908290"
                 className="flex items-center gap-3 group"
               >
-                <div className="w-10 h-10 rounded-full bg-[#FEF3E7] text-primary flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-colors">
+                <div className="w-10 h-10 rounded-full bg-[#F5EBD8] text-primary flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-colors">
                   <Phone className="w-4 h-4" />
                 </div>
                 <div>

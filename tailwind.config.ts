@@ -56,41 +56,47 @@ const config: Config = {
         7: "#3E414B",
       },
 
-      // Orange family (primary CTA — matches hero button color)
+      // Magenta family (primary CTA — matches Obaapa brand magenta)
       blue: {
-        DEFAULT: "#F27430",
-        dark: "#F27430",
-        light: "#F89055",
-        "light-2": "#FAB285",
-        "light-3": "#FCCBA8",
-        "light-4": "#FDDEC3",
-        "light-5": "#FEEAD6",
-        "light-6": "#FEF3E7",
+        DEFAULT: "#8E1A5C",
+        dark: "#6E1346",
+        light: "#A93577",
+        "light-2": "#C25E96",
+        "light-3": "#D687B5",
+        "light-4": "#E5A9CC",
+        "light-5": "#F0CADD",
+        "light-6": "#F5EBD8", // cream — primary soft section wash
       },
       seaBlue: {
-        DEFAULT: "#F27430",
-        dark: "#F27430",
-        light: "#F89055",
+        DEFAULT: "#8E1A5C",
+        dark: "#6E1346",
+        light: "#A93577",
       },
       teal: {
-        DEFAULT: "#F27430",
-        dark: "#F27430",
+        DEFAULT: "#8E1A5C",
+        dark: "#6E1346",
       },
       orange: {
-        DEFAULT: "#F27430",
-        dark: "#C85A1F",
+        DEFAULT: "#8E1A5C",
+        dark: "#6E1346",
       },
 
-      // Lemon green family (accent — matches hero heading #81c408)
+      // Magenta family (accent / secondary — components render as outline + magenta text)
       green: {
-        DEFAULT: "#81C408",
-        dark: "#6BA306",
-        light: "#A3D93E",
-        "light-2": "#BCE467",
-        "light-3": "#CFEB8C",
-        "light-4": "#DEF2AE",
-        "light-5": "#EBF6CD",
-        "light-6": "#F4FAE4",
+        DEFAULT: "#8E1A5C",
+        dark: "#6E1346",
+        light: "#A93577",
+        "light-2": "#C25E96",
+        "light-3": "#D687B5",
+        "light-4": "#E5A9CC",
+        "light-5": "#F0CADD",
+        "light-6": "#F8E4ED",
+      },
+
+      // Cream (warm soft background wash — replaces previous pale orange/green sections)
+      cream: {
+        DEFAULT: "#F5EBD8",
+        dark: "#E8DCC4",
       },
 
       // Harmonized supporting colors
@@ -116,14 +122,14 @@ const config: Config = {
 
       // Semantic aliases for new code
       primary: {
-        DEFAULT: "#F27430",
-        dark: "#C85A1F",
-        light: "#F89055",
+        DEFAULT: "#8E1A5C",
+        dark: "#6E1346",
+        light: "#A93577",
       },
       accent: {
-        DEFAULT: "#81C408",
-        dark: "#6BA306",
-        light: "#A3D93E",
+        DEFAULT: "#8E1A5C",
+        dark: "#6E1346",
+        light: "#A93577",
       },
       neutral: {
         DEFAULT: "#6C6F7A",
@@ -281,7 +287,7 @@ const config: Config = {
           "0px 0px 1px 0px rgba(33, 37, 41, 0.08), 0px 2px 2px 0px rgba(33, 37, 41, 0.06)",
         filter: "0px 1px 0px 0px #E5E7EB",
         list: "1px 0px 0px 0px #E5E7EB",
-        input: "inset 0 0 0 2px #F27430",
+        input: "inset 0 0 0 2px #8E1A5C",
       },
     },
   },
