@@ -41,7 +41,7 @@ export default function AllProducts() {
         {/* Section Header */}
         <div className="mb-7 flex items-center justify-between">
           <div>
-            <span className="flex items-center gap-2.5 text-lg font-medium text-dark mb-1.5">
+            <span className="flex items-center gap-2.5 text-lg font-medium text-dark">
               <svg
                 width="20"
                 height="20"
