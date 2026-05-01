@@ -36,7 +36,7 @@ export default function AllProducts() {
   }, [mutate]);
 
   return (
-    <section className="overflow-hidden pt-10 bg-[#F7F8FA] pb-10 lg:pb-15">
+    <section className="overflow-hidden pt-4 bg-[#F7F8FA] pb-10 lg:pb-15">
       <div className="max-w-[1170px] w-full mx-auto px-4 sm:px-8 xl:px-0">
         {/* Section Header */}
         <div className="mb-7 flex items-center justify-between">
