@@ -1,32 +1,22 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { MagnifyingGlassIcon } from "@heroicons/react/24/solid";
 import CustomSelect from "./CustomSelect";
 import { useRouter } from "next/navigation";
-import { getCategories } from "@/lib/categoryQueries";
+import { categories } from "@/data/categories";
+
+const categoryOptions = [
+  { label: "All Categories", value: "0" },
+  ...categories.map((category) => ({
+    label: category.title,
+    value: category.value,
+  })),
+];
 
 export default function SearchInput() {
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("0");
-  const [categoryOptions, setCategoryOptions] = useState([
-    { label: "All Categories", value: "0" },
-  ]);
   const router = useRouter();
-
-  useEffect(() => {
-    const loadCategories = async () => {
-      const categories = await getCategories();
-      const options = [
-        { label: "All Categories", value: "0" },
-        ...categories.map((category) => ({
-          label: category.charAt(0).toUpperCase() + category.slice(1),
-          value: category,
-        })),
-      ];
-      setCategoryOptions(options);
-    };
-    loadCategories();
-  }, []);
 
   const handleCategoryChange = (value: string) => {
     setSelectedCategory(value);
