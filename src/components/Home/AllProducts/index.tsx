@@ -36,12 +36,12 @@ export default function AllProducts() {
   }, [mutate]);
 
   return (
-    <section className="overflow-hidden pt-4 bg-[#F7F8FA] pb-10 lg:pb-15">
+    <section className="overflow-hidden pt-2 bg-[#F7F8FA] pb-10 lg:pb-15">
       <div className="max-w-[1170px] w-full mx-auto px-4 sm:px-8 xl:px-0">
         {/* Section Header */}
         <div className="mb-7 flex items-center justify-between">
           <div>
-            <span className="flex items-center gap-2.5 font-medium text-dark mb-1.5">
+            <span className="flex items-center gap-2.5 text-lg font-medium text-dark mb-1.5">
               <svg
                 width="20"
                 height="20"
@@ -63,9 +63,6 @@ export default function AllProducts() {
               </svg>
               Our Collection
             </span>
-            <h2 className="font-semibold text-xl xl:text-heading-5 text-dark">
-              All Products
-            </h2>
           </div>
 
           <Link
