@@ -179,27 +179,16 @@ const ShopDetails = ({ product }: ShopDetailsProps) => {
                     Color:
                   </h3>
                   {colors.map((color, idx) => {
-                    const swatch = getColorValue(color);
                     const isActive = activeColor === color;
                     return (
                       <button
                         key={idx}
                         type="button"
                         onClick={() => setActiveColor(color)}
-                        className={`flex items-center gap-2 pl-1 pr-3 py-1 rounded-full border-2 bg-white transition-colors duration-150 focus:outline-none ${
-                          isActive ? "" : "border-gray-200 hover:border-gray-400"
-                        }`}
-                        style={isActive ? { borderColor: swatch } : undefined}
+                        className="flex items-center gap-2 px-3 py-1 rounded-full bg-white transition-colors duration-150 focus:outline-none"
                         title={color}
                         aria-pressed={isActive}
                       >
-                        <span
-                          className="block w-5 h-5 rounded-full shrink-0"
-                          style={{
-                            backgroundColor: swatch,
-                            boxShadow: "inset 0 0 0 1px rgba(0,0,0,0.12)",
-                          }}
-                        />
                         <span
                           className={`text-sm leading-none ${
                             isActive
