@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Package, Phone, Truck } from "lucide-react";
+import { Phone, Truck } from "lucide-react";
 
 const POLICY_LINKS = [
   { label: "Privacy Policy", href: "/privacy" },
@@ -13,28 +13,20 @@ const UtilityBar = () => {
       <div className="max-w-[1440px] mx-auto px-4 sm:px-7.5 xl:px-12">
         <div className="flex items-center justify-center lg:justify-between py-2 text-sm font-medium text-dark">
           <div className="flex flex-col sm:flex-row sm:flex-wrap items-center justify-center gap-x-5 gap-y-1 leading-snug text-center">
-            <p className="uppercase tracking-wide text-balance">
+            <p className="tracking-wide text-balance">
               <Truck
                 className="inline-block w-3.5 h-3.5 mr-1.5 align-[-3px] text-primary"
                 aria-hidden="true"
               />
               Standard Delivery Within 1 to 2 Working Days
             </p>
-            <p>
+            <p className="text-balance">
               <Phone
                 className="inline-block w-3.5 h-3.5 mr-1.5 align-[-3px] text-primary"
                 aria-hidden="true"
               />
-              Call us:{" "}
-              <span className="font-semibold">0535908290</span>
-            </p>
-            <p className="text-balance">
-              <Package
-                className="inline-block w-3.5 h-3.5 mr-1.5 align-[-3px] text-primary"
-                aria-hidden="true"
-              />
-              Wholesale Terms: Minimum of five(5) items contact{" "}
-              <span className="font-semibold">0535908290</span>
+              Call us: <span className="font-semibold">0535908290</span>{" "}
+              (Wholesale: minimum 5 items)
             </p>
           </div>
 

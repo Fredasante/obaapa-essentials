@@ -89,7 +89,9 @@ const Header = () => {
           stickyMenu ? "shadow-md" : ""
         }`}
       >
-        <UtilityBar />
+        <div className="hidden lg:block">
+          <UtilityBar />
+        </div>
 
         <div className="max-w-[1440px] mx-auto px-4 sm:px-7.5 xl:px-12">
           <div
@@ -184,6 +186,10 @@ const Header = () => {
               </button>
             </div>
           </div>
+        </div>
+
+        <div className="lg:hidden">
+          <UtilityBar />
         </div>
 
         {/* Mobile drawer (<xl) */}
@@ -401,7 +407,7 @@ const Header = () => {
       </header>
 
       {/* Spacer so content isn't hidden under fixed header */}
-      <div aria-hidden="true" className="h-[180px] sm:h-[130px] lg:h-[110px]" />
+      <div aria-hidden="true" className="h-[130px] lg:h-[110px]" />
     </>
   );
 };
