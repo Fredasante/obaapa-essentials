@@ -132,7 +132,17 @@ export const order = defineType({
           },
         },
       ],
-      validation: (Rule) => Rule.required().min(1),
+      validation: (Rule) =>
+        Rule.custom((items, context) => {
+          const status = (
+            context.document as { deliveryStatus?: string } | undefined
+          )?.deliveryStatus;
+          if (status === "payment_failed") return true;
+          if (!Array.isArray(items) || items.length === 0) {
+            return "At least one item is required";
+          }
+          return true;
+        }),
     }),
 
     // 💰 Pricing
@@ -148,21 +158,10 @@ export const order = defineType({
           validation: (Rule) => Rule.required().min(0),
         },
         {
-          name: "discount",
-          title: "Discount",
-          type: "number",
-          initialValue: 0,
-        },
-        {
           name: "total",
           title: "Total Amount",
           type: "number",
           validation: (Rule) => Rule.required().min(0),
-        },
-        {
-          name: "couponCode",
-          title: "Coupon Code",
-          type: "string",
         },
       ],
     }),
@@ -225,11 +224,27 @@ export const order = defineType({
           { title: "🚚 Out for Delivery", value: "out_for_delivery" },
           { title: "✅ Delivered", value: "delivered" },
           { title: "❌ Cancelled", value: "cancelled" },
+          {
+            title: "⚠️ Payment Failed (needs refund)",
+            value: "payment_failed",
+          },
         ],
         layout: "dropdown",
       },
       initialValue: "payment_pending",
       validation: (Rule) => Rule.required(),
+    }),
+
+    // 🛟 Failure metadata for orders that paid but could not be finalised
+    defineField({
+      name: "failureReason",
+      title: "Failure Reason",
+      type: "string",
+      description:
+        "Set when deliveryStatus is payment_failed. Used by support to triage refunds.",
+      hidden: ({ document }) =>
+        (document as { deliveryStatus?: string } | undefined)
+          ?.deliveryStatus !== "payment_failed",
     }),
 
     // 🕒 Timestamps
@@ -251,6 +266,15 @@ export const order = defineType({
       name: "deliveredAt",
       title: "Delivered At",
       type: "datetime",
+    }),
+
+    // 🔐 Guest access token — lets unauthenticated buyers view their own order
+    defineField({
+      name: "accessToken",
+      title: "Access Token",
+      type: "string",
+      readOnly: true,
+      hidden: true,
     }),
   ],
 

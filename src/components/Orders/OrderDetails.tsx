@@ -29,7 +29,6 @@ interface Order {
   }>;
   pricing: {
     subtotal: number;
-    discount: number;
     total: number;
   };
   payment: {
@@ -114,14 +113,6 @@ const OrderDetails = ({
                 GH₵{order.pricing.subtotal.toFixed(2)}
               </span>
             </div>
-            {order.pricing.discount > 0 && (
-              <div className="flex justify-between text-sm">
-                <span className="text-green-600">Discount</span>
-                <span className="text-green-600">
-                  -GH₵{order.pricing.discount.toFixed(2)}
-                </span>
-              </div>
-            )}
             <div className="flex justify-between font-semibold pt-2 border-t border-gray-3">
               <span className="text-dark">Total</span>
               <span className="text-blue">

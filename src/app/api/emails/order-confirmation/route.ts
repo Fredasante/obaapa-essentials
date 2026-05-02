@@ -154,16 +154,6 @@ export async function POST(req: Request) {
                           <span style="color: #666666;">Subtotal</span>
                           <span style="color: #333333; font-weight: 600;">GH₵${pricing.subtotal.toFixed(2)}</span>
                         </div>
-                        ${
-                          pricing.discount > 0
-                            ? `
-                        <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
-                          <span style="color: #22c55e;">Discount</span>
-                          <span style="color: #22c55e; font-weight: 600;">-GH₵${pricing.discount.toFixed(2)}</span>
-                        </div>
-                        `
-                            : ""
-                        }
                         <div style="border-top: 2px solid #dddddd; padding-top: 12px; margin-top: 12px; display: flex; justify-content: space-between;">
                           <span style="color: #333333; font-size: 18px; font-weight: bold;">Total Paid</span>
                           <span style="color: #22c55e; font-size: 22px; font-weight: bold;">GH₵${pricing.total.toFixed(2)}</span>
@@ -229,7 +219,7 @@ ${itemsText}
 
 PRICING:
 Subtotal: GH₵${pricing.subtotal.toFixed(2)}
-${pricing.discount > 0 ? `Discount: -GH₵${pricing.discount.toFixed(2)}\n` : ""}Total Paid: GH₵${pricing.total.toFixed(2)}
+Total Paid: GH₵${pricing.total.toFixed(2)}
 
 
 Contact customer: https://wa.me/${customerInfo.phone.replace(/\D/g, "")}

@@ -42,7 +42,6 @@ interface OrderDetails {
   }>;
   pricing: {
     subtotal: number;
-    discount: number;
     total: number;
   };
   payment: {
@@ -58,7 +57,7 @@ export default function OrderSuccessPage() {
   const searchParams = useSearchParams();
   const router = useRouter();
   const orderId = searchParams.get("orderId");
-  const reference = searchParams.get("reference");
+  const token = searchParams.get("token");
 
   const [orderDetails, setOrderDetails] = useState<OrderDetails | null>(null);
   const [loading, setLoading] = useState(true);
@@ -76,7 +75,10 @@ export default function OrderSuccessPage() {
 
     const fetchOrderDetails = async () => {
       try {
-        const response = await fetch(`/api/orders/${orderId}`);
+        const url = token
+          ? `/api/orders/${encodeURIComponent(orderId)}?token=${encodeURIComponent(token)}`
+          : `/api/orders/${encodeURIComponent(orderId)}`;
+        const response = await fetch(url);
         if (!response.ok) {
           throw new Error("Failed to fetch order details");
         }
@@ -106,7 +108,7 @@ export default function OrderSuccessPage() {
     };
 
     fetchOrderDetails();
-  }, [orderId, router]);
+  }, [orderId, token, router]);
 
   if (loading) {
     return (
@@ -170,10 +172,12 @@ export default function OrderSuccessPage() {
                 {orderId}
               </span>
             </p>
-            {reference && (
+            {orderDetails.payment?.paystackReference && (
               <p className="text-xs text-gray-500 mt-1">
                 Payment Reference:{" "}
-                <span className="font-mono">{reference}</span>
+                <span className="font-mono">
+                  {orderDetails.payment.paystackReference}
+                </span>
               </p>
             )}
           </div>
@@ -224,14 +228,6 @@ export default function OrderSuccessPage() {
                   GH₵{orderDetails.pricing.subtotal.toFixed(2)}
                 </span>
               </div>
-              {orderDetails.pricing.discount > 0 && (
-                <div className="flex justify-between text-sm">
-                  <span className="text-green-600">Discount</span>
-                  <span className="text-green-600">
-                    -GH₵{orderDetails.pricing.discount.toFixed(2)}
-                  </span>
-                </div>
-              )}
               <div className="flex justify-between font-semibold text-lg pt-2 border-t border-gray-3">
                 <span className="text-dark">Total Paid</span>
                 <span className="text-seaBlue-dark">

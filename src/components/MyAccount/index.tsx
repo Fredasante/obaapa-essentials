@@ -95,17 +95,23 @@ const MyAccount = () => {
     });
   };
 
-  // Calculate order statistics
-  const totalOrders = orders.length;
-  const completedOrders = orders.filter(
+  // Calculate order statistics. payment_failed orders are paid-but-unfinalised
+  // and need refund/support — they should never show as pending or count toward
+  // total spent.
+  const fulfillableOrders = orders.filter(
+    (o) => o.deliveryStatus !== "payment_failed",
+  );
+  const totalOrders = fulfillableOrders.length;
+  const completedOrders = fulfillableOrders.filter(
     (o) => o.deliveryStatus === "delivered",
   ).length;
-  const pendingOrders = orders.filter(
+  const pendingOrders = fulfillableOrders.filter(
     (o) => o.deliveryStatus !== "delivered" && o.deliveryStatus !== "cancelled",
   ).length;
-  const totalSpent = orders
+  const totalSpent = fulfillableOrders
     .filter((o) => o.payment.status === "paid")
     .reduce((sum, order) => sum + order.pricing.total, 0);
+  const failedOrders = orders.length - fulfillableOrders.length;
 
   // Get recent orders (last 3)
   const recentOrders = orders.slice(0, 3);
@@ -251,6 +257,20 @@ const MyAccount = () => {
                         <h3 className="text-lg font-semibold text-dark mb-5">
                           Order Statistics
                         </h3>
+                        {failedOrders > 0 && (
+                          <div className="mb-5 p-4 rounded-lg border border-red-light-3 bg-red-light-6">
+                            <p className="text-sm font-semibold text-red-dark">
+                              {failedOrders === 1
+                                ? "1 order needs attention"
+                                : `${failedOrders} orders need attention`}
+                            </p>
+                            <p className="text-xs text-red-dark mt-1">
+                              Payment cleared but the order could not be
+                              finalised. Please contact support to arrange a
+                              refund.
+                            </p>
+                          </div>
+                        )}
                         <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
                           {/* Total Orders */}
                           <div className="p-4 sm:p-5 bg-blue-light-6 rounded-lg border border-blue-light-3">

@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { client } from "@/sanity/client";
+import { auth } from "@clerk/nextjs/server";
 
 export async function GET(
   request: NextRequest,
@@ -15,7 +16,6 @@ export async function GET(
       );
     }
 
-    // Fetch order from Sanity
     const order = await client.fetch(
       `*[_type == "order" && orderId == $orderId][0]{
         orderId,
@@ -30,7 +30,8 @@ export async function GET(
         adminNotes,
         createdAt,
         updatedAt,
-        deliveredAt
+        deliveredAt,
+        accessToken
       }`,
       { orderId }
     );
@@ -39,7 +40,21 @@ export async function GET(
       return NextResponse.json({ error: "Order not found" }, { status: 404 });
     }
 
-    return NextResponse.json(order);
+    const token = request.nextUrl.searchParams.get("token");
+    const { userId } = await auth();
+
+    const ownsByAuth =
+      userId && order.customerInfo?.userId && userId === order.customerInfo.userId;
+    const ownsByToken =
+      order.accessToken && token && token === order.accessToken;
+
+    if (!ownsByAuth && !ownsByToken) {
+      return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+    }
+
+    const { accessToken: _accessToken, ...safeOrder } = order;
+
+    return NextResponse.json(safeOrder);
   } catch (error) {
     console.error("Error fetching order:", error);
     return NextResponse.json(

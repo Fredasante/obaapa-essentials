@@ -1,7 +1,5 @@
 "use client";
 import React, { useState } from "react";
-import Breadcrumb from "../Common/Breadcrumb";
-import Coupon from "./Coupon";
 import Billing from "./Billing";
 import { useAppSelector } from "@/redux/store";
 import { useSelector, useDispatch } from "react-redux";
@@ -11,29 +9,41 @@ import Link from "next/link";
 import { useUser } from "@clerk/nextjs";
 import { ClipLoader } from "react-spinners";
 import { useRouter } from "next/navigation";
-import {
-  initializePaystackPayment,
-  generatePaymentReference,
-  verifyPaystackPayment,
-} from "@/lib/paystack";
+import { initializePaystackPayment } from "@/lib/paystack";
 import { CircleCheck } from "lucide-react";
 import { removeAllItemsFromCart } from "@/redux/features/cart-slice";
+import PriceChangeModal from "./PriceChangeModal";
 
-const generateKey = () => {
-  return `${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
+type PriceChangePrompt = {
+  oldTotal: number;
+  newTotal: number;
+  resolve: (accepted: boolean) => void;
 };
 
 const Checkout = () => {
   const router = useRouter();
   const { isSignedIn, user, isLoaded } = useUser();
   const cartItems = useAppSelector(selectCartItems);
-  const itemsTotal = useSelector(selectTotalPrice);
-  const [discount, setDiscount] = useState(0);
-  const [couponCode, setCouponCode] = useState("");
+  const cartTotal = useSelector(selectTotalPrice);
   const [isProcessing, setIsProcessing] = useState(false);
+  const [confirmedTotal, setConfirmedTotal] = useState<number | null>(null);
+  const [priceChangePrompt, setPriceChangePrompt] =
+    useState<PriceChangePrompt | null>(null);
   const dispatch = useDispatch();
 
-  const total = itemsTotal - discount;
+  const total = confirmedTotal ?? cartTotal;
+
+  const askPriceChange = (oldTotal: number, newTotal: number) =>
+    new Promise<boolean>((resolve) => {
+      setPriceChangePrompt({ oldTotal, newTotal, resolve });
+    });
+
+  const resolvePriceChange = (accepted: boolean) => {
+    if (priceChangePrompt) {
+      priceChangePrompt.resolve(accepted);
+      setPriceChangePrompt(null);
+    }
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -42,68 +52,66 @@ const Checkout = () => {
     try {
       const formData = new FormData(e.target as HTMLFormElement);
 
-      const orderId = `ORD-${Date.now()}-${Math.random()
-        .toString(36)
-        .substr(2, 6)
-        .toUpperCase()}`;
-      const paymentReference = generatePaymentReference(orderId);
-
-      const orderData = {
-        orderId,
-        customerInfo: {
-          fullName: formData.get("fullName") as string,
-          phone: formData.get("phone") as string,
-          email:
-            (formData.get("email") as string) ||
-            user?.primaryEmailAddress?.emailAddress ||
-            "",
-          userId: user?.id || null,
-        },
-        deliveryInfo: {
-          region: formData.get("region") as string,
-          city: formData.get("city") as string,
-          address: formData.get("address") as string,
-        },
-        items: cartItems.map((item) => ({
-          _key: generateKey(),
-          product: { _ref: item._id, _type: "reference" },
-          productSnapshot: {
-            name: item.name,
-            price: item.price,
-            discountPrice: item.discountPrice,
-            mainImageUrl: item.mainImageUrl,
-            color: item.color || null,
-            size: item.size || null,
-          },
-          quantity: item.quantity,
-          priceAtPurchase: item.discountPrice ?? item.price,
-        })),
-        pricing: {
-          subtotal: itemsTotal,
-          discount,
-          total,
-          couponCode: couponCode || null,
-        },
-        payment: {
-          method: "paystack",
-          status: "pending",
-          paystackReference: paymentReference,
-          amount: total,
-          paidAt: null,
-        },
-        deliveryStatus: "payment_pending",
-        createdAt: new Date().toISOString(),
-        updatedAt: new Date().toISOString(),
+      const customerInfo = {
+        fullName: formData.get("fullName") as string,
+        phone: formData.get("phone") as string,
+        email:
+          (formData.get("email") as string) ||
+          user?.primaryEmailAddress?.emailAddress ||
+          "",
       };
 
+      const deliveryInfo = {
+        region: formData.get("region") as string,
+        city: formData.get("city") as string,
+        address: formData.get("address") as string,
+      };
+
+      // Server locks pricing and items into a single-use intent before we
+      // open Paystack. /api/orders/create later trusts only the intent.
+      const initRes = await fetch("/api/checkout/init", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          items: cartItems.map((item) => ({
+            productId: item._id,
+            quantity: item.quantity,
+            color: item.color || null,
+            size: item.size || null,
+          })),
+        }),
+      });
+      const initJson = await initRes.json();
+      if (!initRes.ok || !initJson?.success) {
+        alert(
+          initJson?.message ||
+            "We couldn't start your checkout. Please refresh and try again.",
+        );
+        setIsProcessing(false);
+        return;
+      }
+
+      const intentId: string = initJson.intentId;
+      const lockedTotal: number = initJson.total;
+      const paystackReference: string = initJson.paystackReference;
+
+      if (Math.abs(lockedTotal - total) > 0.01) {
+        const proceed = await askPriceChange(total, lockedTotal);
+        if (!proceed) {
+          setIsProcessing(false);
+          return;
+        }
+        setConfirmedTotal(lockedTotal);
+      }
+
       initializePaystackPayment({
-        email: orderData.customerInfo.email || "customer@example.com",
-        amount: total,
-        reference: paymentReference,
+        email: customerInfo.email || "customer@example.com",
+        amount: lockedTotal,
+        reference: paystackReference,
         metadata: {
-          orderId,
-          customerName: orderData.customerInfo.fullName,
-          phone: orderData.customerInfo.phone,
+          orderId: intentId,
+          customerName: customerInfo.fullName,
+          phone: customerInfo.phone,
           items: cartItems.map((item) => ({
             name: item.name,
             quantity: item.quantity,
@@ -112,77 +120,34 @@ const Checkout = () => {
         },
         onSuccess: async (transaction) => {
           try {
-            const verification = await verifyPaystackPayment(
-              transaction.reference,
-            );
-
-            if (!verification.success) {
-              throw new Error("Payment verification failed");
-            }
-
-            orderData.payment.status = "paid";
-            orderData.payment.paidAt = new Date().toISOString();
-            orderData.deliveryStatus = "payment_received";
-
-            sessionStorage.setItem(
-              `order_${orderId}`,
-              JSON.stringify(orderData),
-            );
-
-            // Create the order in Sanity
             const response = await fetch("/api/orders/create", {
               method: "POST",
               headers: { "Content-Type": "application/json" },
-              body: JSON.stringify(orderData),
+              body: JSON.stringify({
+                intentId,
+                customerInfo,
+                deliveryInfo,
+                paystackReference: transaction.reference,
+              }),
             });
-
-            if (!response.ok) {
-              throw new Error("Failed to create order");
-            }
 
             const result = await response.json();
 
-            // ✅ NEW: Decrease stock quantity for each product
-            const updatePromises = cartItems.map((item) =>
-              fetch("/api/products/update-stock", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({
-                  productId: item._id,
-                  quantity: item.quantity, // Decrease by the quantity purchased
-                }),
-              }),
-            );
+            if (!response.ok || !result?.success) {
+              throw new Error(result?.message || "Failed to create order");
+            }
 
-            // Wait for all product updates to complete
-            const updateResults = await Promise.allSettled(updatePromises);
-
-            // Log any failures (optional)
-            updateResults.forEach((result, index) => {
-              if (result.status === "rejected") {
-                console.error(
-                  `Failed to update stock for product ${cartItems[index]._id}:`,
-                  result.reason,
-                );
-              } else if (result.status === "fulfilled") {
-                console.log(
-                  `Stock updated for ${cartItems[index].name}:`,
-                  result.value,
-                );
-              }
-            });
-
-            // Clear the cart
             dispatch(removeAllItemsFromCart());
 
-            // Redirect to success page
             router.push(
-              `/order-success?orderId=${orderId}&reference=${transaction.reference}`,
+              `/order-success?orderId=${encodeURIComponent(
+                result.orderId,
+              )}&token=${encodeURIComponent(result.accessToken)}`,
             );
           } catch (error) {
             console.error("Post-payment error:", error);
             alert(
-              "Payment was successful but there was an error processing your order. Please contact support with reference: " +
+              "Payment was successful but there was an error finalising your order. Please contact support with reference: " +
                 transaction.reference,
             );
             setIsProcessing(false);
@@ -296,22 +261,6 @@ const Checkout = () => {
                       );
                     })}
 
-                    <div className="flex items-center justify-between py-4 border-b border-gray-3">
-                      <p className="text-dark">Subtotal</p>
-                      <p className="text-dark">GH₵{itemsTotal.toFixed(2)}</p>
-                    </div>
-
-                    {discount > 0 && (
-                      <div className="flex items-center justify-between py-4 border-b border-gray-3">
-                        <p className="text-green-600">
-                          Discount {couponCode && `(${couponCode})`}
-                        </p>
-                        <p className="text-green-600">
-                          -GH₵{discount.toFixed(2)}
-                        </p>
-                      </div>
-                    )}
-
                     <div className="flex items-center justify-between py-4 border-b border-gray-3 bg-blue-50 -mx-4 sm:-mx-8.5 px-4 sm:px-8.5">
                       <div>
                         <p className="font-semibold text-dark">Total Amount</p>
@@ -332,8 +281,6 @@ const Checkout = () => {
                     </div>
                   </div>
                 </div>
-
-                <Coupon onApplyCoupon={setDiscount} />
 
                 <button
                   type="submit"
@@ -362,6 +309,15 @@ const Checkout = () => {
           </form>
         </div>
       </section>
+
+      {priceChangePrompt && (
+        <PriceChangeModal
+          oldTotal={priceChangePrompt.oldTotal}
+          newTotal={priceChangePrompt.newTotal}
+          onConfirm={() => resolvePriceChange(true)}
+          onCancel={() => resolvePriceChange(false)}
+        />
+      )}
     </>
   );
 };

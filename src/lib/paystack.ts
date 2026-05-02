@@ -64,33 +64,3 @@ export const initializePaystackPayment = ({
   // Open the payment modal
   paystack.openIframe();
 };
-
-// Generate unique payment reference
-export const generatePaymentReference = (orderId: string): string => {
-  const timestamp = Date.now();
-  const random = Math.random().toString(36).substring(2, 8).toUpperCase();
-  return `${orderId}-${timestamp}-${random}`;
-};
-
-// Verify payment on backend
-export const verifyPaystackPayment = async (reference: string) => {
-  try {
-    const response = await fetch("/api/payments/verify", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ reference }),
-    });
-
-    if (!response.ok) {
-      const error = await response.json();
-      throw new Error(error.message || "Payment verification failed");
-    }
-
-    return await response.json();
-  } catch (error) {
-    console.error("Payment verification error:", error);
-    throw error;
-  }
-};

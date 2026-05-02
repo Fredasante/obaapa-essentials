@@ -37,7 +37,6 @@ interface Order {
   }>;
   pricing: {
     subtotal: number;
-    discount: number;
     total: number;
   };
   payment: {
@@ -103,6 +102,12 @@ const SingleOrder = ({ order, isLast }: { order: Order; isLast: boolean }) => {
           color: "bg-red-light-6 text-red border-red-light-3",
           label: "Cancelled",
           icon: "✗",
+        };
+      case "payment_failed":
+        return {
+          color: "bg-red-light-6 text-red-dark border-red-light-3",
+          label: "Needs Refund",
+          icon: "⚠️",
         };
       default:
         return {
@@ -282,14 +287,6 @@ const SingleOrder = ({ order, isLast }: { order: Order; isLast: boolean }) => {
                     GH₵ {order.pricing.subtotal.toFixed(2)}
                   </span>
                 </div>
-                {order.pricing.discount > 0 && (
-                  <div className="flex justify-between text-sm">
-                    <span className="text-gray-600">Discount</span>
-                    <span className="text-green">
-                      -GH₵ {order.pricing.discount.toFixed(2)}
-                    </span>
-                  </div>
-                )}
                 <div className="flex justify-between text-base font-semibold pt-2 border-t border-gray-3">
                   <span className="text-dark">Total</span>
                   <span className="text-teal-dark">

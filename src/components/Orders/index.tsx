@@ -30,7 +30,6 @@ interface Order {
   }>;
   pricing: {
     subtotal: number;
-    discount: number;
     total: number;
   };
   payment: {

@@ -58,18 +58,28 @@ export const product = defineType({
 
     defineField({
       name: "price",
-      title: "Price (₵)",
+      title: "Regular Price (₵)",
       type: "number",
+      description:
+        "The product's standard, non-sale price. Customers see this struck through when a Sale Price is set.",
       validation: (Rule) => Rule.required().min(0),
     }),
 
     defineField({
       name: "discountPrice",
-      title: "Original Price Before Discount (₵)",
+      title: "Sale Price (₵)",
       type: "number",
       description:
-        "Enter the original/higher price here. The 'Price' field above should be the actual selling price. If set and higher than Price, a discount badge will appear.",
-      validation: (Rule) => Rule.min(0),
+        "Optional. The actual amount charged at checkout when set. Must be lower than the Regular Price to count as a discount.",
+      validation: (Rule) =>
+        Rule.min(0).custom((value, context) => {
+          const price = (context.document as { price?: number } | undefined)?.price;
+          if (value == null) return true;
+          if (typeof price === "number" && value >= price) {
+            return "Sale Price must be lower than Regular Price";
+          }
+          return true;
+        }),
     }),
 
     defineField({
