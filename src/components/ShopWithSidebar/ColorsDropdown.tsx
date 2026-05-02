@@ -1,24 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
-import { fetchColors } from "@/lib/productUtils";
-
-// Color mapping for visual display
-const colorMap: Record<string, string> = {
-  red: "#EF4444",
-  blue: "#3B82F6",
-  orange: "#F97316",
-  pink: "#EC4899",
-  purple: "#A855F7",
-  black: "#000000",
-  white: "#FFFFFF",
-  green: "#10B981",
-  yellow: "#EAB308",
-  gray: "#6B7280",
-  grey: "#6B7280",
-  brown: "#92400E",
-  beige: "#D4C5B9",
-  navy: "#1E3A8A",
-};
+import { fetchColors, getColorValue } from "@/lib/productUtils";
 
 const ColorsDropdown = ({ onColorChange }) => {
   const [toggleDropdown, setToggleDropdown] = useState(true);
@@ -40,10 +22,6 @@ const ColorsDropdown = ({ onColorChange }) => {
     const newSelection = selectedColor === color ? null : color;
     setSelectedColor(newSelection);
     onColorChange(newSelection || "");
-  };
-
-  const getColorValue = (colorName: string) => {
-    return colorMap[colorName.toLowerCase()] || "#9CA3AF";
   };
 
   return (

@@ -11,6 +11,7 @@ import { updateProductDetails } from "@/redux/features/product-details";
 import { X } from "lucide-react";
 import { PortableText } from "@portabletext/react";
 import { toast } from "sonner";
+import { getColorValue } from "@/lib/productUtils";
 
 const QuickViewModal = () => {
   const { isModalOpen, closeModal } = useModalContext();
@@ -20,12 +21,15 @@ const QuickViewModal = () => {
   const product = useAppSelector((state) => state.quickViewReducer.value);
   const cartItems = useSelector((state: RootState) => state.cartReducer.items);
 
-  const [selectedColor, setSelectedColor] = useState(
-    product?.colors?.[0] || "",
+  const colors = (product?.colors ?? []).filter(
+    (c): c is string => typeof c === "string" && c.trim() !== "",
   );
-  const [selectedSize, setSelectedSize] = useState(
-    product?.sizes?.[0] || "",
+  const sizes = (product?.sizes ?? []).filter(
+    (s): s is string => typeof s === "string" && s.trim() !== "",
   );
+
+  const [selectedColor, setSelectedColor] = useState(colors[0] || "");
+  const [selectedSize, setSelectedSize] = useState(sizes[0] || "");
 
   const dispatch = useDispatch<AppDispatch>();
 
@@ -209,44 +213,63 @@ const QuickViewModal = () => {
 
               <div className="flex flex-wrap gap-6 mt-6 mb-7.5">
                 {/* Color Selection */}
-                {product.colors && product.colors.length > 0 && (
-                  <div className="flex items-center gap-3">
-                    <h3 className="text-lg font-semibold text-slate-500 whitespace-nowrap">
+                {colors.length > 0 && (
+                  <div className="flex flex-wrap items-center gap-x-2.5 gap-y-2">
+                    <h3 className="text-lg font-semibold text-slate-500 whitespace-nowrap mr-1">
                       Color:
                     </h3>
-                    <div className="flex space-x-2">
-                      {product.colors.map((color, idx) => (
+                    {colors.map((color, idx) => {
+                      const swatch = getColorValue(color);
+                      const isActive = selectedColor === color;
+                      return (
                         <button
                           key={idx}
+                          type="button"
                           onClick={() => setSelectedColor(color)}
-                          className={`w-7 h-7 rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 transition-all ${
-                            selectedColor === color
-                              ? "ring-2 ring-seaBlue-dark"
-                              : ""
+                          className={`flex items-center gap-2 pl-1 pr-3 py-1 rounded-full border-2 bg-white transition-colors duration-150 focus:outline-none ${
+                            isActive ? "" : "border-gray-200 hover:border-gray-400"
                           }`}
-                          style={{ backgroundColor: color.toLowerCase() }}
+                          style={isActive ? { borderColor: swatch } : undefined}
                           title={color}
-                        />
-                      ))}
-                    </div>
+                          aria-pressed={isActive}
+                        >
+                          <span
+                            className="block w-5 h-5 rounded-full shrink-0"
+                            style={{
+                              backgroundColor: swatch,
+                              boxShadow: "inset 0 0 0 1px rgba(0,0,0,0.12)",
+                            }}
+                          />
+                          <span
+                            className={`text-sm leading-none ${
+                              isActive
+                                ? "font-semibold text-dark"
+                                : "text-slate-600"
+                            }`}
+                          >
+                            {color}
+                          </span>
+                        </button>
+                      );
+                    })}
                   </div>
                 )}
 
                 {/* Sizes */}
-                {product.sizes && product.sizes.length > 0 && (
+                {sizes.length > 0 && (
                   <div className="flex items-center gap-3">
                     <h3 className="text-lg font-semibold text-slate-500 whitespace-nowrap">
                       Size:
                     </h3>
                     <div className="flex flex-wrap gap-2">
-                      {product.sizes.map((size, idx) => (
+                      {sizes.map((size, idx) => (
                         <button
                           key={idx}
                           onClick={() => setSelectedSize(size)}
                           className={`px-3 py-1 border rounded-md text-sm font-medium transition-all ${
                             selectedSize === size
-                              ? "bg-seaBlue-dark text-white border-seaBlue-dark"
-                              : "bg-white text-dark border-gray-300 hover:border-seaBlue-dark"
+                              ? "bg-green-light-6 text-primary border-transparent font-semibold"
+                              : "bg-white text-dark border-gray-300 hover:border-primary"
                           }`}
                         >
                           {size}

@@ -9,14 +9,22 @@ import { addItemToCart } from "@/redux/features/cart-slice";
 import { toast } from "sonner";
 import { addItemToWishlist } from "@/redux/features/wishlist-slice";
 import { AppDispatch } from "@/redux/store";
+import { getColorValue } from "@/lib/productUtils";
 
 interface ShopDetailsProps {
   product: Product;
 }
 
 const ShopDetails = ({ product }: ShopDetailsProps) => {
-  const [activeColor, setActiveColor] = useState(product.colors?.[0] || "");
-  const [activeSize, setActiveSize] = useState(product.sizes?.[0] || "");
+  const colors = (product.colors ?? []).filter(
+    (c): c is string => typeof c === "string" && c.trim() !== "",
+  );
+  const sizes = (product.sizes ?? []).filter(
+    (s): s is string => typeof s === "string" && s.trim() !== "",
+  );
+
+  const [activeColor, setActiveColor] = useState(colors[0] || "");
+  const [activeSize, setActiveSize] = useState(sizes[0] || "");
   const [mainImage, setMainImage] = useState(product.mainImageUrl || "");
 
   const dispatch = useDispatch<AppDispatch>();
@@ -133,7 +141,11 @@ const ShopDetails = ({ product }: ShopDetailsProps) => {
                   Only {product.stockQuantity} left!
                 </span>
               ) : (
-                <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-green-light-6 text-green">
+                <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-sm font-medium bg-emerald-50 text-emerald-700 ring-1 ring-emerald-200/70">
+                  <span className="relative flex w-2 h-2">
+                    <span className="absolute inline-flex w-full h-full rounded-full bg-emerald-400 opacity-75 animate-ping" />
+                    <span className="relative inline-flex w-2 h-2 rounded-full bg-emerald-500" />
+                  </span>
                   In Stock
                 </span>
               )}
@@ -161,41 +173,63 @@ const ShopDetails = ({ product }: ShopDetailsProps) => {
             {/* Product Details */}
             <div className="flex flex-wrap items-center gap-6 mb-8">
               {/* Color Selection */}
-              {product.colors && product.colors.length > 0 && (
-                <div className="flex items-center gap-3">
-                  <h3 className="text-lg font-semibold text-slate-500 whitespace-nowrap">
+              {colors.length > 0 && (
+                <div className="flex flex-wrap items-center gap-x-2.5 gap-y-2">
+                  <h3 className="text-lg font-semibold text-slate-500 whitespace-nowrap mr-1">
                     Color:
                   </h3>
-                  <div className="flex space-x-2">
-                    {product.colors.map((color, idx) => (
+                  {colors.map((color, idx) => {
+                    const swatch = getColorValue(color);
+                    const isActive = activeColor === color;
+                    return (
                       <button
                         key={idx}
+                        type="button"
                         onClick={() => setActiveColor(color)}
-                        className={`w-7 h-7 rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 transition-all 
+                        className={`flex items-center gap-2 pl-1 pr-3 py-1 rounded-full border-2 bg-white transition-colors duration-150 focus:outline-none ${
+                          isActive ? "" : "border-gray-200 hover:border-gray-400"
                         }`}
-                        style={{ backgroundColor: color.toLowerCase() }}
+                        style={isActive ? { borderColor: swatch } : undefined}
                         title={color}
-                      />
-                    ))}
-                  </div>
+                        aria-pressed={isActive}
+                      >
+                        <span
+                          className="block w-5 h-5 rounded-full shrink-0"
+                          style={{
+                            backgroundColor: swatch,
+                            boxShadow: "inset 0 0 0 1px rgba(0,0,0,0.12)",
+                          }}
+                        />
+                        <span
+                          className={`text-sm leading-none ${
+                            isActive
+                              ? "font-semibold text-dark"
+                              : "text-slate-600"
+                          }`}
+                        >
+                          {color}
+                        </span>
+                      </button>
+                    );
+                  })}
                 </div>
               )}
 
               {/* Sizes */}
-              {product.sizes && product.sizes.length > 0 && (
+              {sizes.length > 0 && (
                 <div className="flex items-center gap-3">
                   <h3 className="text-lg font-semibold text-slate-500 whitespace-nowrap">
                     Size:
                   </h3>
                   <div className="flex flex-wrap gap-2">
-                    {product.sizes.map((size, idx) => (
+                    {sizes.map((size, idx) => (
                       <button
                         key={idx}
                         onClick={() => setActiveSize(size)}
                         className={`px-3 py-1 border rounded-md text-sm font-medium transition-all ${
                           activeSize === size
-                            ? "bg-seaBlue-dark text-white border-seaBlue-dark"
-                            : "bg-white text-dark border-gray-300 hover:border-seaBlue-dark"
+                            ? "bg-green-light-6 text-primary border-transparent font-semibold"
+                            : "bg-white text-dark border-gray-300 hover:border-primary"
                         }`}
                       >
                         {size}
